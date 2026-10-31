@@ -51,21 +51,6 @@ function Grandnatural() {
     return html;
   }, []);
 
-  // Inject the original site CSS into the document head once.
-  useEffect(() => {
-    const id = "grandnatural-site-css";
-    let style = document.getElementById(id) as HTMLStyleElement | null;
-    if (!style) {
-      style = document.createElement("style");
-      style.id = id;
-      style.textContent = SITE_CSS;
-      document.head.appendChild(style);
-    }
-    return () => {
-      // leave the style in place for the lifetime of the SPA
-    };
-  }, []);
-
   // ---- Hash routing between home (#) and references (#referenciak) ----
   useEffect(() => {
     const route = () => setIsRefView(window.location.hash.slice(1) === "referenciak");
@@ -226,6 +211,7 @@ function Grandnatural() {
 
   return (
     <div className="grandnatural-root" ref={rootRef}>
+      <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
       <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
     </div>
   );
