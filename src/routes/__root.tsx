@@ -87,6 +87,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       {
+        rel: "icon",
+        type: "image/png",
+        href: "https://vibe.filesafe.space/1793461824715116291/assets/a689b3d6-6cc5-46bf-a8d4-deaa01449ff0.png",
+      },
+      {
         rel: "stylesheet",
         href: appCss,
       },
