@@ -5,17 +5,20 @@ import { SITE_IMAGES, SITE_BODY_HTML, SITE_CSS } from "@/lib/grandnatural-conten
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Grandnatural | Acél, daru, kivitelezés Egerben" },
+      { title: "Grandnatural – Acélszerkezet, daruzás és kivitelezés Egerben" },
       {
         name: "description",
         content:
-          "Építés, felújítás, acélszerkezetek, lakatosmunkák, daruzás és egyedi kivitelezés Egerben és Heves vármegyében. Saját darus teherautó, több mint 16 év tapasztalat.",
+          "Acélszerkezetek, lakatosmunkák, daruzás és egyedi kivitelezés Egerben. Saját darus teherautó, több mint 16 év tapasztalat a Heves vármegyei építkezéseken.",
       },
-      { property: "og:title", content: "Grandnatural | Acél, daru, kivitelezés Egerben" },
+      {
+        property: "og:title",
+        content: "Grandnatural – Acélszerkezet, daruzás és kivitelezés Egerben",
+      },
       {
         property: "og:description",
         content:
-          "Építés, felújítás, acélszerkezetek, lakatosmunkák, daruzás és egyedi kivitelezés Egerben és Heves vármegyében.",
+          "Acélszerkezetek, lakatosmunkák, daruzás és egyedi kivitelezés Egerben. Saját darus teherautó, több mint 16 év tapasztalat a Heves vármegyei építkezéseken.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -217,7 +220,7 @@ function Grandnatural() {
     }
     document.title = isRefView
       ? "Referenciák | Grandnatural"
-      : "Grandnatural | Acél, daru, kivitelezés Egerben";
+      : "Grandnatural – Acélszerkezet, daruzás és kivitelezés Egerben";
     if (isRefView) window.scrollTo(0, 0);
   }, [isRefView]);
 
