@@ -56,6 +56,7 @@ function LakatosmunkaEger() {
           </a>
           <a href="/acelszerkezet-gyartas-eger">Acélszerkezet</a>
           <a href="/daruzas-es-fuvarozas-eger">Daruzás</a>
+          <a href="/csarnokepites-heves-varmegye">Csarnoképítés</a>
           <a href="/#referenciak">Referenciák</a>
           <a href="/#kapcsolat">Kapcsolat</a>
         </nav>
@@ -356,6 +357,7 @@ function LakatosmunkaEger() {
               <a href="/lakatosmunka-eger">Lakatosmunkák</a>
               <a href="/acelszerkezet-gyartas-eger">Acélszerkezetek</a>
               <a href="/daruzas-es-fuvarozas-eger">Daruzás és fuvarozás</a>
+              <a href="/csarnokepites-heves-varmegye">Csarnoképítés</a>
               <a href="/#szolg">Kivitelezés</a>
             </div>
             <div>

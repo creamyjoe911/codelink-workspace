@@ -90,6 +90,7 @@ function DaruzasEsFuvarozasEger() {
           <a href="/daruzas-es-fuvarozas-eger" aria-current="page">
             Daruzás
           </a>
+          <a href="/csarnokepites-heves-varmegye">Csarnoképítés</a>
           <a href="/#referenciak">Referenciák</a>
           <a href="/#kapcsolat">Kapcsolat</a>
         </nav>
@@ -452,6 +453,7 @@ function DaruzasEsFuvarozasEger() {
               <a href="/lakatosmunka-eger">Lakatosmunkák</a>
               <a href="/acelszerkezet-gyartas-eger">Acélszerkezetek</a>
               <a href="/daruzas-es-fuvarozas-eger">Daruzás és fuvarozás</a>
+              <a href="/csarnokepites-heves-varmegye">Csarnoképítés</a>
               <a href="/#szolg">Kivitelezés</a>
             </div>
             <div>
