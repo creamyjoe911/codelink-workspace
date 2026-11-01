@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SITE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
 import { RelatedServices } from "@/components/related-services";
+import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav } from "@/components/site-nav";
 
 export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
@@ -57,6 +58,7 @@ function AcelszerekezetGyartasEger() {
             alt="Grandnatural darus teherautója és géppark — acélszerkezet gyártás Egerben"
           />
           <div className="hin">
+            <ServiceBreadcrumb current="Acélszerkezet gyártás Eger" />
             <h1>Acélszerkezet gyártás Eger</h1>
             <p>
               Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak gyártása és szerelése —

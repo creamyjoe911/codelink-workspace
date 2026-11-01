@@ -110,25 +110,19 @@ export function SiteNav({ current }: Props) {
           </a>
           <a
             href="/acelszerkezet-gyartas-eger"
-            aria-current={
-              current === "/acelszerkezet-gyartas-eger" ? "page" : undefined
-            }
+            aria-current={current === "/acelszerkezet-gyartas-eger" ? "page" : undefined}
           >
             Acélszerkezet
           </a>
           <a
             href="/daruzas-es-fuvarozas-eger"
-            aria-current={
-              current === "/daruzas-es-fuvarozas-eger" ? "page" : undefined
-            }
+            aria-current={current === "/daruzas-es-fuvarozas-eger" ? "page" : undefined}
           >
             Daruzás
           </a>
           <a
             href="/csarnokepites-heves-varmegye"
-            aria-current={
-              current === "/csarnokepites-heves-varmegye" ? "page" : undefined
-            }
+            aria-current={current === "/csarnokepites-heves-varmegye" ? "page" : undefined}
           >
             Csarnoképítés
           </a>
@@ -169,11 +163,7 @@ export function SiteNav({ current }: Props) {
           aria-label="Navigáció"
           onClick={() => setMenuOpen(false)}
         >
-          <nav
-            className="mbn"
-            onClick={(e) => e.stopPropagation()}
-            aria-label="Fő navigáció"
-          >
+          <nav className="mbn" onClick={(e) => e.stopPropagation()} aria-label="Fő navigáció">
             <a href="/#rolunk" onClick={() => setMenuOpen(false)}>
               Rólunk
             </a>
@@ -202,19 +192,13 @@ export function SiteNav({ current }: Props) {
             <a href="/lakatosmunka-eger" onClick={() => setMenuOpen(false)}>
               Lakatosmunka
             </a>
-            <a
-              href="/acelszerkezet-gyartas-eger"
-              onClick={() => setMenuOpen(false)}
-            >
+            <a href="/acelszerkezet-gyartas-eger" onClick={() => setMenuOpen(false)}>
               Acélszerkezet
             </a>
             <a href="/daruzas-es-fuvarozas-eger" onClick={() => setMenuOpen(false)}>
               Daruzás
             </a>
-            <a
-              href="/csarnokepites-heves-varmegye"
-              onClick={() => setMenuOpen(false)}
-            >
+            <a href="/csarnokepites-heves-varmegye" onClick={() => setMenuOpen(false)}>
               Csarnoképítés
             </a>
             <a href="/#referenciak" onClick={() => setMenuOpen(false)}>

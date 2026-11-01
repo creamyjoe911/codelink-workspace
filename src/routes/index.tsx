@@ -64,6 +64,12 @@ function Grandnatural() {
       /<article class="sc">(<img loading="lazy" src="images\/07-alapozas-betonozasa\.jpg"[\s\S]*?)<\/article>/,
       '<a class="sc" style="text-decoration:none" href="/csarnokepites-heves-varmegye">$1</a>',
     );
+    // Add a hub link ("Összes szolgáltatás") into the services section header
+    // so the homepage services section links to the Szolgáltatások hub page.
+    html = html.replace(
+      '<a class="pill" href="#kapcsolat">Kapcsolat<i>\u2192</i></a></div>',
+      '<a class="pill o" href="/szolgaltatasok" style="margin-right:14px">Összes szolgáltatás<i>\u2192</i></a><a class="pill" href="#kapcsolat">Kapcsolat<i>\u2192</i></a></div>',
+    );
     for (const [name, dataUri] of Object.entries(SITE_IMAGES)) {
       html = html.split(`"${name}"`).join(`"${dataUri}"`);
     }

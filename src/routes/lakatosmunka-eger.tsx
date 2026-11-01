@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SITE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
 import { RelatedServices } from "@/components/related-services";
+import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav } from "@/components/site-nav";
 
 export const Route = createFileRoute("/lakatosmunka-eger")({
@@ -56,6 +57,7 @@ function LakatosmunkaEger() {
             alt="Nyers acél lemez a műhelyben — lakatosmunka Egerben"
           />
           <div className="hin">
+            <ServiceBreadcrumb current="Lakatosmunka Eger" />
             <h1>Lakatosmunka Eger</h1>
             <p>
               Kapuk, korlátok, lépcsők, előtetők és műszaki biztonsági szerkezetek gyártása,

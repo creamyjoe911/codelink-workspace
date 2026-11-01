@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SITE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
 import { RelatedServices } from "@/components/related-services";
+import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav } from "@/components/site-nav";
 
 export const Route = createFileRoute("/daruzas-es-fuvarozas-eger")({
@@ -90,6 +91,7 @@ function DaruzasEsFuvarozasEger() {
             alt="Grandnatural MAN darus teherautója és géppark — daruzás és fuvarozás Egerben"
           />
           <div className="hin">
+            <ServiceBreadcrumb current="Daruzás és fuvarozás Eger" />
             <h1>Daruzás és fuvarozás Eger</h1>
             <p>
               Építőanyagok, nehézgépek, csarnok- és betonelemek darus rakodása és szállítása — saját

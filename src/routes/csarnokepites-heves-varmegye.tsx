@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SITE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
 import { RelatedServices } from "@/components/related-services";
+import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav } from "@/components/site-nav";
 
 export const Route = createFileRoute("/csarnokepites-heves-varmegye")({
@@ -55,6 +56,7 @@ function CsarnokepitesHevesVarmegye() {
             alt="Ipari csarnok kivitelezése — acélvázas csarnoképítés Heves vármegyében"
           />
           <div className="hin">
+            <ServiceBreadcrumb current="Csarnoképítés Heves vármegye" />
             <h1>Csarnoképítés Heves vármegye</h1>
             <p>
               Acélvázas épületek kivitelezése, szendvicspaneles burkolás és tetőszerkezetek
