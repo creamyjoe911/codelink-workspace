@@ -56,6 +56,7 @@ function AcelszerekezetGyartasEger() {
           <a href="/acelszerkezet-gyartas-eger" aria-current="page">
             Acélszerkezet
           </a>
+          <a href="/daruzas-es-fuvarozas-eger">Daruzás</a>
           <a href="/#referenciak">Referenciák</a>
           <a href="/#kapcsolat">Kapcsolat</a>
         </nav>
@@ -407,9 +408,9 @@ function AcelszerekezetGyartasEger() {
             </div>
             <div>
               <b>Szolgáltatások</b>
-              <a href="/#szolg">Acélszerkezetek</a>
+              <a href="/acelszerkezet-gyartas-eger">Acélszerkezetek</a>
               <a href="/lakatosmunka-eger">Lakatosmunkák</a>
-              <a href="/#szolg">Daruzás</a>
+              <a href="/daruzas-es-fuvarozas-eger">Daruzás és fuvarozás</a>
               <a href="/#szolg">Kivitelezés</a>
             </div>
             <div>

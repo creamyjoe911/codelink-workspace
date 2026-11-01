@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AcelszerkezetGyartasEgerRouteImport } from './routes/acelszerkezet-gyartas-eger'
+import { Route as DaruzasEsFuvarozasEgerRouteImport } from './routes/daruzas-es-fuvarozas-eger'
 import { Route as LakatosmunkaEgerRouteImport } from './routes/lakatosmunka-eger'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,6 +25,11 @@ const AcelszerkezetGyartasEgerRoute =
     path: '/acelszerkezet-gyartas-eger',
     getParentRoute: () => rootRouteImport,
   } as any)
+const DaruzasEsFuvarozasEgerRoute = DaruzasEsFuvarozasEgerRouteImport.update({
+  id: '/daruzas-es-fuvarozas-eger',
+  path: '/daruzas-es-fuvarozas-eger',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LakatosmunkaEgerRoute = LakatosmunkaEgerRouteImport.update({
   id: '/lakatosmunka-eger',
   path: '/lakatosmunka-eger',
@@ -33,30 +39,47 @@ const LakatosmunkaEgerRoute = LakatosmunkaEgerRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/acelszerkezet-gyartas-eger': typeof AcelszerkezetGyartasEgerRoute
+  '/daruzas-es-fuvarozas-eger': typeof DaruzasEsFuvarozasEgerRoute
   '/lakatosmunka-eger': typeof LakatosmunkaEgerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/acelszerkezet-gyartas-eger': typeof AcelszerkezetGyartasEgerRoute
+  '/daruzas-es-fuvarozas-eger': typeof DaruzasEsFuvarozasEgerRoute
   '/lakatosmunka-eger': typeof LakatosmunkaEgerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/acelszerkezet-gyartas-eger': typeof AcelszerkezetGyartasEgerRoute
+  '/daruzas-es-fuvarozas-eger': typeof DaruzasEsFuvarozasEgerRoute
   '/lakatosmunka-eger': typeof LakatosmunkaEgerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/acelszerkezet-gyartas-eger' | '/lakatosmunka-eger'
+  fullPaths:
+    | '/'
+    | '/acelszerkezet-gyartas-eger'
+    | '/daruzas-es-fuvarozas-eger'
+    | '/lakatosmunka-eger'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/acelszerkezet-gyartas-eger' | '/lakatosmunka-eger'
-  id: '__root__' | '/' | '/acelszerkezet-gyartas-eger' | '/lakatosmunka-eger'
+  to:
+    | '/'
+    | '/acelszerkezet-gyartas-eger'
+    | '/daruzas-es-fuvarozas-eger'
+    | '/lakatosmunka-eger'
+  id:
+    | '__root__'
+    | '/'
+    | '/acelszerkezet-gyartas-eger'
+    | '/daruzas-es-fuvarozas-eger'
+    | '/lakatosmunka-eger'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AcelszerkezetGyartasEgerRoute: typeof AcelszerkezetGyartasEgerRoute
+  DaruzasEsFuvarozasEgerRoute: typeof DaruzasEsFuvarozasEgerRoute
   LakatosmunkaEgerRoute: typeof LakatosmunkaEgerRoute
 }
 
@@ -76,6 +99,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AcelszerkezetGyartasEgerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/daruzas-es-fuvarozas-eger': {
+      id: '/daruzas-es-fuvarozas-eger'
+      path: '/daruzas-es-fuvarozas-eger'
+      fullPath: '/daruzas-es-fuvarozas-eger'
+      preLoaderRoute: typeof DaruzasEsFuvarozasEgerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lakatosmunka-eger': {
       id: '/lakatosmunka-eger'
       path: '/lakatosmunka-eger'
@@ -89,6 +119,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AcelszerkezetGyartasEgerRoute: AcelszerkezetGyartasEgerRoute,
+  DaruzasEsFuvarozasEgerRoute: DaruzasEsFuvarozasEgerRoute,
   LakatosmunkaEgerRoute: LakatosmunkaEgerRoute,
 }
 export const routeTree = rootRouteImport
