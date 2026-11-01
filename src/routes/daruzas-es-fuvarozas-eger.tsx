@@ -148,13 +148,13 @@ function DaruzasEsFuvarozasEger() {
             <div>
               <h2>Saját darussal, egy kézből.</h2>
               <p style={{ marginTop: 24 }}>
-                Darus rakodást és szállítást saját MAN darus teherautóval végzünk — így a
-                helyszíni emelést, rakodást és fuvarozást összehangoltan, egy kivitelezőtől kapja.
+                Darus rakodást és szállítást saját MAN darus teherautóval végzünk — így a helyszíni
+                emelést, rakodást és fuvarozást összehangoltan, egy kivitelezőtől kapja.
               </p>
               <p>
-                Építőanyagokat, nehézgépeket, csarnok- és betonelemeket emelünk és szállítunk Egerben
-                és Heves vármegyében. Mivel a daru a sajátunk, a menetrendet és a munkát a miénkhez
-                igazítjuk.
+                Építőanyagokat, nehézgépeket, csarnok- és betonelemeket emelünk és szállítunk
+                Egerben és Heves vármegyében. Mivel a daru a sajátunk, a menetrendet és a munkát a
+                miénkhez igazítjuk.
               </p>
               <a className="pill" href="/#kapcsolat">
                 Kérjen ajánlatot<i>→</i>
@@ -209,16 +209,8 @@ function DaruzasEsFuvarozasEger() {
             <div className="slc">
               <h3>MAN fülke: előtte és utána</h3>
               <div className="cmp">
-                <img
-                  id="bef2"
-                  src={beforeImg}
-                  alt="MAN darus teherautó fülkéje felújítás előtt"
-                />
-                <img
-                  id="aft2"
-                  src={afterImg}
-                  alt="MAN darus teherautó fülkéje felújítás után"
-                />
+                <img id="bef2" src={beforeImg} alt="MAN darus teherautó fülkéje felújítás előtt" />
+                <img id="aft2" src={afterImg} alt="MAN darus teherautó fülkéje felújítás után" />
                 <span className="tag" id="t1b" style={{ left: "12px" }}>
                   Előtte
                 </span>
@@ -306,8 +298,7 @@ function DaruzasEsFuvarozasEger() {
                 <small>Darus emelés</small>
                 <b>Betonelem telepítés</b>
                 <span>
-                  Daruval emelt betonlap, betonelem helyszíni telepítése — saját darus
-                  teherautóval.
+                  Daruval emelt betonlap, betonelem helyszíni telepítése — saját darus teherautóval.
                 </span>
               </figcaption>
             </figure>
@@ -339,8 +330,7 @@ function DaruzasEsFuvarozasEger() {
                 <small>Saját gép</small>
                 <b>MAN darus teherautó</b>
                 <span>
-                  Saját darus teherautóval végezzük a rakodást és a szállítást — egy
-                  kivitelezőtől.
+                  Saját darus teherautóval végezzük a rakodást és a szállítást — egy kivitelezőtől.
                 </span>
               </figcaption>
             </figure>
@@ -383,8 +373,8 @@ function DaruzasEsFuvarozasEger() {
               <details>
                 <summary>Milyen adat kell az ajánlatkéréshez?</summary>
                 <p>
-                  Az emelendő-szállítandó terhelő darab, a helyszín és a kívánt időpont segít
-                  pontos ajánlatot adni. Ezeket telefonon vagy az űrlapon egyeztethetjük.
+                  Az emelendő-szállítandó terhelő darab, a helyszín és a kívánt időpont segít pontos
+                  ajánlatot adni. Ezeket telefonon vagy az űrlapon egyeztethetjük.
                 </p>
               </details>
               <details>
@@ -409,8 +399,8 @@ function DaruzasEsFuvarozasEger() {
             <div>
               <h2>Kérjen ajánlatot daruzásra.</h2>
               <p className="lead" style={{ marginTop: 24 }}>
-                Vegye fel velünk a kapcsolatot, és megbeszéljük a daruzás és fuvarozás
-                részleteit. Hívjon, vagy töltse ki az űrlapot.
+                Vegye fel velünk a kapcsolatot, és megbeszéljük a daruzás és fuvarozás részleteit.
+                Hívjon, vagy töltse ki az űrlapot.
               </p>
               <a className="row" href="tel:+36705760108">
                 <span className="go">→</span>

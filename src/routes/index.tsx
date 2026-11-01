@@ -151,9 +151,49 @@ function Grandnatural() {
     if ((document as any).fonts?.ready) (document as any).fonts.ready.then(size);
     size();
 
-    // contact form -> mailto
+    // contact form -> mailto + CRM tracking
     const frm = root.querySelector<HTMLFormElement>("#frm");
     const msg = root.querySelector<HTMLElement>("#msg");
+
+    const getTrackingSessionId = () => {
+      try {
+        const sid = document.cookie.match(/(?:^|;\s*)__vibe_sid=([0-9a-f-]{36})(?:;|$)/)?.[1];
+        if (sid) return sid;
+      } catch {}
+      return crypto.randomUUID();
+    };
+    const postTrackingEvent = (
+      trackingPayload: Record<string, unknown> & {
+        formData: Record<string, unknown>;
+        formLabels: Record<string, string>;
+      },
+      options: {
+        customFields?: Record<string, { value?: unknown; label: string }>;
+      } = {},
+    ) => {
+      const { customFields = {} } = options;
+      const eventPayload = {
+        ...trackingPayload,
+        formData: { ...trackingPayload.formData },
+        formLabels: { ...trackingPayload.formLabels },
+      };
+      for (const [key, field] of Object.entries(customFields)) {
+        if (field.value === undefined || field.value === "") continue;
+        eventPayload.formData[key] = field.value;
+        eventPayload.formLabels[key] = field.label;
+      }
+      for (const key of Object.keys(eventPayload.formData)) {
+        eventPayload.formLabels[key] ||= key;
+      }
+      const body = new FormData();
+      body.append("event", JSON.stringify(eventPayload));
+      void fetch("https://backend.leadconnectorhq.com/external-tracking/events", {
+        method: "POST",
+        headers: { version: "2021-07-28" },
+        body,
+      }).catch(() => {});
+    };
+
     const onSubmit = (ev: Event) => {
       ev.preventDefault();
       if (!frm) return;
@@ -172,6 +212,48 @@ function Grandnatural() {
       if (msg)
         msg.textContent =
           "Megnyitjuk az e-mail programját. Ha nem történik semmi, hívjon: +36 70 576 0108, vagy írjon: grandnatural2010@gmail.com";
+
+      // Fire-and-forget CRM tracking (standard fields only here; work type is custom).
+      postTrackingEvent(
+        {
+          type: "external_form_submission",
+          timestamp: Date.now(),
+          formId: "ajanlatkeres-form",
+          formData: {
+            phone: f.t.value,
+            email: f.e.value,
+            calendar_notes: f.d.value,
+          },
+          formLabels: {
+            phone: "Telefonszám",
+            email: "E-mail",
+            calendar_notes: "Üzenet",
+          },
+          url: window.location.href,
+          title: document.title,
+          path: window.location.pathname,
+          userAgent: navigator.userAgent,
+          trackingId: "tk_e5da04a093dd44059979431bee8d9203",
+          locationId: "o9nl9NLLuguzw8wf9pWu",
+          projectId: "1793461824715116291",
+          sessionId: getTrackingSessionId(),
+          properties: {
+            deviceType: /Mobile|Android|iPhone/i.test(navigator.userAgent) ? "mobile" : "desktop",
+            source: "ai_studio",
+            projectId: "1793461824715116291",
+            formName: "Ajánlatkérő űrlap",
+          },
+        },
+        {
+          customFields: {
+            ei7PBcc6PH8G9oclWL5h: {
+              value: f.k.value,
+              label: "Munka típusa",
+            },
+          },
+        },
+      );
+
       window.location.href =
         "mailto:grandnatural2010@gmail.com?subject=" +
         encodeURIComponent("Ajánlatkérés" + (f.k.value ? " – " + f.k.value : "")) +
