@@ -50,7 +50,7 @@ function LakatosmunkaEger() {
         </a>
         <nav>
           <a href="/#rolunk">Rólunk</a>
-          <a href="/#szolg">Szolgáltatások</a>
+          <a href="/szolgaltatasok">Szolgáltatások</a>
           <a href="/#muhely">Műhelymunka</a>
           <a href="/lakatosmunka-eger" aria-current="page">
             Lakatosmunka

@@ -84,7 +84,7 @@ function DaruzasEsFuvarozasEger() {
         </a>
         <nav>
           <a href="/#rolunk">Rólunk</a>
-          <a href="/#szolg">Szolgáltatások</a>
+          <a href="/szolgaltatasok">Szolgáltatások</a>
           <a href="/#muhely">Műhelymunka</a>
           <a href="/lakatosmunka-eger">Lakatosmunka</a>
           <a href="/acelszerkezet-gyartas-eger">Acélszerkezet</a>

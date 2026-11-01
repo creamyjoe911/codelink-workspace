@@ -69,7 +69,7 @@ function Grandnatural() {
     // Add nav links to the landing pages.
     html = html.replace(
       '<a href="#muhely">Műhelymunka</a>',
-      '<a href="#muhely">Műhelymunka</a><a href="/lakatosmunka-eger">Lakatosmunka</a><a href="/acelszerkezet-gyartas-eger">Acélszerkezet</a><a href="/daruzas-es-fuvarozas-eger">Daruzás</a><a href="/csarnokepites-heves-varmegye">Csarnoképítés</a>',
+      '<a href="/szolgaltatasok">Szolgáltatások</a><a href="#muhely">Műhelymunka</a><a href="/lakatosmunka-eger">Lakatosmunka</a><a href="/acelszerkezet-gyartas-eger">Acélszerkezet</a><a href="/daruzas-es-fuvarozas-eger">Daruzás</a><a href="/csarnokepites-heves-varmegye">Csarnoképítés</a>',
     );
     // Point the footer "Daruzás" link to the landing page.
     html = html.replace(
