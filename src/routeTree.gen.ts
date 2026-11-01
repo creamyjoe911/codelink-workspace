@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AcelszerkezetGyartasEgerRouteImport } from './routes/acelszerkezet-gyartas-eger'
 import { Route as LakatosmunkaEgerRouteImport } from './routes/lakatosmunka-eger'
 
 const IndexRoute = IndexRouteImport.update({
@@ -17,6 +18,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AcelszerkezetGyartasEgerRoute =
+  AcelszerkezetGyartasEgerRouteImport.update({
+    id: '/acelszerkezet-gyartas-eger',
+    path: '/acelszerkezet-gyartas-eger',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LakatosmunkaEgerRoute = LakatosmunkaEgerRouteImport.update({
   id: '/lakatosmunka-eger',
   path: '/lakatosmunka-eger',
@@ -25,27 +32,31 @@ const LakatosmunkaEgerRoute = LakatosmunkaEgerRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/acelszerkezet-gyartas-eger': typeof AcelszerkezetGyartasEgerRoute
   '/lakatosmunka-eger': typeof LakatosmunkaEgerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/acelszerkezet-gyartas-eger': typeof AcelszerkezetGyartasEgerRoute
   '/lakatosmunka-eger': typeof LakatosmunkaEgerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/acelszerkezet-gyartas-eger': typeof AcelszerkezetGyartasEgerRoute
   '/lakatosmunka-eger': typeof LakatosmunkaEgerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/lakatosmunka-eger'
+  fullPaths: '/' | '/acelszerkezet-gyartas-eger' | '/lakatosmunka-eger'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/lakatosmunka-eger'
-  id: '__root__' | '/' | '/lakatosmunka-eger'
+  to: '/' | '/acelszerkezet-gyartas-eger' | '/lakatosmunka-eger'
+  id: '__root__' | '/' | '/acelszerkezet-gyartas-eger' | '/lakatosmunka-eger'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AcelszerkezetGyartasEgerRoute: typeof AcelszerkezetGyartasEgerRoute
   LakatosmunkaEgerRoute: typeof LakatosmunkaEgerRoute
 }
 
@@ -56,6 +67,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/acelszerkezet-gyartas-eger': {
+      id: '/acelszerkezet-gyartas-eger'
+      path: '/acelszerkezet-gyartas-eger'
+      fullPath: '/acelszerkezet-gyartas-eger'
+      preLoaderRoute: typeof AcelszerkezetGyartasEgerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lakatosmunka-eger': {
@@ -70,6 +88,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AcelszerkezetGyartasEgerRoute: AcelszerkezetGyartasEgerRoute,
   LakatosmunkaEgerRoute: LakatosmunkaEgerRoute,
 }
 export const routeTree = rootRouteImport

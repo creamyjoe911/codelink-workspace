@@ -48,10 +48,10 @@ function Grandnatural() {
     for (const [name, dataUri] of Object.entries(SITE_IMAGES)) {
       html = html.split(`"${name}"`).join(`"${dataUri}"`);
     }
-    // Add a nav link to the lakatosmunka landing page.
+    // Add nav links to the landing pages.
     html = html.replace(
       '<a href="#muhely">Műhelymunka</a>',
-      '<a href="#muhely">Műhelymunka</a><a href="/lakatosmunka-eger">Lakatosmunka</a>',
+      '<a href="#muhely">Műhelymunka</a><a href="/lakatosmunka-eger">Lakatosmunka</a><a href="/acelszerkezet-gyartas-eger">Acélszerkezet</a>',
     );
     return html;
   }, []);

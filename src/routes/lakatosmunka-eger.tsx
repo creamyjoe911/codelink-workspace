@@ -54,6 +54,7 @@ function LakatosmunkaEger() {
           <a href="/lakatosmunka-eger" aria-current="page">
             Lakatosmunka
           </a>
+          <a href="/acelszerkezet-gyartas-eger">Acélszerkezet</a>
           <a href="/#referenciak">Referenciák</a>
           <a href="/#kapcsolat">Kapcsolat</a>
         </nav>
