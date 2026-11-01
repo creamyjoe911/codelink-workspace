@@ -45,6 +45,24 @@ function Grandnatural() {
   // Build the full document body HTML with images already swapped for data URIs.
   const bodyHtml = useMemo(() => {
     let html = SITE_BODY_HTML;
+    // Turn the four service cards in the scroll section into links to their pages.
+    // Run before the image-src → data-URI swap so the filenames are still intact.
+    html = html.replace(
+      /<article class="sc">(<img loading="lazy" src="images\/04-elkeszult-piros-festett-platooldal\.jpg"[\s\S]*?)<\/article>/,
+      '<a class="sc" style="text-decoration:none" href="/lakatosmunka-eger">$1</a>',
+    );
+    html = html.replace(
+      /<article class="sc">(<img loading="lazy" src="images\/05-nyers-acel-lemez-a-muhelyben\.jpg"[\s\S]*?)<\/article>/,
+      '<a class="sc" style="text-decoration:none" href="/acelszerkezet-gyartas-eger">$1</a>',
+    );
+    html = html.replace(
+      /<article class="sc">(<img loading="lazy" src="images\/06-daruval-emelt-betonlap\.jpg"[\s\S]*?)<\/article>/,
+      '<a class="sc" style="text-decoration:none" href="/daruzas-es-fuvarozas-eger">$1</a>',
+    );
+    html = html.replace(
+      /<article class="sc">(<img loading="lazy" src="images\/07-alapozas-betonozasa\.jpg"[\s\S]*?)<\/article>/,
+      '<a class="sc" style="text-decoration:none" href="/csarnokepites-heves-varmegye">$1</a>',
+    );
     for (const [name, dataUri] of Object.entries(SITE_IMAGES)) {
       html = html.split(`"${name}"`).join(`"${dataUri}"`);
     }

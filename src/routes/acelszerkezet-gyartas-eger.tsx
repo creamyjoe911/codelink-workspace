@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SITE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
+import { RelatedServices } from "@/components/related-services";
 
 export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
   head: () => ({
@@ -383,6 +384,8 @@ function AcelszerekezetGyartasEger() {
             </div>
           </div>
         </section>
+
+        <RelatedServices exclude="/acelszerkezet-gyartas-eger" />
       </main>
 
       {/* Footer */}

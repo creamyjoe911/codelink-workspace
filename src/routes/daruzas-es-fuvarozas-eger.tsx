@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SITE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
+import { RelatedServices } from "@/components/related-services";
 
 export const Route = createFileRoute("/daruzas-es-fuvarozas-eger")({
   head: () => ({
@@ -424,6 +425,8 @@ function DaruzasEsFuvarozasEger() {
             </div>
           </div>
         </section>
+
+        <RelatedServices exclude="/daruzas-es-fuvarozas-eger" />
       </main>
 
       {/* Footer */}
