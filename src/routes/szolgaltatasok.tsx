@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SITE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
+import { SiteNav } from "@/components/site-nav";
 
 export const Route = createFileRoute("/szolgaltatasok")({
   head: () => ({
@@ -82,30 +83,7 @@ function Szolgaltatasok() {
     <div className="grandnatural-root">
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
 
-      <header className="nav">
-        <a href="/">
-          <img src={logoImg} alt="Grandnatural" />
-        </a>
-        <nav>
-          <a href="/#rolunk">Rólunk</a>
-          <a href="/szolgaltatasok" aria-current="page">
-            Szolgáltatások
-          </a>
-          <a href="/#muhely">Műhelymunka</a>
-          <a href="/lakatosmunka-eger">Lakatosmunka</a>
-          <a href="/acelszerkezet-gyartas-eger">Acélszerkezet</a>
-          <a href="/daruzas-es-fuvarozas-eger">Daruzás</a>
-          <a href="/csarnokepites-heves-varmegye">Csarnoképítés</a>
-          <a href="/#referenciak">Referenciák</a>
-          <a href="/#kapcsolat">Kapcsolat</a>
-        </nav>
-        <a className="pill" href="/#kapcsolat">
-          Ajánlatkérés<i>→</i>
-        </a>
-      </header>
-      <a className="call" href="tel:+36705760108">
-        Hívjon: {PHONE}
-      </a>
+      <SiteNav current="/szolgaltatasok" />
 
       <main>
         {/* Hero */}

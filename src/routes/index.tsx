@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SITE_IMAGES, SITE_BODY_HTML, SITE_CSS } from "@/lib/grandnatural-content";
+import { SiteNav } from "@/components/site-nav";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -66,10 +67,12 @@ function Grandnatural() {
     for (const [name, dataUri] of Object.entries(SITE_IMAGES)) {
       html = html.split(`"${name}"`).join(`"${dataUri}"`);
     }
-    // Add nav links to the landing pages.
+    // The top nav + call bar are rendered by <SiteNav> in React, so strip the
+    // original raw-HTML nav and call bar from the body markup to avoid a
+    // duplicate, non-interactive nav.
     html = html.replace(
-      '<a href="#muhely">Műhelymunka</a>',
-      '<a href="/szolgaltatasok">Szolgáltatások</a><a href="#muhely">Műhelymunka</a><a href="/lakatosmunka-eger">Lakatosmunka</a><a href="/acelszerkezet-gyartas-eger">Acélszerkezet</a><a href="/daruzas-es-fuvarozas-eger">Daruzás</a><a href="/csarnokepites-heves-varmegye">Csarnoképítés</a>',
+      /<header class="nav">[\s\S]*?<\/header>\s*<a class="call"[\s\S]*?<\/a>/,
+      "",
     );
     // Point the footer "Daruzás" link to the landing page.
     html = html.replace(
@@ -322,6 +325,7 @@ function Grandnatural() {
   return (
     <div className="grandnatural-root" ref={rootRef}>
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
+      <SiteNav current="/" />
       <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
     </div>
   );
