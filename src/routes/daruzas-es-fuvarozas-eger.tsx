@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { SITE_INLINE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { RelatedServices } from "@/components/related-services";
+import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 
@@ -416,17 +417,10 @@ function DaruzasEsFuvarozasEger() {
                 </span>
               </a>
             </div>
-            <div>
-              <h3>Ajánlatkérő űrlap</h3>
-              <p style={{ marginTop: 16 }}>
-                Töltse ki az űrlapot a főoldalon, és hamarosan felvesszük Önnel a kapcsolatot.
-              </p>
-              <p style={{ marginTop: 24 }}>
-                <a className="pill" href="/#kapcsolat">
-                  Ugrás az űrlaphoz<i>→</i>
-                </a>
-              </p>
-            </div>
+            <QuoteForm
+              formId="ajanlatkeres-daruzas-es-fuvarozas-eger"
+              formName="Ajánlatkérő űrlap – Daruzás és fuvarozás Eger"
+            />
           </div>
         </section>
 
@@ -461,7 +455,7 @@ function DaruzasEsFuvarozasEger() {
               <a href="/acelszerkezet-gyartas-eger">Acélszerkezetek</a>
               <a href="/daruzas-es-fuvarozas-eger">Daruzás és fuvarozás</a>
               <a href="/csarnokepites-heves-varmegye">Csarnoképítés</a>
-              <a href="/#szolg">Kivitelezés</a>
+              <a href="/szolgaltatasok">Kivitelezés</a>
             </div>
             <div>
               <b>Kapcsolat</b>

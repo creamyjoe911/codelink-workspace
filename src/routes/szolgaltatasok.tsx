@@ -163,7 +163,7 @@ function Szolgaltatasok() {
           <div className="sk"></div>
           <div className="wrap">
             <div className="ctr" style={{ maxWidth: 720, margin: "0 auto" }}>
-              <h2>Négy szolgáltatás, egy kivitelező.</h2>
+              <h2>Mit vállalunk?</h2>
               <p style={{ marginTop: 16 }}>
                 A lakatosmunkától a csarnoképítésig — minden a saját műhelyünkben készül, és a
                 helyszínen szereljük be.
