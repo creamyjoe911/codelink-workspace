@@ -26,8 +26,13 @@ export const Route = createFileRoute("/lakatosmunka-eger")({
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&display=swap",
       },
     ],
   }),
