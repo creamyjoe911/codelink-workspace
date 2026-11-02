@@ -80,7 +80,7 @@ function CsarnokepitesHevesVarmegye() {
           <div className="badge">
             <b>16+</b>
             <span>
-              év szakmi
+              év szakmai
               <br />
               tapasztalat
             </span>
@@ -101,7 +101,7 @@ function CsarnokepitesHevesVarmegye() {
               />
               <div className="stat">
                 <b>16+</b>
-                <span>év szakmi tapasztalat</span>
+                <span>év szakmai tapasztalat</span>
                 <small>Csarnoképítés saját műhelyből és darus géppel, egy kivitelezőtől.</small>
               </div>
             </div>
@@ -139,7 +139,7 @@ function CsarnokepitesHevesVarmegye() {
               <div className="wr">
                 <h3>1. Acélváz gyártása</h3>
                 <p>
-                  A csarnok acélvázát — oszlopokat, gerendákat, kötőzművet — saját műhelyünkben
+                  A csarnok acélvázát — oszlopokat, gerendákat, kötőelemeket — saját műhelyünkben
                   gyártjuk: méretre vágjuk, hegesztjük és festjük.
                 </p>
               </div>
@@ -171,7 +171,7 @@ function CsarnokepitesHevesVarmegye() {
         {/* Why one contractor */}
         <section className="wrap" style={{ paddingBlock: "clamp(64px,8vw,120px)" }}>
           <div className="ctr" style={{ maxWidth: 720, margin: "0 auto" }}>
-            <h2>Miért érdemes egy kivitezelőt?</h2>
+            <h2>Miért érdemes egy kivitelezőt?</h2>
             <p className="lead" style={{ marginTop: 20 }}>
               A csarnoképítésnél a műhely, a daru és a helyszíni munka gyakran külön kivitelezőhöz
               tartozik. Nálunk mind egy kézből történik — és ez egyszerűbbé teszi a teljes
@@ -284,7 +284,7 @@ function CsarnokepitesHevesVarmegye() {
               </p>
             </div>
             <div className="bt">
-              <h2>Egy csarnok, egy kivitezelő.</h2>
+              <h2>Egy csarnok, egy kivitelező.</h2>
               <p className="lead">
                 Az acélváz gyártásától a felállításon és a szendvicspaneles burkoláson át a
                 tetőszerkezet beépítéséig minden saját kézben van — így a csarnok kivitelezése egy

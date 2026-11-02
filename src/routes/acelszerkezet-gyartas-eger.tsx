@@ -13,13 +13,13 @@ export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
       {
         name: "description",
         content:
-          "Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak gyártása és helyszíni szerelése saját műhelyből Egerben és Hevesben. Kérjen ajánlatot: +36 70 576 0108.",
+          "Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak gyártása és helyszíni szerelése saját műhelyből Egerben és Heves vármegyében. Kérjen ajánlatot: +36 70 576 0108.",
       },
       { property: "og:title", content: "Acélszerkezet gyártás Eger | Grandnatural" },
       {
         property: "og:description",
         content:
-          "Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak gyártása és helyszíni szerelése saját műhelyből Egerben és Hevesben. Kérjen ajánlatot: +36 70 576 0108.",
+          "Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak gyártása és helyszíni szerelése saját műhelyből Egerben és Heves vármegyében. Kérjen ajánlatot: +36 70 576 0108.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -82,7 +82,7 @@ function AcelszerekezetGyartasEger() {
           <div className="badge">
             <b>16+</b>
             <span>
-              év szakmi
+              év szakmai
               <br />
               tapasztalat
             </span>
@@ -103,7 +103,7 @@ function AcelszerekezetGyartasEger() {
               />
               <div className="stat">
                 <b>16+</b>
-                <span>év szakmi tapasztalat</span>
+                <span>év szakmai tapasztalat</span>
                 <small>Acélszerkezet-gyártás és helyszíni szerelés saját műhelyből.</small>
               </div>
             </div>
@@ -173,7 +173,7 @@ function AcelszerekezetGyartasEger() {
           <div className="ctr" style={{ maxWidth: 720, margin: "0 auto" }}>
             <h2>Kinek készítünk acélszerkezetet?</h2>
             <p className="lead" style={{ marginTop: 20 }}>
-              Ipari megrendelőknek, kivitezelőknek és géptulajdonosoknak készítünk egyedi
+              Ipari megrendelőknek, kivitelezőknek és géptulajdonosoknak készítünk egyedi
               acélszerkezeteket — saját műhelyből, az adott igények szerint.
             </p>
           </div>

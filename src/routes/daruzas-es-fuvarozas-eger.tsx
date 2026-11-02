@@ -113,7 +113,7 @@ function DaruzasEsFuvarozasEger() {
           <div className="badge">
             <b>16+</b>
             <span>
-              év szakmi
+              év szakmai
               <br />
               tapasztalat
             </span>
@@ -134,7 +134,7 @@ function DaruzasEsFuvarozasEger() {
               />
               <div className="stat">
                 <b>16+</b>
-                <span>év szakmi tapasztalat</span>
+                <span>év szakmai tapasztalat</span>
                 <small>Daruzás és fuvarozás saját darus teherautóval, egy kivitelezőtől.</small>
               </div>
             </div>
@@ -373,7 +373,7 @@ function DaruzasEsFuvarozasEger() {
                 <summary>Saját daruval dolgoznak?</summary>
                 <p>
                   Igen. Saját MAN darus teherautóval végzünk daruzást és fuvarozást, így a rakodást
-                  és a szállítást összehangoltan, egy kivitezelőtől kapja.
+                  és a szállítást összehangoltan, egy kivitelezőtől kapja.
                 </p>
               </details>
               <details>

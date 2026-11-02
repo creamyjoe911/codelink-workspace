@@ -115,7 +115,7 @@ function Szolgaltatasok() {
           <div className="badge">
             <b>16+</b>
             <span>
-              év szakmi
+              év szakmai
               <br />
               tapasztalat
             </span>
@@ -136,7 +136,7 @@ function Szolgaltatasok() {
               />
               <div className="stat">
                 <b>16+</b>
-                <span>év szakmi tapasztalat</span>
+                <span>év szakmai tapasztalat</span>
                 <small>Építés, acélgyártás, daruzás és kivitelezés egy kézből.</small>
               </div>
             </div>
