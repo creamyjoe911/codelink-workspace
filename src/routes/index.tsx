@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SITE_INLINE_IMAGES, SITE_BODY_HTML, SITE_CSS } from "@/lib/grandnatural-content";
+import { useLazyImages } from "@/hooks/use-lazy-images";
 import { SiteNav } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
 import { LOCAL_BUSINESS_JSONLD, canonicalUrl } from "@/lib/seo-schema";
@@ -38,6 +39,12 @@ export const Route = createFileRoute("/")({
 function Grandnatural() {
   const rootRef = useRef<HTMLDivElement>(null);
   const [isRefView, setIsRefView] = useState(false);
+
+  // Swap every <img data-src="images/..."> to its embedded data URI. Runs on
+  // every mount (i.e. every client-side nav / revisit), stays synchronous once
+  // the lazy module is cached, and re-swaps on bfcache restore — so photos
+  // never disappear when navigating to/from this page.
+  useLazyImages(rootRef);
 
   // Build the homepage body HTML. Only the logo and the hero photo are inlined
   // as data URIs here (so the initial HTML response stays small); every other
@@ -97,42 +104,6 @@ function Grandnatural() {
       '<a href="/daruzas-es-fuvarozas-eger">Daruzás</a>',
     );
     return html;
-  }, []);
-
-  // ---- Lazy-load the remaining photos after first paint ----
-  // The body HTML still has `images/...` filenames as src for every photo
-  // except the logo and hero. Dynamically import the lazy image module (a
-  // separate chunk) and swap each src to its data URI once the page has
-  // rendered, so the initial HTML response stays small.
-  useEffect(() => {
-    let cancelled = false;
-    // Use requestIdleCallback when available so the swap doesn't block the
-    // first interaction; fall back to a small timeout.
-    const win = window as Window & {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
-    };
-    const ric = win.requestIdleCallback;
-    const schedule = (cb: () => void): number =>
-      typeof ric === "function" ? ric(cb, { timeout: 2000 }) : window.setTimeout(cb, 200);
-    schedule(async () => {
-      if (cancelled) return;
-      const root = rootRef.current;
-      if (!root) return;
-      const { SITE_LAZY_IMAGES } = await import("@/lib/grandnatural-lazy-images");
-      if (cancelled) return;
-      const imgs = Array.from(root.querySelectorAll<HTMLImageElement>('img[data-src^="images/"]'));
-      for (const img of imgs) {
-        const key = img.getAttribute("data-src") || "";
-        const data = SITE_LAZY_IMAGES[key];
-        if (data) {
-          img.src = data.src;
-          img.removeAttribute("data-src");
-        }
-      }
-    });
-    return () => {
-      cancelled = true;
-    };
   }, []);
 
   // ---- Hash routing between home (#) and references (#referenciak) ----
