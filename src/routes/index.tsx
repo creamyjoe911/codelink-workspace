@@ -27,7 +27,15 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: canonicalUrl("/") }],
+    links: [
+      {
+        rel: "preload",
+        as: "image",
+        href: "/images/grandnatural-hero.webp",
+        fetchPriority: "high",
+      },
+      { rel: "canonical", href: canonicalUrl("/") },
+    ],
   }),
   component: Grandnatural,
 });
