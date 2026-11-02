@@ -10,6 +10,10 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+// Self-hosted Barlow 400 (latin) — preloaded so body text paints with the
+// right font on first render. Matches the @font-face src Vite emits from the
+// @import in styles.css.
+import barlowLatin400Url from "@fontsource/barlow/files/barlow-latin-400-normal.woff2?url";
 import { reportVibeError } from "../lib/vibe-error-reporting";
 
 function NotFoundComponent() {
@@ -86,6 +90,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      {
+        rel: "preload",
+        href: barlowLatin400Url,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
       {
         rel: "icon",
         type: "image/png",
