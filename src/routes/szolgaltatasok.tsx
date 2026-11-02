@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SITE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
-import { SiteNav } from "@/components/site-nav";
+import { SITE_INLINE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_LAZY_IMAGES } from "@/lib/grandnatural-lazy-images";
+import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 
 export const Route = createFileRoute("/szolgaltatasok")({
   head: () => ({
@@ -37,12 +38,12 @@ export const Route = createFileRoute("/szolgaltatasok")({
 const PHONE = "+36 70 576 0108";
 
 function Szolgaltatasok() {
-  const logoImg = SITE_IMAGES["images/01-grandnatural.png"];
-  const heroImg = SITE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"];
-  const lakatosImg = SITE_IMAGES["images/04-elkeszult-piros-festett-platooldal.jpg"];
-  const acelImg = SITE_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"];
-  const daruImg = SITE_IMAGES["images/06-daruval-emelt-betonlap.jpg"];
-  const csarnokImg = SITE_IMAGES["images/07-alapozas-betonozasa.jpg"];
+  const logoImg = SITE_LOGO_SVG;
+  const heroImg = SITE_INLINE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"]!.src;
+  const lakatosImg = SITE_LAZY_IMAGES["images/04-elkeszult-piros-festett-platooldal.jpg"]!.src;
+  const acelImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"]!.src;
+  const daruImg = SITE_LAZY_IMAGES["images/06-daruval-emelt-betonlap.jpg"]!.src;
+  const csarnokImg = SITE_LAZY_IMAGES["images/07-alapozas-betonozasa.jpg"]!.src;
 
   const services = [
     {

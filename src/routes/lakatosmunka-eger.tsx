@@ -37,10 +37,10 @@ export const Route = createFileRoute("/lakatosmunka-eger")({
 const PHONE = "+36 70 576 0108";
 
 function LakatosmunkaEger() {
-  const heroImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"].src;
-  const paintedImg = SITE_LAZY_IMAGES["images/04-elkeszult-piros-festett-platooldal.jpg"].src;
-  const customImg = SITE_LAZY_IMAGES["images/11-egyedi-platooldal.jpg"].src;
-  const installImg = SITE_LAZY_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"].src;
+  const heroImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"]!.src;
+  const paintedImg = SITE_LAZY_IMAGES["images/04-elkeszult-piros-festett-platooldal.jpg"]!.src;
+  const customImg = SITE_LAZY_IMAGES["images/11-egyedi-platooldal.jpg"]!.src;
+  const installImg = SITE_LAZY_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"]!.src;
 
   return (
     <div className="grandnatural-root">

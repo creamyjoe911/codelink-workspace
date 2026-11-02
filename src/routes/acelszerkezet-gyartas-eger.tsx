@@ -37,11 +37,11 @@ export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
 const PHONE = "+36 70 576 0108";
 
 function AcelszerekezetGyartasEger() {
-  const heroImg = SITE_INLINE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"].src;
-  const introImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"].src;
-  const heavyImg = SITE_LAZY_IMAGES["images/09-elkeszult-acelvazas-ipari-csarnok.jpg"].src;
-  const weldedImg = SITE_LAZY_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"].src;
-  const workshopImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"].src;
+  const heroImg = SITE_INLINE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"]!.src;
+  const introImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"]!.src;
+  const heavyImg = SITE_LAZY_IMAGES["images/09-elkeszult-acelvazas-ipari-csarnok.jpg"]!.src;
+  const weldedImg = SITE_LAZY_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"]!.src;
+  const workshopImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"]!.src;
 
   return (
     <div className="grandnatural-root">

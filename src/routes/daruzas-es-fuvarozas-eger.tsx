@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { SITE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_INLINE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_LAZY_IMAGES } from "@/lib/grandnatural-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
-import { SiteNav } from "@/components/site-nav";
+import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 
 export const Route = createFileRoute("/daruzas-es-fuvarozas-eger")({
   head: () => ({
@@ -41,13 +42,14 @@ function DaruzasEsFuvarozasEger() {
   const [cmpReady, setCmpReady] = useState(false);
 
   // Image references from the existing gallery.
-  const logoImg = SITE_IMAGES["images/01-grandnatural.png"];
-  const heroImg = SITE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"];
-  const truckImg = SITE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"];
-  const liftImg = SITE_IMAGES["images/06-daruval-emelt-betonlap.jpg"];
-  const installImg = SITE_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"];
-  const beforeImg = SITE_IMAGES["images/12-man-teherauto-fulkeje-felujitas-elott.jpg"];
-  const afterImg = SITE_IMAGES["images/13-man-teherauto-fulkeje-felujitas-utan.jpg"];
+  const logoImg = SITE_LOGO_SVG;
+  const heroImg = SITE_INLINE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"]!.src;
+  const truckImg =
+    SITE_INLINE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"]!.src;
+  const liftImg = SITE_LAZY_IMAGES["images/06-daruval-emelt-betonlap.jpg"]!.src;
+  const installImg = SITE_LAZY_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"]!.src;
+  const beforeImg = SITE_LAZY_IMAGES["images/12-man-teherauto-fulkeje-felujitas-elott.jpg"]!.src;
+  const afterImg = SITE_LAZY_IMAGES["images/13-man-teherauto-fulkeje-felujitas-utan.jpg"]!.src;
 
   // ---- Before/after slider (MAN fülke) ----
   useEffect(() => {

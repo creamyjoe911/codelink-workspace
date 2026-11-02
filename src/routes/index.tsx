@@ -106,10 +106,9 @@ function Grandnatural() {
     const win = window as Window & {
       requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
     };
+    const ric = win.requestIdleCallback;
     const schedule = (cb: () => void): number =>
-      typeof win.requestIdleCallback === "function"
-        ? win.requestIdleCallback(cb, { timeout: 2000 })
-        : window.setTimeout(cb, 200);
+      typeof ric === "function" ? ric(cb, { timeout: 2000 }) : window.setTimeout(cb, 200);
     schedule(async () => {
       if (cancelled) return;
       const root = rootRef.current;

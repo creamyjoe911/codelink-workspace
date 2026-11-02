@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SITE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_LAZY_IMAGES } from "@/lib/grandnatural-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
-import { SiteNav } from "@/components/site-nav";
+import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 
 export const Route = createFileRoute("/csarnokepites-heves-varmegye")({
   head: () => ({
@@ -36,10 +37,10 @@ export const Route = createFileRoute("/csarnokepites-heves-varmegye")({
 const PHONE = "+36 70 576 0108";
 
 function CsarnokepitesHevesVarmegye() {
-  const logoImg = SITE_IMAGES["images/01-grandnatural.png"];
-  const heroImg = SITE_IMAGES["images/17-ipari-csarnok-kivitelezese.jpg"];
-  const builtImg = SITE_IMAGES["images/09-elkeszult-acelvazas-ipari-csarnok.jpg"];
-  const onsiteImg = SITE_IMAGES["images/18-helyszini-acelszereles-es-felallitas.jpg"];
+  const logoImg = SITE_LOGO_SVG;
+  const heroImg = SITE_LAZY_IMAGES["images/17-ipari-csarnok-kivitelezese.jpg"]!.src;
+  const builtImg = SITE_LAZY_IMAGES["images/09-elkeszult-acelvazas-ipari-csarnok.jpg"]!.src;
+  const onsiteImg = SITE_LAZY_IMAGES["images/18-helyszini-acelszereles-es-felallitas.jpg"]!.src;
 
   return (
     <div className="grandnatural-root">
