@@ -17,7 +17,7 @@ export function canonicalUrl(path = "/"): string {
 export const LOCAL_BUSINESS_JSONLD: string = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": `${canonicalUrl("/")}/#business`,
+  "@id": `${SITE_URL}/#business`,
   name: "Grandnatural Kft.",
   url: canonicalUrl("/"),
   telephone: "+36 70 576 0108",
