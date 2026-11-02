@@ -3,6 +3,8 @@ import { useRef } from "react";
 import { SITE_INLINE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLD, canonicalUrl } from "@/lib/seo-schema";
 
 export const Route = createFileRoute("/szolgaltatasok")({
   head: () => ({
@@ -26,6 +28,7 @@ export const Route = createFileRoute("/szolgaltatasok")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "canonical", href: canonicalUrl("/szolgaltatasok") },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
@@ -90,6 +93,12 @@ function Szolgaltatasok() {
 
   return (
     <div className="grandnatural-root" ref={rootRef}>
+      <JsonLd
+        json={breadcrumbJsonLD([
+          { name: "Főoldal", path: "/" },
+          { name: "Szolgáltatások", path: "/szolgaltatasok" },
+        ])}
+      />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
 
       <SiteNav current="/szolgaltatasok" />

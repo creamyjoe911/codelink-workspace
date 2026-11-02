@@ -6,6 +6,8 @@ import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLD, canonicalUrl } from "@/lib/seo-schema";
 
 export const Route = createFileRoute("/daruzas-es-fuvarozas-eger")({
   head: () => ({
@@ -26,6 +28,7 @@ export const Route = createFileRoute("/daruzas-es-fuvarozas-eger")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "canonical", href: canonicalUrl("/daruzas-es-fuvarozas-eger") },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
@@ -88,6 +91,13 @@ function DaruzasEsFuvarozasEger() {
 
   return (
     <div className="grandnatural-root" ref={rootRef}>
+      <JsonLd
+        json={breadcrumbJsonLD([
+          { name: "Főoldal", path: "/" },
+          { name: "Szolgáltatások", path: "/szolgaltatasok" },
+          { name: "Daruzás és fuvarozás Eger", path: "/daruzas-es-fuvarozas-eger" },
+        ])}
+      />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
 
       <SiteNav current="/daruzas-es-fuvarozas-eger" />

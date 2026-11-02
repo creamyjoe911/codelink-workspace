@@ -6,6 +6,8 @@ import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLD, canonicalUrl } from "@/lib/seo-schema";
 
 export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
   head: () => ({
@@ -26,6 +28,7 @@ export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "canonical", href: canonicalUrl("/acelszerkezet-gyartas-eger") },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
@@ -57,6 +60,13 @@ function AcelszerekezetGyartasEger() {
 
   return (
     <div className="grandnatural-root" ref={rootRef}>
+      <JsonLd
+        json={breadcrumbJsonLD([
+          { name: "Főoldal", path: "/" },
+          { name: "Szolgáltatások", path: "/szolgaltatasok" },
+          { name: "Acélszerkezet gyártás Eger", path: "/acelszerkezet-gyartas-eger" },
+        ])}
+      />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
 
       <SiteNav current="/acelszerkezet-gyartas-eger" />

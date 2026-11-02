@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SITE_INLINE_IMAGES, SITE_BODY_HTML, SITE_CSS } from "@/lib/grandnatural-content";
 import { SiteNav } from "@/components/site-nav";
+import { JsonLd } from "@/components/json-ld";
+import { LOCAL_BUSINESS_JSONLD, canonicalUrl } from "@/lib/seo-schema";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,6 +27,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "canonical", href: canonicalUrl("/") },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
@@ -386,6 +389,7 @@ function Grandnatural() {
 
   return (
     <div className="grandnatural-root" ref={rootRef}>
+      <JsonLd json={LOCAL_BUSINESS_JSONLD} />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
       <SiteNav current="/" />
       <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
