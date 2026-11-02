@@ -79,11 +79,20 @@ function Grandnatural() {
       '<a class="pill o" href="/szolgaltatasok" style="margin-right:14px">Összes szolgáltatás<i>\u2192</i></a><a class="pill" href="#kapcsolat">Kapcsolat<i>\u2192</i></a></div>',
     );
     // Inline only the logo and the hero photo. The hero is the first paint's
-    // background; the logo is in the (stripped) nav + footer. Everything else
-    // stays as an `images/...` src until the lazy-load effect swaps it in.
+    // background; the logo is in the (stripped) nav + footer. Every other
+    // photo keeps its `images/...` filename in a data-src attribute with a
+    // tiny transparent placeholder as src, so the browser never fires a 404
+    // fetch for a non-existent `images/...` path; the lazy-load effect swaps
+    // the real data URI in after first paint.
     for (const [name, img] of Object.entries(SITE_INLINE_IMAGES)) {
       html = html.split(`"${name}"`).join(`"${img.src}"`);
     }
+    const PLACEHOLDER =
+      "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+    html = html.replace(
+      /src="(images\/[^"]+)"/g,
+      (_m, p1: string) => `src="${PLACEHOLDER}" data-src="${p1}"`,
+    );
     // The top nav + call bar are rendered by <SiteNav> in React, so strip the
     // original raw-HTML nav and call bar from the body markup to avoid a
     // duplicate, non-interactive nav.
@@ -120,11 +129,14 @@ function Grandnatural() {
       if (!root) return;
       const { SITE_LAZY_IMAGES } = await import("@/lib/grandnatural-lazy-images");
       if (cancelled) return;
-      const imgs = Array.from(root.querySelectorAll<HTMLImageElement>('img[src^="images/"]'));
+      const imgs = Array.from(root.querySelectorAll<HTMLImageElement>('img[data-src^="images/"]'));
       for (const img of imgs) {
-        const key = img.getAttribute("src") || "";
+        const key = img.getAttribute("data-src") || "";
         const data = SITE_LAZY_IMAGES[key];
-        if (data) img.src = data.src;
+        if (data) {
+          img.src = data.src;
+          img.removeAttribute("data-src");
+        }
       }
     });
     return () => {
