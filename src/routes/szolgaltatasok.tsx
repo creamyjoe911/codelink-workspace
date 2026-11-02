@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useRef } from "react";
 import { SITE_INLINE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
-import { SITE_LAZY_IMAGES } from "@/lib/grandnatural-lazy-images";
+import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 
 export const Route = createFileRoute("/szolgaltatasok")({
@@ -41,20 +42,22 @@ export const Route = createFileRoute("/szolgaltatasok")({
 });
 
 const PHONE = "+36 70 576 0108";
+const HERO_KEY = "images/02-grandnatural-darus-teherautoja-es-geppar.jpg";
 
 function Szolgaltatasok() {
+  const rootRef = useRef<HTMLDivElement>(null);
+  useLazyImages(rootRef);
+
   const logoImg = SITE_LOGO_SVG;
-  const heroImg = SITE_INLINE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"]!.src;
-  const lakatosImg = SITE_LAZY_IMAGES["images/04-elkeszult-piros-festett-platooldal.jpg"]!.src;
-  const acelImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"]!.src;
-  const daruImg = SITE_LAZY_IMAGES["images/06-daruval-emelt-betonlap.jpg"]!.src;
-  const csarnokImg = SITE_LAZY_IMAGES["images/07-alapozas-betonozasa.jpg"]!.src;
+  // The hero is the only above-the-fold photo, so it is inlined for an
+  // immediate first paint; every other photo on this page is lazy-loaded.
+  const heroImg = SITE_INLINE_IMAGES[HERO_KEY]!.src;
 
   const services = [
     {
       href: "/lakatosmunka-eger",
       title: "Lakatosmunka",
-      img: lakatosImg,
+      img: "images/04-elkeszult-piros-festett-platooldal.jpg",
       alt: "Elkészült, piros festett platóoldal — lakatosmunka Egerben",
       summary:
         "Kapuk, korlátok, lépcsők, előtetők és biztonsági szerkezetek gyártása és helyszíni szerelése saját műhelyből.",
@@ -62,7 +65,7 @@ function Szolgaltatasok() {
     {
       href: "/acelszerkezet-gyartas-eger",
       title: "Acélszerkezet gyártás",
-      img: acelImg,
+      img: "images/05-nyers-acel-lemez-a-muhelyben.jpg",
       alt: "Nyers acél lemez a műhelyben — acélszerkezet gyártás Egerben",
       summary:
         "Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak műhelyi gyártása és helyszíni szerelése.",
@@ -70,7 +73,7 @@ function Szolgaltatasok() {
     {
       href: "/daruzas-es-fuvarozas-eger",
       title: "Daruzás és fuvarozás",
-      img: daruImg,
+      img: "images/06-daruval-emelt-betonlap.jpg",
       alt: "Daruval emelt betonlap — darus rakodás és telepítés Egerben",
       summary:
         "Építőanyagok, nehézgépek, csarnok- és betonelemek darus rakodása és szállítása saját MAN darus teherautóval.",
@@ -78,7 +81,7 @@ function Szolgaltatasok() {
     {
       href: "/csarnokepites-heves-varmegye",
       title: "Csarnoképítés",
-      img: csarnokImg,
+      img: "images/07-alapozas-betonozasa.jpg",
       alt: "Alapozás és betonozás — csarnoképítés Heves vármegyében",
       summary:
         "Acélvázas ipari csarnokok kivitelezése, szendvicspaneles burkolás és tetőszerkezetek szerelése.",
@@ -86,7 +89,7 @@ function Szolgaltatasok() {
   ];
 
   return (
-    <div className="grandnatural-root">
+    <div className="grandnatural-root" ref={rootRef}>
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
 
       <SiteNav current="/szolgaltatasok" />
@@ -126,7 +129,9 @@ function Szolgaltatasok() {
           <section className="wrap ab">
             <div className="al">
               <img
-                src={heroImg}
+                loading="lazy"
+                src={PLACEHOLDER}
+                data-src={HERO_KEY}
                 alt="Grandnatural darus teherautója és géppark — szolgáltatások Egerben"
               />
               <div className="stat">
@@ -173,7 +178,7 @@ function Szolgaltatasok() {
                   style={{ textDecoration: "none" }}
                 >
                   <div className="im">
-                    <img loading="lazy" src={s.img} alt={s.alt} />
+                    <img loading="lazy" src={PLACEHOLDER} data-src={s.img} alt={s.alt} />
                   </div>
                   <h3>{s.title}</h3>
                   <p>{s.summary}</p>

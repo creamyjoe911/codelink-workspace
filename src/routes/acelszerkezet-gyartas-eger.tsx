@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useRef } from "react";
 import { SITE_CSS, SITE_INLINE_IMAGES } from "@/lib/grandnatural-content";
-import { SITE_LAZY_IMAGES } from "@/lib/grandnatural-lazy-images";
+import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
@@ -40,16 +41,21 @@ export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
+const HERO_KEY = "images/02-grandnatural-darus-teherautoja-es-geppar.jpg";
+const INTRO_KEY = "images/05-nyers-acel-lemez-a-muhelyben.jpg";
+const HEAVY_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
+const WELDED_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
 
 function AcelszerekezetGyartasEger() {
-  const heroImg = SITE_INLINE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"]!.src;
-  const introImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"]!.src;
-  const heavyImg = SITE_LAZY_IMAGES["images/09-elkeszult-acelvazas-ipari-csarnok.jpg"]!.src;
-  const weldedImg = SITE_LAZY_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"]!.src;
-  const workshopImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"]!.src;
+  const rootRef = useRef<HTMLDivElement>(null);
+  useLazyImages(rootRef);
+
+  // The hero is the only above-the-fold photo, so it is inlined for an
+  // immediate first paint; every other photo on this page is lazy-loaded.
+  const heroImg = SITE_INLINE_IMAGES[HERO_KEY]!.src;
 
   return (
-    <div className="grandnatural-root">
+    <div className="grandnatural-root" ref={rootRef}>
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
 
       <SiteNav current="/acelszerkezet-gyartas-eger" />
@@ -90,7 +96,9 @@ function AcelszerekezetGyartasEger() {
           <section className="wrap ab">
             <div className="al">
               <img
-                src={introImg}
+                loading="lazy"
+                src={PLACEHOLDER}
+                data-src={INTRO_KEY}
                 alt="Nyers acél lemez a műhelyben — acélszerkezet gyártás előkészítése"
               />
               <div className="stat">
@@ -209,7 +217,8 @@ function AcelszerekezetGyartasEger() {
               <div className="im">
                 <img
                   loading="lazy"
-                  src={heavyImg}
+                  src={PLACEHOLDER}
+                  data-src={HEAVY_KEY}
                   alt="Elkészült acélvázas ipari csarnok — teherhordó acélszerkezet Egerben"
                 />
               </div>
@@ -226,7 +235,8 @@ function AcelszerekezetGyartasEger() {
               <div className="im">
                 <img
                   loading="lazy"
-                  src={weldedImg}
+                  src={PLACEHOLDER}
+                  data-src={WELDED_KEY}
                   alt="Hegesztett acélváz szerelése darus teherautóval a helyszínen"
                 />
               </div>
@@ -243,7 +253,8 @@ function AcelszerekezetGyartasEger() {
               <div className="im">
                 <img
                   loading="lazy"
-                  src={workshopImg}
+                  src={PLACEHOLDER}
+                  data-src={INTRO_KEY}
                   alt="Nyers acél lemez a műhelyben — acélszerkezet gyártás előkészítése"
                 />
               </div>
@@ -261,7 +272,7 @@ function AcelszerekezetGyartasEger() {
 
         {/* Band — quote */}
         <section className="band">
-          <img loading="lazy" src={heroImg} alt="" />
+          <img loading="lazy" src={PLACEHOLDER} data-src={HERO_KEY} alt="" />
           <div className="ghost" aria-hidden="true">
             Acélszerkezet
           </div>

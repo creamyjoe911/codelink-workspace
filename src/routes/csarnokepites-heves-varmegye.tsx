@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useRef } from "react";
 import { SITE_CSS } from "@/lib/grandnatural-content";
-import { SITE_LAZY_IMAGES } from "@/lib/grandnatural-lazy-images";
+import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
@@ -18,7 +19,7 @@ export const Route = createFileRoute("/csarnokepites-heves-varmegye")({
       {
         property: "og:description",
         content:
-          "Acélvázas ipari csarnokok kivitelezése, szendvicspaneles burkolás és tetőszerkezetek szerelése Heves vármegyében. Saját műhelyből, egy kivitezelőtől. +36 70 576 0108.",
+          "Acélvázas ipari csarnokok kivitelezése, szendvicspaneles burkolás és tetőszerkezetek szerelése Heves vármegyében. Saját műhelyből, egy kivitelezőtől. +36 70 576 0108.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -40,15 +41,18 @@ export const Route = createFileRoute("/csarnokepites-heves-varmegye")({
 });
 
 const PHONE = "+36 70 576 0108";
+const HERO_KEY = "images/17-ipari-csarnok-kivitelezese.jpg";
+const BUILT_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
+const ONSITE_KEY = "images/18-helyszini-acelszereles-es-felallitas.jpg";
 
 function CsarnokepitesHevesVarmegye() {
+  const rootRef = useRef<HTMLDivElement>(null);
+  useLazyImages(rootRef);
+
   const logoImg = SITE_LOGO_SVG;
-  const heroImg = SITE_LAZY_IMAGES["images/17-ipari-csarnok-kivitelezese.jpg"]!.src;
-  const builtImg = SITE_LAZY_IMAGES["images/09-elkeszult-acelvazas-ipari-csarnok.jpg"]!.src;
-  const onsiteImg = SITE_LAZY_IMAGES["images/18-helyszini-acelszereles-es-felallitas.jpg"]!.src;
 
   return (
-    <div className="grandnatural-root">
+    <div className="grandnatural-root" ref={rootRef}>
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
 
       <SiteNav current="/csarnokepites-heves-varmegye" />
@@ -58,7 +62,8 @@ function CsarnokepitesHevesVarmegye() {
         <section className="hero">
           <img
             className="bg"
-            src={heroImg}
+            src={PLACEHOLDER}
+            data-src={HERO_KEY}
             alt="Ipari csarnok kivitelezése — acélvázas csarnoképítés Heves vármegyében"
           />
           <div className="hin">
@@ -89,7 +94,9 @@ function CsarnokepitesHevesVarmegye() {
           <section className="wrap ab">
             <div className="al">
               <img
-                src={builtImg}
+                loading="lazy"
+                src={PLACEHOLDER}
+                data-src={BUILT_KEY}
                 alt="Elkészült acélvázas ipari csarnok — teherhordó acélvázas csarnoképítés"
               />
               <div className="stat">
@@ -211,7 +218,8 @@ function CsarnokepitesHevesVarmegye() {
               <div className="im">
                 <img
                   loading="lazy"
-                  src={heroImg}
+                  src={PLACEHOLDER}
+                  data-src={HERO_KEY}
                   alt="Ipari csarnok kivitelezése — acélvázas csarnok építése Heves vármegyében"
                 />
               </div>
@@ -227,7 +235,8 @@ function CsarnokepitesHevesVarmegye() {
               <div className="im">
                 <img
                   loading="lazy"
-                  src={onsiteImg}
+                  src={PLACEHOLDER}
+                  data-src={ONSITE_KEY}
                   alt="Helyszíni acélszerelés és felállítás darus teherautóval"
                 />
               </div>
@@ -244,7 +253,8 @@ function CsarnokepitesHevesVarmegye() {
               <div className="im">
                 <img
                   loading="lazy"
-                  src={builtImg}
+                  src={PLACEHOLDER}
+                  data-src={BUILT_KEY}
                   alt="Elkészült acélvázas ipari csarnok — teherhordó acélszerkezet"
                 />
               </div>
@@ -262,7 +272,7 @@ function CsarnokepitesHevesVarmegye() {
 
         {/* Band — quote */}
         <section className="band">
-          <img loading="lazy" src={heroImg} alt="" />
+          <img loading="lazy" src={PLACEHOLDER} data-src={HERO_KEY} alt="" />
           <div className="ghost" aria-hidden="true">
             Csarnoképítés
           </div>

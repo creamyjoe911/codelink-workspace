@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SITE_INLINE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
-import { SITE_LAZY_IMAGES } from "@/lib/grandnatural-lazy-images";
+import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
@@ -41,20 +41,22 @@ export const Route = createFileRoute("/daruzas-es-fuvarozas-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
+const HERO_KEY = "images/02-grandnatural-darus-teherautoja-es-geppar.jpg";
+const TRUCK_KEY = "images/02-grandnatural-darus-teherautoja-es-geppar.jpg";
+const LIFT_KEY = "images/06-daruval-emelt-betonlap.jpg";
+const INSTALL_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
+const BEFORE_KEY = "images/12-man-teherauto-fulkeje-felujitas-elott.jpg";
+const AFTER_KEY = "images/13-man-teherauto-fulkeje-felujitas-utan.jpg";
 
 function DaruzasEsFuvarozasEger() {
   const rootRef = useRef<HTMLDivElement>(null);
   const [cmpReady, setCmpReady] = useState(false);
 
-  // Image references from the existing gallery.
+  // The hero is the only above-the-fold photo, so it is inlined for an
+  // immediate first paint; every other photo on this page is lazy-loaded.
   const logoImg = SITE_LOGO_SVG;
-  const heroImg = SITE_INLINE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"]!.src;
-  const truckImg =
-    SITE_INLINE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"]!.src;
-  const liftImg = SITE_LAZY_IMAGES["images/06-daruval-emelt-betonlap.jpg"]!.src;
-  const installImg = SITE_LAZY_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"]!.src;
-  const beforeImg = SITE_LAZY_IMAGES["images/12-man-teherauto-fulkeje-felujitas-elott.jpg"]!.src;
-  const afterImg = SITE_LAZY_IMAGES["images/13-man-teherauto-fulkeje-felujitas-utan.jpg"]!.src;
+  const heroImg = SITE_INLINE_IMAGES[HERO_KEY]!.src;
+  useLazyImages(rootRef);
 
   // ---- Before/after slider (MAN fülke) ----
   useEffect(() => {
@@ -125,7 +127,9 @@ function DaruzasEsFuvarozasEger() {
           <section className="wrap ab">
             <div className="al">
               <img
-                src={liftImg}
+                loading="lazy"
+                src={PLACEHOLDER}
+                data-src={LIFT_KEY}
                 alt="Daruval emelt betonlap — darus rakodás és telepítés Egerben"
               />
               <div className="stat">
@@ -190,7 +194,7 @@ function DaruzasEsFuvarozasEger() {
 
         {/* Before/after — MAN fülke */}
         <section className="band">
-          <img loading="lazy" src={truckImg} alt="" />
+          <img loading="lazy" src={PLACEHOLDER} data-src={TRUCK_KEY} alt="" />
           <div className="ghost" aria-hidden="true">
             Daruzás
           </div>
@@ -198,8 +202,18 @@ function DaruzasEsFuvarozasEger() {
             <div className="slc">
               <h3>MAN fülke: előtte és utána</h3>
               <div className="cmp">
-                <img id="bef2" src={beforeImg} alt="MAN darus teherautó fülkéje felújítás előtt" />
-                <img id="aft2" src={afterImg} alt="MAN darus teherautó fülkéje felújítás után" />
+                <img
+                  id="bef2"
+                  src={PLACEHOLDER}
+                  data-src={BEFORE_KEY}
+                  alt="MAN darus teherautó fülkéje felújítás előtt"
+                />
+                <img
+                  id="aft2"
+                  src={PLACEHOLDER}
+                  data-src={AFTER_KEY}
+                  alt="MAN darus teherautó fülkéje felújítás után"
+                />
                 <span className="tag" id="t1b" style={{ left: "12px" }}>
                   Előtte
                 </span>
@@ -279,7 +293,8 @@ function DaruzasEsFuvarozasEger() {
               <div className="im">
                 <img
                   loading="lazy"
-                  src={liftImg}
+                  src={PLACEHOLDER}
+                  data-src={LIFT_KEY}
                   alt="Darus emelés és betonelem telepítés — darus rakodás Egerben"
                 />
               </div>
@@ -295,7 +310,8 @@ function DaruzasEsFuvarozasEger() {
               <div className="im">
                 <img
                   loading="lazy"
-                  src={installImg}
+                  src={PLACEHOLDER}
+                  data-src={INSTALL_KEY}
                   alt="Acélszerkezet és nehéz elem beemelése darus teherautóval a helyszínen"
                 />
               </div>
@@ -311,7 +327,8 @@ function DaruzasEsFuvarozasEger() {
               <div className="im">
                 <img
                   loading="lazy"
-                  src={truckImg}
+                  src={PLACEHOLDER}
+                  data-src={TRUCK_KEY}
                   alt="Grandnatural MAN darus teherautója — daruzás és fuvarozás Egerben"
                 />
               </div>

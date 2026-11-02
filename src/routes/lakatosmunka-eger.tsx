@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useRef } from "react";
 import { SITE_CSS } from "@/lib/grandnatural-content";
-import { SITE_LAZY_IMAGES } from "@/lib/grandnatural-lazy-images";
+import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
@@ -40,15 +41,17 @@ export const Route = createFileRoute("/lakatosmunka-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
+const HERO_KEY = "images/05-nyers-acel-lemez-a-muhelyben.jpg";
+const PAINTED_KEY = "images/04-elkeszult-piros-festett-platooldal.jpg";
+const CUSTOM_KEY = "images/11-egyedi-platooldal.jpg";
+const INSTALL_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
 
 function LakatosmunkaEger() {
-  const heroImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"]!.src;
-  const paintedImg = SITE_LAZY_IMAGES["images/04-elkeszult-piros-festett-platooldal.jpg"]!.src;
-  const customImg = SITE_LAZY_IMAGES["images/11-egyedi-platooldal.jpg"]!.src;
-  const installImg = SITE_LAZY_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"]!.src;
+  const rootRef = useRef<HTMLDivElement>(null);
+  useLazyImages(rootRef);
 
   return (
-    <div className="grandnatural-root">
+    <div className="grandnatural-root" ref={rootRef}>
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
 
       <SiteNav current="/lakatosmunka-eger" />
@@ -58,7 +61,8 @@ function LakatosmunkaEger() {
         <section className="hero">
           <img
             className="bg"
-            src={heroImg}
+            src={PLACEHOLDER}
+            data-src={HERO_KEY}
             alt="Nyers acél lemez a műhelyben — lakatosmunka Egerben"
           />
           <div className="hin">
@@ -88,7 +92,12 @@ function LakatosmunkaEger() {
 
           <section className="wrap ab">
             <div className="al">
-              <img src={customImg} alt="Egyedi lakatosmunkával készült platóoldal" />
+              <img
+                loading="lazy"
+                src={PLACEHOLDER}
+                data-src={CUSTOM_KEY}
+                alt="Egyedi lakatosmunkával készült platóoldal"
+              />
               <div className="stat">
                 <b>16+</b>
                 <span>év szakmai tapasztalat</span>
@@ -164,7 +173,8 @@ function LakatosmunkaEger() {
               <div className="im">
                 <img
                   loading="lazy"
-                  src={paintedImg}
+                  src={PLACEHOLDER}
+                  data-src={PAINTED_KEY}
                   alt="Elkészült, piros festett platóoldal — lakatosmunka Egerben"
                 />
               </div>
@@ -178,7 +188,8 @@ function LakatosmunkaEger() {
               <div className="im">
                 <img
                   loading="lazy"
-                  src={customImg}
+                  src={PLACEHOLDER}
+                  data-src={CUSTOM_KEY}
                   alt="Egyedi lakatosmunkával készült platóoldal"
                 />
               </div>
@@ -192,7 +203,8 @@ function LakatosmunkaEger() {
               <div className="im">
                 <img
                   loading="lazy"
-                  src={installImg}
+                  src={PLACEHOLDER}
+                  data-src={INSTALL_KEY}
                   alt="Acélváz szerelése darus teherautóval a helyszínen"
                 />
               </div>
@@ -207,7 +219,7 @@ function LakatosmunkaEger() {
 
         {/* Band — quote */}
         <section className="band">
-          <img loading="lazy" src={heroImg} alt="" />
+          <img loading="lazy" src={PLACEHOLDER} data-src={HERO_KEY} alt="" />
           <div className="ghost" aria-hidden="true">
             Lakatosmunka
           </div>
