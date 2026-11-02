@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SITE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_LAZY_IMAGES } from "@/lib/grandnatural-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
-import { SiteNav } from "@/components/site-nav";
+import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 
 export const Route = createFileRoute("/lakatosmunka-eger")({
   head: () => ({
@@ -36,11 +37,10 @@ export const Route = createFileRoute("/lakatosmunka-eger")({
 const PHONE = "+36 70 576 0108";
 
 function LakatosmunkaEger() {
-  const logoImg = SITE_IMAGES["images/01-grandnatural.png"];
-  const heroImg = SITE_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"];
-  const paintedImg = SITE_IMAGES["images/04-elkeszult-piros-festett-platooldal.jpg"];
-  const customImg = SITE_IMAGES["images/11-egyedi-platooldal.jpg"];
-  const installImg = SITE_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"];
+  const heroImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"].src;
+  const paintedImg = SITE_LAZY_IMAGES["images/04-elkeszult-piros-festett-platooldal.jpg"].src;
+  const customImg = SITE_LAZY_IMAGES["images/11-egyedi-platooldal.jpg"].src;
+  const installImg = SITE_LAZY_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"].src;
 
   return (
     <div className="grandnatural-root">
@@ -330,7 +330,7 @@ function LakatosmunkaEger() {
           </div>
           <div className="fc">
             <div>
-              <img src={logoImg} alt="Grandnatural" />
+              <img src={SITE_LOGO_SVG} alt="Grandnatural" />
               <p>
                 Acélszerkezetek, lakatosmunkák, daruzás és kivitelezés Egerben, Heves vármegyében.
               </p>

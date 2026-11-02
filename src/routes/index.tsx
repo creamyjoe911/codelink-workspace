@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { SITE_IMAGES, SITE_BODY_HTML, SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_INLINE_IMAGES, SITE_BODY_HTML, SITE_CSS } from "@/lib/grandnatural-content";
 import { SiteNav } from "@/components/site-nav";
 
 export const Route = createFileRoute("/")({
@@ -43,7 +43,10 @@ function Grandnatural() {
   const rootRef = useRef<HTMLDivElement>(null);
   const [isRefView, setIsRefView] = useState(false);
 
-  // Build the full document body HTML with images already swapped for data URIs.
+  // Build the homepage body HTML. Only the logo and the hero photo are inlined
+  // as data URIs here (so the initial HTML response stays small); every other
+  // photo keeps its `images/...` filename as src and is swapped to a data URI
+  // after first paint by the lazy-load effect below.
   const bodyHtml = useMemo(() => {
     let html = SITE_BODY_HTML;
     // Turn the four service cards in the scroll section into links to their pages.
@@ -70,8 +73,11 @@ function Grandnatural() {
       '<a class="pill" href="#kapcsolat">Kapcsolat<i>\u2192</i></a></div>',
       '<a class="pill o" href="/szolgaltatasok" style="margin-right:14px">Összes szolgáltatás<i>\u2192</i></a><a class="pill" href="#kapcsolat">Kapcsolat<i>\u2192</i></a></div>',
     );
-    for (const [name, dataUri] of Object.entries(SITE_IMAGES)) {
-      html = html.split(`"${name}"`).join(`"${dataUri}"`);
+    // Inline only the logo and the hero photo. The hero is the first paint's
+    // background; the logo is in the (stripped) nav + footer. Everything else
+    // stays as an `images/...` src until the lazy-load effect swaps it in.
+    for (const [name, img] of Object.entries(SITE_INLINE_IMAGES)) {
+      html = html.split(`"${name}"`).join(`"${img.src}"`);
     }
     // The top nav + call bar are rendered by <SiteNav> in React, so strip the
     // original raw-HTML nav and call bar from the body markup to avoid a
@@ -86,6 +92,40 @@ function Grandnatural() {
       '<a href="/daruzas-es-fuvarozas-eger">Daruzás</a>',
     );
     return html;
+  }, []);
+
+  // ---- Lazy-load the remaining photos after first paint ----
+  // The body HTML still has `images/...` filenames as src for every photo
+  // except the logo and hero. Dynamically import the lazy image module (a
+  // separate chunk) and swap each src to its data URI once the page has
+  // rendered, so the initial HTML response stays small.
+  useEffect(() => {
+    let cancelled = false;
+    // Use requestIdleCallback when available so the swap doesn't block the
+    // first interaction; fall back to a small timeout.
+    const win = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+    };
+    const schedule = (cb: () => void): number =>
+      typeof win.requestIdleCallback === "function"
+        ? win.requestIdleCallback(cb, { timeout: 2000 })
+        : window.setTimeout(cb, 200);
+    schedule(async () => {
+      if (cancelled) return;
+      const root = rootRef.current;
+      if (!root) return;
+      const { SITE_LAZY_IMAGES } = await import("@/lib/grandnatural-lazy-images");
+      if (cancelled) return;
+      const imgs = Array.from(root.querySelectorAll<HTMLImageElement>('img[src^="images/"]'));
+      for (const img of imgs) {
+        const key = img.getAttribute("src") || "";
+        const data = SITE_LAZY_IMAGES[key];
+        if (data) img.src = data.src;
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // ---- Hash routing between home (#) and references (#referenciak) ----

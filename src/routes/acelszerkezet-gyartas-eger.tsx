@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SITE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_CSS, SITE_INLINE_IMAGES } from "@/lib/grandnatural-content";
+import { SITE_LAZY_IMAGES } from "@/lib/grandnatural-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
-import { SiteNav } from "@/components/site-nav";
+import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 
 export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
   head: () => ({
@@ -36,12 +37,11 @@ export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
 const PHONE = "+36 70 576 0108";
 
 function AcelszerekezetGyartasEger() {
-  const logoImg = SITE_IMAGES["images/01-grandnatural.png"];
-  const heroImg = SITE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"];
-  const introImg = SITE_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"];
-  const heavyImg = SITE_IMAGES["images/09-elkeszult-acelvazas-ipari-csarnok.jpg"];
-  const weldedImg = SITE_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"];
-  const workshopImg = SITE_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"];
+  const heroImg = SITE_INLINE_IMAGES["images/02-grandnatural-darus-teherautoja-es-geppar.jpg"].src;
+  const introImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"].src;
+  const heavyImg = SITE_LAZY_IMAGES["images/09-elkeszult-acelvazas-ipari-csarnok.jpg"].src;
+  const weldedImg = SITE_LAZY_IMAGES["images/10-acelvaz-szerelese-darus-teherautoval.jpg"].src;
+  const workshopImg = SITE_LAZY_IMAGES["images/05-nyers-acel-lemez-a-muhelyben.jpg"].src;
 
   return (
     <div className="grandnatural-root">
@@ -385,7 +385,7 @@ function AcelszerekezetGyartasEger() {
           </div>
           <div className="fc">
             <div>
-              <img src={logoImg} alt="Grandnatural" />
+              <img src={SITE_LOGO_SVG} alt="Grandnatural" />
               <p>
                 Acélszerkezetek, lakatosmunkák, daruzás és kivitelezés Egerben, Heves vármegyében.
               </p>
