@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
-import { SITE_CSS, SITE_INLINE_IMAGES } from "@/lib/grandnatural-content";
+import { SITE_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/02-grandnatural-darus-teherautoja-es-geppar.jpg";
+const HERO_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
 const INTRO_KEY = "images/05-nyers-acel-lemez-a-muhelyben.jpg";
 const HEAVY_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
 const WELDED_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
@@ -41,10 +41,6 @@ const WELDED_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
 function AcelszerekezetGyartasEger() {
   const rootRef = useRef<HTMLDivElement>(null);
   useLazyImages(rootRef);
-
-  // The hero is the only above-the-fold photo, so it is inlined for an
-  // immediate first paint; every other photo on this page is lazy-loaded.
-  const heroImg = SITE_INLINE_IMAGES[HERO_KEY]!.src;
 
   return (
     <div className="grandnatural-root" ref={rootRef}>
@@ -64,8 +60,9 @@ function AcelszerekezetGyartasEger() {
         <section className="hero">
           <img
             className="bg"
-            src={heroImg}
-            alt="Grandnatural darus teherautója és géppark — acélszerkezet gyártás Egerben"
+            src={PLACEHOLDER}
+            data-src={HERO_KEY}
+            alt="Elkészült acélvázas ipari csarnok — acélszerkezet gyártás Egerben"
           />
           <div className="hin">
             <ServiceBreadcrumb current="Acélszerkezet gyártás Eger" />
