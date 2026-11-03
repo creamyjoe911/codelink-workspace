@@ -10,10 +10,8 @@
 // opens a full panel with every top-level link plus the four service sub-links.
 import { useEffect, useRef, useState } from "react";
 
-// Brand logo — the user's uploaded vector SVG (monochrome, works on any
-// background). Served as a static file so site-nav pulls in no inline image
-// data. The `.nav img` rule (height:30px) constrains its display size.
-export const SITE_LOGO_SVG = "/images/logo-Photoroom.png";
+// Brand logo — the user's uploaded circular logo
+export const SITE_LOGO_SVG = "https://vibe.filesafe.space/1793461824715116291/attachments/a86a0dd9-b296-43a6-bf7b-22a37735df55.png";
 
 const SERVICE_LINKS = [
   { href: "/lakatosmunka-eger", label: "Lakatosmunka" },

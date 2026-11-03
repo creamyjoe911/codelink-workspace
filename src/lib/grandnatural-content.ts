@@ -10,7 +10,7 @@ export type SiteImage = { src: string; width: number; height: number };
 // Only the logo and the hero photo are inlined in the homepage HTML response.
 export const SITE_INLINE_IMAGES: Record<string, SiteImage> = {
   "images/01-grandnatural.png": {
-    src: "/images/logo-Photoroom.png",
+    src: "https://vibe.filesafe.space/1793461824715116291/attachments/a86a0dd9-b296-43a6-bf7b-22a37735df55.png",
     width: 1254,
     height: 1254,
   },
