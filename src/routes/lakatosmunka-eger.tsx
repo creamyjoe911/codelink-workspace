@@ -37,6 +37,7 @@ const HERO_KEY = "images/04-elkeszult-piros-festett-platooldal.jpg";
 const PAINTED_KEY = "images/04-elkeszult-piros-festett-platooldal.jpg";
 const CUSTOM_KEY = "images/11-egyedi-platooldal.jpg";
 const INSTALL_KEY = "images/14-hegesztett-acel-konzol.jpg";
+const SECTION_KEY = "images/Nyersacél";
 
 function LakatosmunkaEger() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -94,8 +95,8 @@ function LakatosmunkaEger() {
               <img
                 loading="lazy"
                 src={PLACEHOLDER}
-                data-src={CUSTOM_KEY}
-                alt="Egyedi lakatosmunkával készült platóoldal"
+                data-src={SECTION_KEY}
+                alt="Nyersacél lemez a műhelyben — a lakatosmunka kiinduló anyaga"
               />
               <div className="stat">
                 <b>16+</b>

@@ -145,4 +145,9 @@ export const SITE_LAZY_IMAGES: Record<string, SiteImage> = {
     width: 2048,
     height: 1536,
   },
+  "images/Nyersacél": {
+    src: "/images/Nyersacél.webp",
+    width: 800,
+    height: 1067,
+  },
 };
