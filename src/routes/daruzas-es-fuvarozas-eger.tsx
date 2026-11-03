@@ -33,8 +33,8 @@ export const Route = createFileRoute("/daruzas-es-fuvarozas-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/02-grandnatural-darus-teherautoja-es-geppar.jpg";
-const TRUCK_KEY = "images/02-grandnatural-darus-teherautoja-es-geppar.jpg";
+const HERO_KEY = "/images/daruzas-es-fuvarozas-eger-background.webp";
+const TRUCK_KEY = "/images/daruzas-es-fuvarozas-eger-background.webp";
 const LIFT_KEY = "images/06-daruval-emelt-betonlap.jpg";
 const INSTALL_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
 const BEFORE_KEY = "images/12-man-teherauto-fulkeje-felujitas-elott.jpg";
@@ -47,7 +47,7 @@ function DaruzasEsFuvarozasEger() {
   // The hero is the only above-the-fold photo, so it is inlined for an
   // immediate first paint; every other photo on this page is lazy-loaded.
   const logoImg = SITE_LOGO_SVG;
-  const heroImg = SITE_INLINE_IMAGES[HERO_KEY]!.src;
+  const heroImg = HERO_KEY;
   useLazyImages(rootRef);
 
   // ---- Before/after slider (MAN fülke) ----
