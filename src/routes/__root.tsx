@@ -100,7 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "icon",
         type: "image/png",
-        href: "/images/grandnatural-logo-220x54.png",
+        href: "/images/grandnatural-logo-220x54-no-line.png",
       },
       {
         rel: "stylesheet",
