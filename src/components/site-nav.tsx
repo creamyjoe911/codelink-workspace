@@ -10,18 +10,10 @@
 // opens a full panel with every top-level link plus the four service sub-links.
 import { useEffect, useRef, useState } from "react";
 
-// Inline SVG logo (under 2 KB) — replaces the base64 PNG so site-nav pulls in
-// no image data at all. Matches the site's Barlow type + teal accent.
-export const SITE_LOGO_SVG =
-  "data:image/svg+xml," +
-  encodeURIComponent(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="220" height="48" viewBox="0 0 220 48" fill="none">` +
-      `<rect x="2" y="6" width="36" height="36" rx="9" fill="#1fb5a4"/>` +
-      `<path d="M14 34V14h12.5v4.6H19.6v3.4h6.4v4.6h-6.4V34H14z" fill="#04201c"/>` +
-      `<text x="48" y="22" font-family="Barlow,Arial,sans-serif" font-size="17" font-weight="800" fill="#0e1a18">Grandnatural</text>` +
-      `<text x="48" y="36" font-family="Barlow,Arial,sans-serif" font-size="9" font-weight="600" letter-spacing="1.5" fill="#1fb5a4">ACÉL · DARU · KIVITELEZÉS</text>` +
-      `</svg>`,
-  );
+// Brand logo — the user's uploaded vector SVG (monochrome, works on any
+// background). Served as a static file so site-nav pulls in no inline image
+// data. The `.nav img` rule (height:30px) constrains its display size.
+export const SITE_LOGO_SVG = "/images/grandnatural-logo.svg";
 
 const SERVICE_LINKS = [
   { href: "/lakatosmunka-eger", label: "Lakatosmunka" },
