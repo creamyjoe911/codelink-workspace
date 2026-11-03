@@ -262,7 +262,7 @@ function DaruzasEsFuvarozasEger() {
 
         {/* Band — A saját darunk, saját kézben */}
         <section className="band">
-          <img loading="lazy" src={PLACEHOLDER} data-src={HERO_KEY} alt="" />
+          <img loading="lazy" src={HERO_KEY} alt="" />
           <div className="ghost" aria-hidden="true">
             Daruzás
           </div>
