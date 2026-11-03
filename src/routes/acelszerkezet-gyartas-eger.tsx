@@ -400,7 +400,7 @@ function AcelszerekezetGyartasEger() {
               <a href="/acelszerkezet-gyartas-eger">Acélszerkezetek</a>
               <a href="/lakatosmunka-eger">Lakatosmunkák</a>
               <a href="/daruzas-es-fuvarozas-eger">Daruzás és fuvarozás</a>
-              <a href="/csarnokepites-heves-varmegye">Csarnoképítés</a>
+              <a href="/felujitas-es-karbantartas">Felújítás és karbantartás</a>
               <a href="/szolgaltatasok">Kivitelezés</a>
             </div>
             <div>

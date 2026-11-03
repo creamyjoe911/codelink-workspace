@@ -18,9 +18,9 @@ const SERVICES = [
     desc: "Építőanyagok, nehézgépek, csarnok- és betonelemek darus rakodása és szállítása saját géppel.",
   },
   {
-    href: "/csarnokepites-heves-varmegye",
-    label: "Csarnoképítés Heves vármegyében",
-    desc: "Acélvázas ipari csarnokok kivitelezése, szendvicspaneles burkolás és tetőszerkezetek szerelése.",
+    href: "/felujitas-es-karbantartas",
+    label: "Felújítás és karbantartás Egerben",
+    desc: "Magán- és ipari ingatlanok felújítása, karbantartása, javítása és korszerűsítése egy kivitelezőtől.",
   },
 ] as const;
 

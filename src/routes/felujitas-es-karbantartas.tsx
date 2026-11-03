@@ -9,36 +9,37 @@ import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbJsonLD, canonicalUrl } from "@/lib/seo-schema";
 
-export const Route = createFileRoute("/csarnokepites-heves-varmegye")({
+export const Route = createFileRoute("/felujitas-es-karbantartas")({
   head: () => ({
     meta: [
-      { title: "Csarnoképítés Heves vármegye | Grandnatural" },
+      { title: "Felújítás és karbantartás Eger | Grandnatural" },
       {
         name: "description",
         content:
-          "Acélvázas ipari csarnokok kivitelezése, szendvicspaneles burkolás és tetőszerkezetek szerelése Heves vármegyében. Saját műhelyből, egy kivitelezőtől. +36 70 576 0108.",
+          "Magán- és ipari ingatlanok felújítása, karbantartása, javítása és korszerűsítése Egerben és Heves vármegyében. Saját műhelyből, egy kivitelezőtől. +36 70 576 0108.",
       },
-      { property: "og:title", content: "Csarnoképítés Heves vármegye | Grandnatural" },
+      { property: "og:title", content: "Felújítás és karbantartás Eger | Grandnatural" },
       {
         property: "og:description",
         content:
-          "Acélvázas ipari csarnokok kivitelezése, szendvicspaneles burkolás és tetőszerkezetek szerelése Heves vármegyében. Saját műhelyből, egy kivitelezőtől. +36 70 576 0108.",
+          "Magán- és ipari ingatlanok felújítása, karbantartása, javítása és korszerűsítése Egerben és Heves vármegyében. Saját műhelyből, egy kivitelezőtől.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: canonicalUrl("/csarnokepites-heves-varmegye") }],
+    links: [{ rel: "canonical", href: canonicalUrl("/felujitas-es-karbantartas") }],
   }),
-  component: CsarnokepitesHevesVarmegye,
+  component: FelujitasEsKarbantartas,
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
-const BUILT_KEY = "images/csarnok-epites";
-const ONSITE_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
-const FOUNDATION_KEY = "images/03-betonozas-az-alapon-mogotte-ket-betonkev.jpg";
+const HERO_KEY = "images/08-felujitott-lakoter-uj-burkolattal.jpg";
+const INTERIOR_KEY = "images/21-belso-felujitas-kivitelezes-kozben.jpg";
+const EXTERIOR_KEY = "images/19-kulso-felujitas-kivitelezes-kozben.jpg";
+const FACADE_KEY = "images/20-lakoingatlan-kulso-felujitasa.jpg";
+const FINISHED_KEY = "images/22-csaladi-haz-felujitasa.jpg";
 
-function CsarnokepitesHevesVarmegye() {
+function FelujitasEsKarbantartas() {
   const rootRef = useRef<HTMLDivElement>(null);
   useLazyImages(rootRef);
 
@@ -50,12 +51,12 @@ function CsarnokepitesHevesVarmegye() {
         json={breadcrumbJsonLD([
           { name: "Főoldal", path: "/" },
           { name: "Szolgáltatások", path: "/szolgaltatasok" },
-          { name: "Csarnoképítés Heves vármegye", path: "/csarnokepites-heves-varmegye" },
+          { name: "Felújítás és karbantartás", path: "/felujitas-es-karbantartas" },
         ])}
       />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
 
-      <SiteNav current="/csarnokepites-heves-varmegye" />
+      <SiteNav current="/felujitas-es-karbantartas" />
 
       <main>
         {/* Hero */}
@@ -64,14 +65,14 @@ function CsarnokepitesHevesVarmegye() {
             className="bg"
             src={PLACEHOLDER}
             data-src={HERO_KEY}
-            alt="Elkészült acélvázas ipari csarnok — csarnoképítés Heves vármegyében"
+            alt="Felújított lakótér új burkolattal — felújítás és karbantartás Egerben"
           />
           <div className="hin">
-            <ServiceBreadcrumb current="Csarnoképítés Heves vármegye" />
-            <h1>Csarnoképítés Heves vármegye</h1>
+            <ServiceBreadcrumb current="Felújítás és karbantartás" />
+            <h1>Felújítás és karbantartás Eger</h1>
             <p>
-              Acélvázas épületek kivitelezése, szendvicspaneles burkolás és tetőszerkezetek
-              szerelése — saját műhelyből és darus géppel, egy kivitelezőtől.
+              Magán- és ipari ingatlanok felújítása, karbantartása, javítása és korszerűsítése —
+              belső és külső munkákkal, saját műhelyből és daruval, egy kivitelezőtől.
             </p>
             <a className="pill" href="/#kapcsolat">
               Ajánlatkérés<i>→</i>
@@ -96,25 +97,26 @@ function CsarnokepitesHevesVarmegye() {
               <img
                 loading="lazy"
                 src={PLACEHOLDER}
-                data-src={BUILT_KEY}
-                alt="Acélvázas ipari csarnok építése — csarnoképítés Heves vármegyében"
+                data-src={INTERIOR_KEY}
+                alt="Belső felújítás kivitelezés közben — falak és burkolatok előkészítése"
               />
               <div className="stat">
                 <b>16+</b>
                 <span>év szakmai tapasztalat</span>
-                <small>Csarnoképítés saját műhelyből és darus géppel, egy kivitelezőtől.</small>
+                <small>Felújítás és karbantartás saját műhelyből, egy kivitelezőtől.</small>
               </div>
             </div>
             <div>
-              <h2>Egy csarnok, elejétől a végéig.</h2>
+              <h2>A javítástól a teljes felújításig.</h2>
               <p style={{ marginTop: 24 }}>
-                Egy ipari csarnokot elejétől a végéig nálunk vezetünk: az acélvázat saját
-                műhelyünkben gyártjuk, majd darus teherautónkkal a helyszínen felállítjuk, a
-                szendvicspanelekkel burkoljuk, és a tetőszerkezetet beépítjük.
+                Kisebb javításoktól a teljes ingatlan-felújításig vállalunk belső és külső munkákat:
+                falak, burkolatok, vakolatok előkészítése és kivitelezése, korszerűsítés és
+                karbantartás. A munkát a saját műhelyünk és gépparkunk támogatja, így a lakatos- és
+                acélmunkákat is egy kézből kapja.
               </p>
               <p>
-                Mivel a műhely, a daru és a helyszíni szerelés mind a miénk, a csarnok kivitelezését
-                nem több alvállalkozóra bontjuk — egy kézből, egy menetrendből történik, Heves
+                Mivel a műhely, a daru és a helyszíni csapat mind a miénk, a felújítást nem több
+                alvállalkozóra bontjuk — egy menetrendből, egy felelőstől történik, Egerben és Heves
                 vármegyében.
               </p>
               <a className="pill" href="/#kapcsolat">
@@ -129,81 +131,46 @@ function CsarnokepitesHevesVarmegye() {
           <div className="sk"></div>
           <div className="wrap">
             <div className="ctr" style={{ maxWidth: 720, margin: "0 auto" }}>
-              <h2>A váztól a kész csarnokig.</h2>
+              <h2>Hogyan zajlik egy felújítás?</h2>
               <p style={{ marginTop: 16 }}>
-                A csarnokot négy lépésben építjük — az acélváz műhelyi gyártásától a
-                szendvicspaneles burkolásig és a tetőszerkezet szereléséig.
+                A felújítást felméréssel és előkészítéssel indítjuk, majd a kivitelezést és a
+                befejező munkálatokat egy menetrendből végezzük.
               </p>
             </div>
             <div className="wl">
               <div className="wr">
-                <h3>1. Acélváz gyártása</h3>
+                <h3>1. Felmérés és tervezés</h3>
                 <p>
-                  A csarnok acélvázát — oszlopokat, gerendákat, kötőelemeket — saját műhelyünkben
-                  gyártjuk: méretre vágjuk, hegesztjük és festjük.
+                  Helyszíni felmérés után egyeztetjük a munkák körét és sorrendjét — a kisebb
+                  javításoktól a teljes felújításig.
                 </p>
               </div>
               <div className="wr">
-                <h3>2. Helyszíni felállítás</h3>
+                <h3>2. Előkészítés</h3>
                 <p>
-                  A kész acélvázat darus teherautónkkal szállítjuk és a helyszínen felállítjuk,
-                  rögzítjük — a szállítás és a szerelés összehangoltan történik.
+                  Falak, burkolatok és felületek előkészítése: bontás, gipszelés, vakolás, alapozás
+                  — a megfelelő alap a tartós kivitelezéshez.
                 </p>
               </div>
               <div className="wr">
-                <h3>3. Szendvicspaneles burkolás</h3>
+                <h3>3. Kivitelezés</h3>
                 <p>
-                  A felállított vázat szendvicspanelekkel burkoljuk — falak és héjazat a
-                  hőszigetelt, kész burkolatig.
+                  Belső és külső munkák kivitelezése: burkolás, festés, korszerűsítés — a lakatos-
+                  és acélmunkákat saját műhelyből egészítjük ki.
                 </p>
               </div>
               <div className="wr">
-                <h3>4. Tetőszerkezet szerelése</h3>
+                <h3>4. Befejezés és karbantartás</h3>
                 <p>
-                  A tetőszerkezetet beépítjük, rögzítjük — így a csarnok a váztól a fedélig egy
-                  kivitelezőtől készül el.
+                  A befejező munkálatok és az átadás után karbantartást is vállalunk, hogy az
+                  ingatlan állapota hosszan megmaradjon.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Why one contractor */}
-        <section className="wrap" style={{ paddingBlock: "clamp(64px,8vw,120px)" }}>
-          <div className="ctr" style={{ maxWidth: 720, margin: "0 auto" }}>
-            <h2>Miért érdemes egy kivitelezőt?</h2>
-            <p className="lead" style={{ marginTop: 20 }}>
-              A csarnoképítésnél a műhely, a daru és a helyszíni munka gyakran külön kivitelezőhöz
-              tartozik. Nálunk mind egy kézből történik — és ez egyszerűbbé teszi a teljes
-              projektet.
-            </p>
-          </div>
-          <div className="mx" style={{ marginTop: "clamp(36px,5vw,64px)" }}>
-            <div className="cd">
-              <h3>Saját műhely</h3>
-              <p>
-                Az acélvázat a saját műhelyünkben gyártjuk, így a vágástól a hegesztésig és a
-                festésig minden nálunk készül — nem külsős gyártóra bízzuk.
-              </p>
-            </div>
-            <div className="cd">
-              <h3>Saját darus gép</h3>
-              <p>
-                A felállítást és a beemelést saját darus teherautóval végezzük, így a szállítás és a
-                szerelés menetrendjét a projekthez igazítjuk — nem külsős gépre várunk.
-              </p>
-            </div>
-            <div className="cd">
-              <h3>Egy helyszíni csapat</h3>
-              <p>
-                A helyszíni szerelést, a burkolást és a tető beépítését ugyanaz a csapat végzi — egy
-                kapcsolattartó, egy menetrend, egy felelős a váztól a kész csarnokig.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Gallery */}
+        {/* Gallery — 3 cards */}
         <section
           className="wrap"
           style={{
@@ -211,7 +178,7 @@ function CsarnokepitesHevesVarmegye() {
           }}
         >
           <div className="ctr" style={{ maxWidth: 720, margin: "0 auto" }}>
-            <h2>Csarnoképítés a műhelytől a helyszínig.</h2>
+            <h2>Felújítási munkáinkból.</h2>
           </div>
           <div className="gr" style={{ marginTop: "clamp(28px,4vw,48px)" }}>
             <figure className="pj">
@@ -219,31 +186,16 @@ function CsarnokepitesHevesVarmegye() {
                 <img
                   loading="lazy"
                   src={PLACEHOLDER}
-                  data-src={FOUNDATION_KEY}
-                  alt="Alapozás és betonozás — ipari csarnok kivitelezése Heves vármegyében"
+                  data-src={EXTERIOR_KEY}
+                  alt="Külső felújítás kivitelezés közben — homlokzat előkészítése és javítása"
                 />
               </div>
               <figcaption>
-                <small>Csarnoképítés</small>
-                <b>Ipari csarnok kivitelezése</b>
-                <span>Acélvázas ipari csarnok kivitelezése az alapozástól a kész szerkezetig.</span>
-              </figcaption>
-            </figure>
-            <figure className="pj">
-              <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={ONSITE_KEY}
-                  alt="Helyszíni acélszerelés és felállítás darus teherautóval"
-                />
-              </div>
-              <figcaption>
-                <small>Helyszíni szerelés</small>
-                <b>Helyszíni acélszerelés és felállítás</b>
+                <small>Külső felújítás</small>
+                <b>Külső felújítás kivitelezés közben</b>
                 <span>
-                  A műhelyben gyártott acélszerkezet darus teherautóval történő helyszíni
-                  felállítása és rögzítése.
+                  Családi ház külső felújítási és kivitelezési munkái folyamat közben — homlokzati
+                  javítás, előkészítés és befejezés.
                 </span>
               </figcaption>
             </figure>
@@ -252,16 +204,34 @@ function CsarnokepitesHevesVarmegye() {
                 <img
                   loading="lazy"
                   src={PLACEHOLDER}
-                  data-src={BUILT_KEY}
-                  alt="Acélvázas ipari csarnok építése — csarnoképítés Heves vármegyében"
+                  data-src={FACADE_KEY}
+                  alt="Lakóingatlan külső felújítása — javítás és korszerűsítés"
                 />
               </div>
               <figcaption>
-                <small>Kész csarnok</small>
-                <b>Elkészült acélvázas csarnok</b>
+                <small>Külső felújítás</small>
+                <b>Lakóingatlan külső felújítása</b>
                 <span>
-                  A felállított acélváztól a kész csarnokig — teherhordó acélszerkezet egy
-                  kivitelezőtől.
+                  Lakóingatlan külső javítási, korszerűsítési és befejező munkálatai — a felületek
+                  előkészítésétől a kész burkolatig.
+                </span>
+              </figcaption>
+            </figure>
+            <figure className="pj">
+              <div className="im">
+                <img
+                  loading="lazy"
+                  src={PLACEHOLDER}
+                  data-src={FINISHED_KEY}
+                  alt="Felújított ingatlan kész állapotban — óvoda felújítása"
+                />
+              </div>
+              <figcaption>
+                <small>Kész felújítás</small>
+                <b>Felújított ingatlan</b>
+                <span>
+                  Felújított és korszerűsített ingatlan kész állapotban — a javítástól a befejező
+                  munkálatokig egy kézből.
                 </span>
               </figcaption>
             </figure>
@@ -272,21 +242,21 @@ function CsarnokepitesHevesVarmegye() {
         <section className="band">
           <img loading="lazy" src={PLACEHOLDER} data-src={HERO_KEY} alt="" />
           <div className="ghost" aria-hidden="true">
-            Csarnoképítés
+            Felújítás
           </div>
           <div className="wrap bc">
             <div className="slc">
               <h3>Saját műhely, saját daru</h3>
               <p style={{ margin: 0, padding: "0 4px" }}>
-                A váztól a fedélig minden nálunk készül.
+                A felújítást a saját gépparkunk támogatja.
               </p>
             </div>
             <div className="bt">
-              <h2>Egy csarnok, egy kivitelező.</h2>
+              <h2>Egy felújítás, egy kivitelező.</h2>
               <p className="lead">
-                Az acélváz gyártásától a felállításon és a szendvicspaneles burkoláson át a
-                tetőszerkezet beépítéséig minden saját kézben van — így a csarnok kivitelezése egy
-                menetrendből, egy felelőstől történik.
+                A belső és külső munkáktól a lakatos- és acélmunkákig mindent egy kézből végzünk —
+                így a felújítás egy menetrendből, egy felelőstől történik, Egerben és Heves
+                vármegyében.
               </p>
             </div>
           </div>
@@ -296,9 +266,9 @@ function CsarnokepitesHevesVarmegye() {
         <section className="wrap" style={{ paddingBlock: "clamp(56px,7vw,110px)" }}>
           <div className="fq">
             <div>
-              <h2>Gyakori kérdések a csarnoképítésről.</h2>
+              <h2>Gyakori kérdések a felújításról.</h2>
               <p className="lead" style={{ marginTop: 20 }}>
-                A leggyakoribb kérdések az ipari csarnokok kivitelezésével kapcsolatban.
+                A leggyakoribb kérdések a felújítási és karbantartási munkákról.
               </p>
               <div className="sup">
                 <b>Kérdése van?</b>
@@ -312,32 +282,31 @@ function CsarnokepitesHevesVarmegye() {
             </div>
             <div>
               <details>
-                <summary>Mit vállal a csarnoképítésnél?</summary>
+                <summary>Milyen felújítási munkákat vállal?</summary>
                 <p>
-                  Az acélvázas épület teljes kivitelezését — az acélváz műhelyi gyártásától a
-                  helyszíni felállításon és a szendvicspaneles burkoláson át a tetőszerkezet
-                  beépítéséig.
+                  Magán- és ipari ingatlanok belső és külső felújítását, karbantartását, javítását
+                  és korszerűsítését — a kisebb javításoktól a teljes felújításig.
                 </p>
               </details>
               <details>
-                <summary>Saját daruval dolgoznak a helyszínen?</summary>
+                <summary>A lakatos- és acélmunkákat is elvégzi?</summary>
                 <p>
-                  Igen. A felállítást és a beemelést saját darus teherautóval végezzük, így a
-                  szállítást és a helyszíni szerelést egy menetrendhez igazítjuk.
+                  Igen. A felújítás során felmerülő lakatos- és acélszerkezeti munkákat saját
+                  műhelyünkben gyártjuk és a helyszínen szereljük — egy kivitelezőtől.
                 </p>
               </details>
               <details>
-                <summary>Heves vármegyében vállal csarnoképítést?</summary>
+                <summary>Egerben és Heves vármegyében vállal felújítást?</summary>
                 <p>
-                  Igen, Egerben és Heves vármegyében vállaljuk ipari csarnokok acélvázas
-                  kivitelezését — saját műhelyből, saját darus géppel.
+                  Igen, Egerben és Heves vármegyében vállalunk felújítási és karbantartási munkákat
+                  — saját műhelyből és darus géppel.
                 </p>
               </details>
               <details>
-                <summary>Hogyan kérhetek ajánlatot csarnoképítésre?</summary>
+                <summary>Hogyan kérhetek ajánlatot felújításra?</summary>
                 <p>
                   Telefonáljon a {PHONE}-as számon, vagy töltse ki az ajánlatkérő űrlapot a
-                  főoldalon. A csarnok méretét és a kivitelezés részleteit egyeztetjük.
+                  főoldalon. A munkák körét és sorrendjét egyeztetjük.
                 </p>
               </details>
             </div>
@@ -353,10 +322,10 @@ function CsarnokepitesHevesVarmegye() {
         >
           <div className="ct">
             <div>
-              <h2>Kérjen ajánlatot csarnoképítésre.</h2>
+              <h2>Kérjen ajánlatot felújításra.</h2>
               <p className="lead" style={{ marginTop: 24 }}>
-                Vegye fel velünk a kapcsolatot, és megbeszéljük a csarnok kivitelezésének
-                részleteit. Hívjon, vagy töltse ki az űrlapot.
+                Vegye fel velünk a kapcsolatot, és megbeszéljük a felújítás részleteit. Hívjon, vagy
+                töltse ki az űrlapot.
               </p>
               <a className="row" href="tel:+36705760108">
                 <span className="go">→</span>
@@ -367,13 +336,13 @@ function CsarnokepitesHevesVarmegye() {
               </a>
             </div>
             <QuoteForm
-              formId="ajanlatkeres-csarnokepites-heves-varmegye"
-              formName="Ajánlatkérő űrlap – Csarnoképítés Heves vármegye"
+              formId="ajanlatkeres-felujitas-es-karbantartas"
+              formName="Ajánlatkérő űrlap – Felújítás és karbantartás"
             />
           </div>
         </section>
 
-        <RelatedServices exclude="/csarnokepites-heves-varmegye" />
+        <RelatedServices exclude="/felujitas-es-karbantartas" />
       </main>
 
       {/* Footer */}
@@ -403,7 +372,7 @@ function CsarnokepitesHevesVarmegye() {
               <a href="/lakatosmunka-eger">Lakatosmunkák</a>
               <a href="/acelszerkezet-gyartas-eger">Acélszerkezetek</a>
               <a href="/daruzas-es-fuvarozas-eger">Daruzás és fuvarozás</a>
-              <a href="/csarnokepites-heves-varmegye">Csarnoképítés</a>
+              <a href="/felujitas-es-karbantartas">Felújítás és karbantartás</a>
               <a href="/szolgaltatasok">Kivitelezés</a>
             </div>
             <div>

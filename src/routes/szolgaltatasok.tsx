@@ -67,15 +67,7 @@ function Szolgaltatasok() {
         "Építőanyagok, nehézgépek, csarnok- és betonelemek darus rakodása és szállítása saját MAN darus teherautóval.",
     },
     {
-      href: "/csarnokepites-heves-varmegye",
-      title: "Csarnoképítés",
-      img: "images/csarnok-epites",
-      alt: "Acélvázas ipari csarnok építése — csarnoképítés Heves vármegyében",
-      summary:
-        "Acélvázas ipari csarnokok kivitelezése, szendvicspaneles burkolás és tetőszerkezetek szerelése.",
-    },
-    {
-      href: "/csarnokepites-heves-varmegye",
+      href: "/felujitas-es-karbantartas",
       title: "Felújítás és karbantartás",
       img: "images/08-felujitott-lakoter-uj-burkolattal.jpg",
       alt: "Felújított lakótér új burkolattal — felújítás és karbantartás",
@@ -306,7 +298,7 @@ function Szolgaltatasok() {
               <a href="/lakatosmunka-eger">Lakatosmunkák</a>
               <a href="/acelszerkezet-gyartas-eger">Acélszerkezetek</a>
               <a href="/daruzas-es-fuvarozas-eger">Daruzás és fuvarozás</a>
-              <a href="/csarnokepites-heves-varmegye">Csarnoképítés</a>
+              <a href="/felujitas-es-karbantartas">Felújítás és karbantartás</a>
               <a href="/szolgaltatasok">Összes szolgáltatás</a>
             </div>
             <div>

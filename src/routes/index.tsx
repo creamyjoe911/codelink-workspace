@@ -76,7 +76,7 @@ function Grandnatural() {
     );
     html = html.replace(
       /<article class="sc">(<img loading="lazy" src="images\/10-acelvaz-szerelese-darus-teherautoval\.jpg"[\s\S]*?)<\/article>/,
-      '<a class="sc" style="text-decoration:none" href="/csarnokepites-heves-varmegye">$1</a>',
+      '<a class="sc" style="text-decoration:none" href="/felujitas-es-karbantartas">$1</a>',
     );
     // Add a hub link ("Összes szolgáltatás") into the services section header
     // so the homepage services section links to the Szolgáltatások hub page.
