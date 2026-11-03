@@ -230,9 +230,10 @@ function LakatosmunkaEger() {
             <div className="bt">
               <h2>A saját darunk, saját kézben.</h2>
               <p className="lead">
-                A lakatosmunkát saját műhelyünkben gyártjuk, és darus teherautónkkal a helyszínen
-                szereljük be — a méretezéstől a beépítésig minden egy kézből. Mivel a daru a
-                sajátunk, a menetrendet és a munkát a miénkhez igazítjuk.
+                A kapukat, korlátokat és lépcsőket a saját műhelyünkben méretre vágjuk és
+                hegesztjük, a kész szerkezetet darus teherautónkkal szállítjuk és a helyszínen
+                építjük be — a méretezéstől a beépítésig. Így a lakatosmunka és a helyszíni szerelés
+                egy kézből, egy menetrendből történik; nem kell utólag darut vagy szerelőt keresnie.
               </p>
             </div>
           </div>

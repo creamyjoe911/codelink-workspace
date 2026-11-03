@@ -248,10 +248,10 @@ function FelujitasEsKarbantartas() {
             <div className="bt">
               <h2>A saját darunk, saját kézben.</h2>
               <p className="lead">
-                A felújítás során felmerülő lakatos- és acélmunkákat saját műhelyünkben gyártjuk, és
-                darus teherautónkkal a helyszínen szereljük be. Mivel a műhely, a daru és a
-                helyszíni csapat mind a miénk, a felújítást nem több alvállalkozóra bontjuk — egy
-                menetrendből, egy felelőstől.
+                A felújítás során felmerülő kapukat, korlátokat, lépcsőket és acélmunkákat a saját
+                műhelyünkben gyártjuk, darus teherautónkkal szállítjuk és a helyszínen szereljük be.
+                A műhely, a daru és a helyszíni csapat mind a miénk — így a felújítást nem több
+                alvállalkozóra bontjuk, hanem egy menetrendből, egy felelőstől végigviszik.
               </p>
             </div>
           </div>

@@ -277,9 +277,10 @@ function AcelszerekezetGyartasEger() {
             <div className="bt">
               <h2>A saját darunk, saját kézben.</h2>
               <p className="lead">
-                Az acélszerkezetet saját műhelyünkben gyártjuk, és darus teherautónkkal a helyszínen
-                szereljük be — a nyersacéltól a beépítésig minden egy kézből. Mivel a daru a
-                sajátunk, a menetrendet és a munkát a miénkhez igazítjuk.
+                Az acélszerkezetet a saját műhelyünkben vágjuk, hegesztjük és festjük, majd darus
+                teherautónkkal szállítjuk és a helyszínen építjük be — a nyersacéltól a felállásig.
+                Mivel a gyártás, a daru és a szerelés mind nálunk marad, nem kell külön műhelyt és
+                darut keresnie: egy felelőstől, egy menetrendből kapja az egészet.
               </p>
             </div>
           </div>
