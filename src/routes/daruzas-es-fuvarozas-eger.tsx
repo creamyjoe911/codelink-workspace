@@ -44,7 +44,7 @@ function DaruzasEsFuvarozasEger() {
   // The hero is the only above-the-fold photo, so it is inlined for an
   // immediate first paint; every other photo on this page is lazy-loaded.
   const logoImg = SITE_LOGO_SVG;
-  const heroImg = HERO_KEY;
+  const heroImg = "/images/grandnatural-hero.webp";
   useLazyImages(rootRef);
 
   return (
