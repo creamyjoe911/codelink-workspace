@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from "react";
 // Brand logo — the user's uploaded vector SVG (monochrome, works on any
 // background). Served as a static file so site-nav pulls in no inline image
 // data. The `.nav img` rule (height:30px) constrains its display size.
-export const SITE_LOGO_SVG = "/images/logo.webp";
+export const SITE_LOGO_SVG = "/images/grandnatural-logo.svg";
 
 const SERVICE_LINKS = [
   { href: "/lakatosmunka-eger", label: "Lakatosmunka" },

@@ -99,8 +99,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         rel: "icon",
-        type: "image/webp",
-        href: "/images/logo.webp",
+        type: "image/svg+xml",
+        href: "/images/grandnatural-logo.svg",
       },
       {
         rel: "stylesheet",
