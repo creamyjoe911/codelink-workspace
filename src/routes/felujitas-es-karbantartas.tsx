@@ -238,6 +238,31 @@ function FelujitasEsKarbantartas() {
           </div>
         </section>
 
+        {/* Band — A saját darunk, saját kézben */}
+        <section className="band">
+          <img loading="lazy" src={PLACEHOLDER} data-src={HERO_KEY} alt="" />
+          <div className="ghost" aria-hidden="true">
+            Felújítás
+          </div>
+          <div className="wrap bc">
+            <div className="slc">
+              <h3>Saját műhely, saját daru</h3>
+              <p style={{ margin: 0, padding: "0 4px" }}>
+                A felújítást és a karbantartást saját műhelyünk és darunk támogatja — egy kézből.
+              </p>
+            </div>
+            <div className="bt">
+              <h2>A saját darunk, saját kézben.</h2>
+              <p className="lead">
+                A felújítás során felmerülő lakatos- és acélmunkákat saját műhelyünkben gyártjuk, és
+                darus teherautónkkal a helyszínen szereljük be. Mivel a műhely, a daru és a
+                helyszíni csapat mind a miénk, a felújítást nem több alvállalkozóra bontjuk — egy
+                menetrendből, egy felelőstől.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="wrap" style={{ paddingBlock: "clamp(56px,7vw,110px)" }}>
           <div className="fq">

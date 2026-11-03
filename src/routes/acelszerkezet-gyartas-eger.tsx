@@ -267,6 +267,30 @@ function AcelszerekezetGyartasEger() {
           </div>
         </section>
 
+        {/* Band — A saját darunk, saját kézben */}
+        <section className="band">
+          <img loading="lazy" src={PLACEHOLDER} data-src={HERO_KEY} alt="" />
+          <div className="ghost" aria-hidden="true">
+            Acél
+          </div>
+          <div className="wrap bc">
+            <div className="slc">
+              <h3>Saját műhely, saját daru</h3>
+              <p style={{ margin: 0, padding: "0 4px" }}>
+                Az acélszerkezetet a saját műhelyünkben gyártjuk, és saját darussal szereljük be.
+              </p>
+            </div>
+            <div className="bt">
+              <h2>A saját darunk, saját kézben.</h2>
+              <p className="lead">
+                Az acélszerkezetet saját műhelyünkben gyártjuk, és darus teherautónkkal a helyszínen
+                szereljük be — a nyersacéltól a beépítésig minden egy kézből. Mivel a daru a
+                sajátunk, a menetrendet és a munkát a miénkhez igazítjuk.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="wrap" style={{ paddingBlock: "clamp(56px,7vw,110px)" }}>
           <div className="fq">
