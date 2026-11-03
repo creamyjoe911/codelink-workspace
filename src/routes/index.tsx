@@ -44,7 +44,9 @@ export const Route = createFileRoute("/")({
 // hero (headline "Építőipari megoldások"), never the references hero (.hero.sm).
 // Appended after SITE_CSS so later source order wins for equal specificity.
 const HERO_OVERRIDE_CSS = `
-.hero:not(.sm)::before{background:linear-gradient(90deg,rgba(0,0,0,.75),rgba(0,0,0,.55) 40%,rgba(0,0,0,0) 70%)}
+.hero:not(.sm)::before{background:none}
+.hero:not(.sm) .ovl{position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.55) 40%,rgba(0,0,0,0) 70%)}
+.hero:not(.sm) .hin,.hero:not(.sm) .badge{z-index:2}
 .hero:not(.sm) .hin{max-width:46%;margin-inline:0}
 .hero:not(.sm) .hin h1{font-size:clamp(48px,7vw,104px);line-height:.95;letter-spacing:-.03em;margin:0 0 40px;text-shadow:none}
 .hero:not(.sm) .hin h1 span{display:block}
@@ -55,8 +57,10 @@ const HERO_OVERRIDE_CSS = `
 .hero:not(.sm) .badge span{font-size:16px;line-height:1.2;color:#fff;font-weight:600}
 @media(max-width:960px){
 .hero:not(.sm){padding-inline:20px}
-.hero:not(.sm)::before{background:rgba(0,0,0,.6)}
 .hero:not(.sm) .hin{max-width:100%}
+}
+@media(max-width:768px){
+.hero:not(.sm) .ovl{background:rgba(0,0,0,.6)}
 }
 `;
 
@@ -89,6 +93,14 @@ function Grandnatural() {
     html = html.replace(
       "<p>Építés, felújítás, acélszerkezetek és egyedi kivitelezési munkák Egerben és Heves vármegyében.</p>",
       "<p>Építés, felújítás, acélszerkezetek és egyedi kivitelezés Egerben és Heves vármegyében.</p>",
+    );
+    // Hero overlay: one empty div placed directly above the background photo
+    // and below the text content, carrying the darkening gradient. The CSS in
+    // HERO_OVERRIDE_CSS gives it z-index:1 (above the bg img) and lifts the
+    // text column + badge to z-index:2 so they sit above it.
+    html = html.replace(
+      'alt="Grandnatural darus teherautója és géppark">',
+      'alt="Grandnatural darus teherautója és géppark"><div class="ovl" aria-hidden="true"></div>',
     );
     // Turn the four service cards in the scroll section into links to their pages.
     // Run before the image-src → data-URI swap so the filenames are still intact.
