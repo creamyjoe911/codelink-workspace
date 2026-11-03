@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
-import { SITE_INLINE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
+import { useRef } from "react";
+import { SITE_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
@@ -35,47 +35,18 @@ export const Route = createFileRoute("/daruzas-es-fuvarozas-eger")({
 const PHONE = "+36 70 576 0108";
 const HERO_KEY = "/images/daruzas-es-fuvarozas-eger-background.webp";
 const TRUCK_KEY = "/images/daruzas-es-fuvarozas-eger-background.webp";
+const MAN_KEY = "images/13-man-teherauto-fulkeje-felujitas-utan.jpg";
 const LIFT_KEY = "images/06-daruval-emelt-betonlap.jpg";
 const INSTALL_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
-const BEFORE_KEY = "images/12-man-teherauto-fulkeje-felujitas-elott.jpg";
-const AFTER_KEY = "images/13-man-teherauto-fulkeje-felujitas-utan.jpg";
 
 function DaruzasEsFuvarozasEger() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const [cmpReady, setCmpReady] = useState(false);
 
   // The hero is the only above-the-fold photo, so it is inlined for an
   // immediate first paint; every other photo on this page is lazy-loaded.
   const logoImg = SITE_LOGO_SVG;
   const heroImg = HERO_KEY;
   useLazyImages(rootRef);
-
-  // ---- Before/after slider (MAN fülke) ----
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-
-    const rng = root.querySelector<HTMLInputElement>("#rng2");
-    const aft = root.querySelector<HTMLElement>("#aft2");
-    const bar = root.querySelector<HTMLElement>("#bar2");
-    const t1 = root.querySelector<HTMLElement>("#t1b");
-    const t2 = root.querySelector<HTMLElement>("#t2b");
-    const slider = () => {
-      if (!rng || !aft || !bar) return;
-      const v = +rng.value;
-      aft.style.clipPath = `inset(0 0 0 ${v}%)`;
-      bar.style.left = `${v}%`;
-      if (t1) t1.style.opacity = v < 12 ? "0" : "1";
-      if (t2) t2.style.opacity = v > 88 ? "0" : "1";
-    };
-    rng?.addEventListener("input", slider);
-    slider();
-    setCmpReady(true);
-
-    return () => {
-      rng?.removeEventListener("input", slider);
-    };
-  }, []);
 
   return (
     <div className="grandnatural-root" ref={rootRef}>
@@ -191,7 +162,7 @@ function DaruzasEsFuvarozasEger() {
           </div>
         </section>
 
-        {/* Before/after — MAN fülke */}
+        {/* Band — A saját darunk, saját kézben */}
         <section className="band">
           <img loading="lazy" src={PLACEHOLDER} data-src={TRUCK_KEY} alt="" />
           <div className="ghost" aria-hidden="true">
@@ -199,45 +170,17 @@ function DaruzasEsFuvarozasEger() {
           </div>
           <div className="wrap bc">
             <div className="slc">
-              <h3>MAN fülke: előtte és utána</h3>
-              <div className="cmp">
-                <img
-                  id="bef2"
-                  src={PLACEHOLDER}
-                  data-src={BEFORE_KEY}
-                  alt="MAN darus teherautó fülkéje felújítás előtt"
-                />
-                <img
-                  id="aft2"
-                  src={PLACEHOLDER}
-                  data-src={AFTER_KEY}
-                  alt="MAN darus teherautó fülkéje felújítás után"
-                />
-                <span className="tag" id="t1b" style={{ left: "12px" }}>
-                  Előtte
-                </span>
-                <span className="tag" id="t2b" style={{ right: "12px" }}>
-                  Utána
-                </span>
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="50"
-                  id="rng2"
-                  aria-label="MAN fülke előtte és utána összehasonlítás"
-                />
-                <div className="bar" id="bar2">
-                  <i>↔</i>
-                </div>
-              </div>
-              {cmpReady ? null : null}
+              <h3>Saját darus teherautó</h3>
+              <p style={{ margin: 0, padding: "0 4px" }}>
+                A daru a sajátunk — a rakodást és a szállítást egy menetrendből végezzük.
+              </p>
             </div>
             <div className="bt">
               <h2>A saját darunk, saját kézben.</h2>
               <p className="lead">
-                A darus teherautónk fülkéjét mi újítottuk fel — az előkészítéstől az elkészült
-                állapotig. Húzza a csúszkát az összehasonlításhoz.
+                A darus teherautónk fülkéjét is mi újítottuk fel — az előkészítéstől az elkészült
+                állapotig. Mivel a daru a sajátunk, a menetrendet és a munkát a miénkhez igazítjuk,
+                nem külsős géptől függünk.
               </p>
             </div>
           </div>
@@ -327,8 +270,8 @@ function DaruzasEsFuvarozasEger() {
                 <img
                   loading="lazy"
                   src={PLACEHOLDER}
-                  data-src={TRUCK_KEY}
-                  alt="Grandnatural MAN darus teherautója — daruzás és fuvarozás Egerben"
+                  data-src={MAN_KEY}
+                  alt="MAN darus teherautó fülkéje felújítás után — daruzás és fuvarozás Egerben"
                 />
               </div>
               <figcaption>

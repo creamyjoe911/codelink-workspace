@@ -140,4 +140,9 @@ export const SITE_LAZY_IMAGES: Record<string, SiteImage> = {
     width: 800,
     height: 600,
   },
+  "images/csarnok-epites": {
+    src: "/images/csarnok-epites.webp",
+    width: 2048,
+    height: 1536,
+  },
 };

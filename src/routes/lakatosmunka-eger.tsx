@@ -33,10 +33,10 @@ export const Route = createFileRoute("/lakatosmunka-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/05-nyers-acel-lemez-a-muhelyben.jpg";
+const HERO_KEY = "images/04-elkeszult-piros-festett-platooldal.jpg";
 const PAINTED_KEY = "images/04-elkeszult-piros-festett-platooldal.jpg";
 const CUSTOM_KEY = "images/11-egyedi-platooldal.jpg";
-const INSTALL_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
+const INSTALL_KEY = "images/14-hegesztett-acel-konzol.jpg";
 
 function LakatosmunkaEger() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -62,7 +62,7 @@ function LakatosmunkaEger() {
             className="bg"
             src={PLACEHOLDER}
             data-src={HERO_KEY}
-            alt="Nyers acél lemez a műhelyben — lakatosmunka Egerben"
+            alt="Elkészült, piros festett platóoldal — lakatosmunka Egerben"
           />
           <div className="hin">
             <ServiceBreadcrumb current="Lakatosmunka Eger" />
@@ -173,8 +173,8 @@ function LakatosmunkaEger() {
                 <img
                   loading="lazy"
                   src={PLACEHOLDER}
-                  data-src={PAINTED_KEY}
-                  alt="Elkészült, piros festett platóoldal — lakatosmunka Egerben"
+                  data-src={CUSTOM_KEY}
+                  alt="Egyedi lakatosmunkával készült platóoldal — lakatosmunka Egerben"
                 />
               </div>
               <figcaption>
@@ -204,13 +204,15 @@ function LakatosmunkaEger() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={INSTALL_KEY}
-                  alt="Acélváz szerelése darus teherautóval a helyszínen"
+                  alt="Hegesztett acél konzol — műhelyi lakatosmunka"
                 />
               </div>
               <figcaption>
-                <small>Helyszíni szerelés</small>
-                <b>Acélváz szerelése</b>
-                <span>A kész szerkezet darus teherautóval történő helyszíni beépítése.</span>
+                <small>Műhelyi hegesztés</small>
+                <b>Hegesztett acél konzol</b>
+                <span>
+                  Acél konzol méretre vágása, hegesztése és összeállítása a saját műhelyünkben.
+                </span>
               </figcaption>
             </figure>
           </div>

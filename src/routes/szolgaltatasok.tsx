@@ -33,7 +33,7 @@ export const Route = createFileRoute("/szolgaltatasok")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
+const HERO_KEY = "images/csarnok-epites";
 
 function Szolgaltatasok() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -69,10 +69,18 @@ function Szolgaltatasok() {
     {
       href: "/csarnokepites-heves-varmegye",
       title: "Csarnoképítés",
-      img: "images/07-alapozas-betonozasa.jpg",
-      alt: "Alapozás és betonozás — csarnoképítés Heves vármegyében",
+      img: "images/csarnok-epites",
+      alt: "Acélvázas ipari csarnok építése — csarnoképítés Heves vármegyében",
       summary:
         "Acélvázas ipari csarnokok kivitelezése, szendvicspaneles burkolás és tetőszerkezetek szerelése.",
+    },
+    {
+      href: "/csarnokepites-heves-varmegye",
+      title: "Felújítás és karbantartás",
+      img: "images/08-felujitott-lakoter-uj-burkolattal.jpg",
+      alt: "Felújított lakótér új burkolattal — felújítás és karbantartás",
+      summary:
+        "Magán- és ipari ingatlanok felújítása, karbantartása, javítási és korszerűsítési munkálatok.",
     },
   ];
 
@@ -167,19 +175,21 @@ function Szolgaltatasok() {
             <div className="mx" style={{ marginTop: "clamp(36px,5vw,64px)" }}>
               {services.map((s) => (
                 <a
-                  key={s.href}
-                  className="cd cd-link"
+                  key={s.href + s.title}
+                  className="pj"
                   href={s.href}
                   style={{ textDecoration: "none" }}
                 >
                   <div className="im">
                     <img loading="lazy" src={PLACEHOLDER} data-src={s.img} alt={s.alt} />
                   </div>
-                  <h3>{s.title}</h3>
-                  <p>{s.summary}</p>
-                  <span className="pill" style={{ marginTop: 12 }}>
-                    Részletek<i>→</i>
-                  </span>
+                  <figcaption>
+                    <h3>{s.title}</h3>
+                    <p>{s.summary}</p>
+                    <span className="pill" style={{ marginTop: 12 }}>
+                      Részletek<i>→</i>
+                    </span>
+                  </figcaption>
                 </a>
               ))}
             </div>

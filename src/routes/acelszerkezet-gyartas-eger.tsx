@@ -33,8 +33,8 @@ export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
-const INTRO_KEY = "images/05-nyers-acel-lemez-a-muhelyben.jpg";
+const HERO_KEY = "images/csarnok-epites";
+const INTRO_KEY = "images/15-lemez-osszeallitasa.jpg";
 const HEAVY_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
 const WELDED_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
 
@@ -62,7 +62,7 @@ function AcelszerekezetGyartasEger() {
             className="bg"
             src={PLACEHOLDER}
             data-src={HERO_KEY}
-            alt="Elkészült acélvázas ipari csarnok — acélszerkezet gyártás Egerben"
+            alt="Acélvázas ipari csarnok építése — acélszerkezet gyártás Egerben"
           />
           <div className="hin">
             <ServiceBreadcrumb current="Acélszerkezet gyártás Eger" />
@@ -95,7 +95,7 @@ function AcelszerekezetGyartasEger() {
                 loading="lazy"
                 src={PLACEHOLDER}
                 data-src={INTRO_KEY}
-                alt="Nyers acél lemez a műhelyben — acélszerkezet gyártás előkészítése"
+                alt="Acél lemez összeállítása a műhelyben — acélszerkezet gyártás"
               />
               <div className="stat">
                 <b>16+</b>
@@ -251,15 +251,15 @@ function AcelszerekezetGyartasEger() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={INTRO_KEY}
-                  alt="Nyers acél lemez a műhelyben — acélszerkezet gyártás előkészítése"
+                  alt="Acél lemez összeállítása a műhelyben — acélszerkezet gyártás"
                 />
               </div>
               <figcaption>
-                <small>Műhelyi előkészítés</small>
-                <b>Nyersacél a műhelyben</b>
+                <small>Műhelyi összeállítás</small>
+                <b>Lemez összeállítása</b>
                 <span>
-                  Az acélszerkezet gyártása a nyersacél lemezek méretre vágásával és előkészítésével
-                  indul.
+                  A vágott és hegesztett acél lemezek összeállítása a saját műhelyünkben — a kész
+                  szerkezetig.
                 </span>
               </figcaption>
             </figure>

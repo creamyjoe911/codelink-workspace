@@ -75,7 +75,7 @@ function Grandnatural() {
       '<a class="sc" style="text-decoration:none" href="/daruzas-es-fuvarozas-eger">$1</a>',
     );
     html = html.replace(
-      /<article class="sc">(<img loading="lazy" src="images\/07-alapozas-betonozasa\.jpg"[\s\S]*?)<\/article>/,
+      /<article class="sc">(<img loading="lazy" src="images\/10-acelvaz-szerelese-darus-teherautoval\.jpg"[\s\S]*?)<\/article>/,
       '<a class="sc" style="text-decoration:none" href="/csarnokepites-heves-varmegye">$1</a>',
     );
     // Add a hub link ("Összes szolgáltatás") into the services section header

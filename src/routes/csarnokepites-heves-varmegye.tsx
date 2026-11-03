@@ -33,9 +33,10 @@ export const Route = createFileRoute("/csarnokepites-heves-varmegye")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/17-ipari-csarnok-kivitelezese.jpg";
-const BUILT_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
-const ONSITE_KEY = "images/18-helyszini-acelszereles-es-felallitas.jpg";
+const HERO_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
+const BUILT_KEY = "images/csarnok-epites";
+const ONSITE_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
+const FOUNDATION_KEY = "images/03-betonozas-az-alapon-mogotte-ket-betonkev.jpg";
 
 function CsarnokepitesHevesVarmegye() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -63,7 +64,7 @@ function CsarnokepitesHevesVarmegye() {
             className="bg"
             src={PLACEHOLDER}
             data-src={HERO_KEY}
-            alt="Ipari csarnok kivitelezése — acélvázas csarnoképítés Heves vármegyében"
+            alt="Elkészült acélvázas ipari csarnok — csarnoképítés Heves vármegyében"
           />
           <div className="hin">
             <ServiceBreadcrumb current="Csarnoképítés Heves vármegye" />
@@ -96,7 +97,7 @@ function CsarnokepitesHevesVarmegye() {
                 loading="lazy"
                 src={PLACEHOLDER}
                 data-src={BUILT_KEY}
-                alt="Elkészült acélvázas ipari csarnok — teherhordó acélvázas csarnoképítés"
+                alt="Acélvázas ipari csarnok építése — csarnoképítés Heves vármegyében"
               />
               <div className="stat">
                 <b>16+</b>
@@ -218,16 +219,14 @@ function CsarnokepitesHevesVarmegye() {
                 <img
                   loading="lazy"
                   src={PLACEHOLDER}
-                  data-src={HERO_KEY}
-                  alt="Ipari csarnok kivitelezése — acélvázas csarnok építése Heves vármegyében"
+                  data-src={FOUNDATION_KEY}
+                  alt="Alapozás és betonozás — ipari csarnok kivitelezése Heves vármegyében"
                 />
               </div>
               <figcaption>
                 <small>Csarnoképítés</small>
                 <b>Ipari csarnok kivitelezése</b>
-                <span>
-                  Acélvázas ipari csarnok kivitelezése a váz felállításától a kész szerkezetig.
-                </span>
+                <span>Acélvázas ipari csarnok kivitelezése az alapozástól a kész szerkezetig.</span>
               </figcaption>
             </figure>
             <figure className="pj">
@@ -254,7 +253,7 @@ function CsarnokepitesHevesVarmegye() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={BUILT_KEY}
-                  alt="Elkészült acélvázas ipari csarnok — teherhordó acélszerkezet"
+                  alt="Acélvázas ipari csarnok építése — csarnoképítés Heves vármegyében"
                 />
               </div>
               <figcaption>
