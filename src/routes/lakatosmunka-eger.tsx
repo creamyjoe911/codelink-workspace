@@ -33,7 +33,7 @@ export const Route = createFileRoute("/lakatosmunka-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/04-elkeszult-piros-festett-platooldal.jpg";
+const HERO_KEY = "images/lakatosmunka-hero";
 const PAINTED_KEY = "images/04-elkeszult-piros-festett-platooldal.jpg";
 const CUSTOM_KEY = "images/11-egyedi-platooldal.jpg";
 const INSTALL_KEY = "images/14-hegesztett-acel-konzol.jpg";

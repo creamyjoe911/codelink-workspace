@@ -175,4 +175,9 @@ export const SITE_LAZY_IMAGES: Record<string, SiteImage> = {
     width: 2048,
     height: 1536,
   },
+  "images/lakatosmunka-hero": {
+    src: "/images/lakatosmunka-hero.webp",
+    width: 1900,
+    height: 1425,
+  },
 };
