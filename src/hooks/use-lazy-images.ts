@@ -33,6 +33,16 @@ function loadLazyImages(): Promise<LazyImageMap> {
   return lazyModulePromise;
 }
 
+// Synchronous access to the cached lazy-image map (null until the dynamic
+// import resolves). The homepage references view is a hidden <main> toggled
+// by a hash change; useLazyImages already swaps its images to a real src on
+// mount, but they stay loading="lazy" inside the display:none container so
+// the browser never fetches them. This getter lets the references toggle
+// effect force them eager + reloaded without awaiting another import.
+export function getCachedLazyImages(): Record<string, { src: string }> | null {
+  return cachedLazyImages;
+}
+
 // Swap every <img data-src="images/..."> inside `root` (and, as a safety net,
 // any stray ones anywhere in the document) to its embedded data URI. Returns
 // true if at least one image was swapped.
