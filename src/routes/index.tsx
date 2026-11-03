@@ -352,6 +352,38 @@ function Grandnatural() {
       ? "Referenciák | Grandnatural"
       : "Grandnatural – Acélszerkezet, daruzás és kivitelezés Egerben";
     if (isRefView) window.scrollTo(0, 0);
+
+    // The references view is a hidden <main> toggled by a hash change (not a
+    // route change), so useLazyImages' mount-time swap doesn't cover it. When
+    // the view becomes visible, swap any still-placeholder images inside it so
+    // the gallery photos appear without a full page refresh, and re-apply the
+    // active filter so the tabs work on first open.
+    if (isRefView && ref) {
+      const swap = () => {
+        const imgs = Array.from(ref.querySelectorAll<HTMLImageElement>('img[data-src^="images/"]'));
+        if (!imgs.length) return;
+        import("@/lib/grandnatural-lazy-images").then((mod) => {
+          const map = mod.SITE_LAZY_IMAGES;
+          for (const img of imgs) {
+            const key = img.getAttribute("data-src") || "";
+            const data = map[key];
+            if (data) {
+              img.src = data.src;
+              img.removeAttribute("data-src");
+            }
+          }
+        });
+      };
+      swap();
+
+      const tabs = Array.from(ref.querySelectorAll<HTMLButtonElement>(".tb button"));
+      const items = Array.from(ref.querySelectorAll<HTMLElement>(".pj"));
+      const activeTab = tabs.find((b) => b.getAttribute("aria-pressed") === "true") ?? tabs[0];
+      const k = activeTab?.dataset["f"] ?? "all";
+      items.forEach((el) => {
+        el.hidden = !(k === "all" || (el.dataset["c"] ?? "").split(" ").indexOf(k) > -1);
+      });
+    }
   }, [isRefView]);
 
   return (
