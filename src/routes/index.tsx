@@ -204,6 +204,23 @@ function Grandnatural() {
     if ((document as any).fonts?.ready) (document as any).fonts.ready.then(size);
     size();
 
+    // On client-side navigations back to this page, neither `window load` nor
+    // `fonts.ready` re-fires, so the single synchronous size() above is the only
+    // recalculation. The lazy image swap (useLazyImages) happens in a microtask
+    // right after this effect and changes img src, which can reflow the track.
+    // A ResizeObserver on the track catches that — and any later layout change
+    // (image load, font swap, viewport resize) — and recomputes D + height, so
+    // the horizontal scroll animation works on every visit, not just the first.
+    let ro: ResizeObserver | null = null;
+    if (trk && "ResizeObserver" in window) {
+      ro = new ResizeObserver(() => size());
+      ro.observe(trk);
+    }
+    // Safety net: re-measure once after the lazy-image swap settles, in case the
+    // ResizeObserver doesn't fire (e.g. fixed card widths mean no width change).
+    const reTimer = window.setTimeout(size, 300);
+    const reTimer2 = window.setTimeout(size, 1000);
+
     // contact form -> mailto + CRM tracking
     const frm = root.querySelector<HTMLFormElement>("#frm");
     const msg = root.querySelector<HTMLElement>("#msg");
@@ -350,6 +367,9 @@ function Grandnatural() {
       window.removeEventListener("load", size);
       frm?.removeEventListener("submit", onSubmit);
       document.removeEventListener("click", onTabClick, true);
+      ro?.disconnect();
+      window.clearTimeout(reTimer);
+      window.clearTimeout(reTimer2);
     };
   }, []);
 
