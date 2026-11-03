@@ -354,28 +354,47 @@ function Grandnatural() {
     if (isRefView) window.scrollTo(0, 0);
 
     // The references view is a hidden <main> toggled by a hash change (not a
-    // route change), so useLazyImages' mount-time swap doesn't cover it. When
-    // the view becomes visible, swap any still-placeholder images inside it so
-    // the gallery photos appear without a full page refresh, and re-apply the
-    // active filter so the tabs work on first open.
+    // route change). Two problems to solve when it becomes visible:
+    //  1. useLazyImages' mount-time swap may not have run yet for these
+    //     (still data-src placeholders) — swap them now.
+    //  2. Images already swapped to a real src still carry loading="lazy" and
+    //     were inside a display:none container, so the browser never fetched
+    //     them. Strip loading="lazy" and force-reload any that haven't loaded
+    //     so the gallery photos actually appear.
     if (isRefView && ref) {
-      const swap = () => {
-        const imgs = Array.from(ref.querySelectorAll<HTMLImageElement>('img[data-src^="images/"]'));
-        if (!imgs.length) return;
+      // 1. Swap any remaining data-src placeholders.
+      const placeholders = Array.from(
+        ref.querySelectorAll<HTMLImageElement>('img[data-src^="images/"]'),
+      );
+      if (placeholders.length) {
         import("@/lib/grandnatural-lazy-images").then((mod) => {
           const map = mod.SITE_LAZY_IMAGES;
-          for (const img of imgs) {
+          for (const img of placeholders) {
             const key = img.getAttribute("data-src") || "";
             const data = map[key];
             if (data) {
+              img.removeAttribute("loading");
               img.src = data.src;
               img.removeAttribute("data-src");
             }
           }
         });
-      };
-      swap();
+      }
 
+      // 2. For images already swapped to a real src but not yet fetched
+      //    (loading="lazy" inside the previously-hidden container), make them
+      //    eager and force a reload by reassigning src.
+      const realImgs = Array.from(ref.querySelectorAll<HTMLImageElement>('img[src^="/images/"]'));
+      for (const img of realImgs) {
+        img.removeAttribute("loading");
+        if (!img.complete || img.naturalWidth === 0) {
+          const s = img.src;
+          img.src = "";
+          img.src = s;
+        }
+      }
+
+      // Re-apply the active filter so the tabs work on first open.
       const tabs = Array.from(ref.querySelectorAll<HTMLButtonElement>(".tb button"));
       const items = Array.from(ref.querySelectorAll<HTMLElement>(".pj"));
       const activeTab = tabs.find((b) => b.getAttribute("aria-pressed") === "true") ?? tabs[0];
