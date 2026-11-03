@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
-import { SITE_INLINE_IMAGES, SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
@@ -33,16 +33,13 @@ export const Route = createFileRoute("/szolgaltatasok")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/02-grandnatural-darus-teherautoja-es-geppar.jpg";
+const HERO_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
 
 function Szolgaltatasok() {
   const rootRef = useRef<HTMLDivElement>(null);
   useLazyImages(rootRef);
 
   const logoImg = SITE_LOGO_SVG;
-  // The hero is the only above-the-fold photo, so it is inlined for an
-  // immediate first paint; every other photo on this page is lazy-loaded.
-  const heroImg = SITE_INLINE_IMAGES[HERO_KEY]!.src;
 
   const services = [
     {
@@ -96,8 +93,9 @@ function Szolgaltatasok() {
         <section className="hero">
           <img
             className="bg"
-            src={heroImg}
-            alt="Grandnatural darus teherautója és géppark — szolgáltatások Egerben"
+            src={PLACEHOLDER}
+            data-src={HERO_KEY}
+            alt="Elkészült acélvázas ipari csarnok — szolgáltatások Egerben"
           />
           <div className="hin">
             <h1>Szolgáltatások</h1>
