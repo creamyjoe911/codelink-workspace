@@ -205,14 +205,14 @@ function FelujitasEsKarbantartas() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={FACADE_KEY}
-                  alt="Lakóingatlan külső felújítása — javítás és korszerűsítés"
+                  alt="Családi ház külső felújítása — javítás és korszerűsítés"
                 />
               </div>
               <figcaption>
                 <small>Külső felújítás</small>
-                <b>Lakóingatlan külső felújítása</b>
+                <b>Családi ház külső felújítása</b>
                 <span>
-                  Lakóingatlan külső javítási, korszerűsítési és befejező munkálatai — a felületek
+                  Családi ház külső javítási, korszerűsítési és befejező munkálatai — a felületek
                   előkészítésétől a kész burkolatig.
                 </span>
               </figcaption>
@@ -223,42 +223,18 @@ function FelujitasEsKarbantartas() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={FINISHED_KEY}
-                  alt="Felújított ingatlan kész állapotban — óvoda felújítása"
+                  alt="Felújított óvoda kész állapotban — óvoda felújítása"
                 />
               </div>
               <figcaption>
                 <small>Kész felújítás</small>
-                <b>Felújított ingatlan</b>
+                <b>Felújított óvoda</b>
                 <span>
-                  Felújított és korszerűsített ingatlan kész állapotban — a javítástól a befejező
+                  Felújított és korszerűsített óvoda kész állapotban — a javítástól a befejező
                   munkálatokig egy kézből.
                 </span>
               </figcaption>
             </figure>
-          </div>
-        </section>
-
-        {/* Band — quote */}
-        <section className="band">
-          <img loading="lazy" src={PLACEHOLDER} data-src={HERO_KEY} alt="" />
-          <div className="ghost" aria-hidden="true">
-            Felújítás
-          </div>
-          <div className="wrap bc">
-            <div className="slc">
-              <h3>Saját műhely, saját daru</h3>
-              <p style={{ margin: 0, padding: "0 4px" }}>
-                A felújítást a saját gépparkunk támogatja.
-              </p>
-            </div>
-            <div className="bt">
-              <h2>Egy felújítás, egy kivitelező.</h2>
-              <p className="lead">
-                A belső és külső munkáktól a lakatos- és acélmunkákig mindent egy kézből végzünk —
-                így a felújítás egy menetrendből, egy felelőstől történik, Egerben és Heves
-                vármegyében.
-              </p>
-            </div>
           </div>
         </section>
 

@@ -220,29 +220,6 @@ function LakatosmunkaEger() {
           </div>
         </section>
 
-        {/* Band — quote */}
-        <section className="band">
-          <img loading="lazy" src={PLACEHOLDER} data-src={HERO_KEY} alt="" />
-          <div className="ghost" aria-hidden="true">
-            Lakatosmunka
-          </div>
-          <div className="wrap bc">
-            <div className="slc">
-              <h3>Saját műhely, saját daru</h3>
-              <p style={{ margin: 0, padding: "0 4px" }}>
-                A vágástól a beépítésig minden nálunk készül.
-              </p>
-            </div>
-            <div className="bt">
-              <h2>Egy munka, egy kézből.</h2>
-              <p className="lead">
-                A tervezéstől a beépítésig minden saját kézben tartunk — így a lakatosmunka és a
-                helyszíni szerelés összehangoltan, egy kivitelezőtől történik.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* FAQ */}
         <section className="wrap" style={{ paddingBlock: "clamp(56px,7vw,110px)" }}>
           <div className="fq">
