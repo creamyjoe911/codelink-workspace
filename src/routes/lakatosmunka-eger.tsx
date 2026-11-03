@@ -38,6 +38,7 @@ const PAINTED_KEY = "images/04-elkeszult-piros-festett-platooldal.jpg";
 const CUSTOM_KEY = "images/11-egyedi-platooldal.jpg";
 const INSTALL_KEY = "images/14-hegesztett-acel-konzol.jpg";
 const SECTION_KEY = "images/Nyersacél";
+const ASSEMBLY_KEY = "images/15-lemez-osszeallitasa.jpg";
 
 function LakatosmunkaEger() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -166,7 +167,7 @@ function LakatosmunkaEger() {
           }}
         >
           <div className="ctr" style={{ maxWidth: 720, margin: "0 auto" }}>
-            <h2>Kész munkák a műhelyből.</h2>
+            <h2>Műhelyi munkáink.</h2>
           </div>
           <div className="gr" style={{ marginTop: "clamp(28px,4vw,48px)" }}>
             <figure className="pj">
@@ -189,14 +190,14 @@ function LakatosmunkaEger() {
                 <img
                   loading="lazy"
                   src={PLACEHOLDER}
-                  data-src={CUSTOM_KEY}
-                  alt="Egyedi lakatosmunkával készült platóoldal"
+                  data-src={ASSEMBLY_KEY}
+                  alt="Lemez összeállítása a műhelyben — lakatosmunka Egerben"
                 />
               </div>
               <figcaption>
-                <small>Egyedi munka</small>
-                <b>Egyedi platóoldal</b>
-                <span>Helyszínre szabott, egyedi méretű lakatosmunka.</span>
+                <small>Összeállítás</small>
+                <b>Lemez összeállítása</b>
+                <span>Előre vágott lemezek és profilok pontos összeállítása a műhelyünkben.</span>
               </figcaption>
             </figure>
             <figure className="pj">
