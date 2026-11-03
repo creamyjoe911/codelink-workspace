@@ -160,4 +160,9 @@ export const SITE_LAZY_IMAGES: Record<string, SiteImage> = {
     width: 1200,
     height: 900,
   },
+  "images/Javitastol-a-teljes-felujitasig.webp": {
+    src: "/images/Javitastol-a-teljes-felujitasig.webp",
+    width: 2048,
+    height: 1536,
+  },
 };

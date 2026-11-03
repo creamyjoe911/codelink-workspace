@@ -34,7 +34,7 @@ export const Route = createFileRoute("/felujitas-es-karbantartas")({
 
 const PHONE = "+36 70 576 0108";
 const HERO_KEY = "images/08-felujitott-lakoter-uj-burkolattal.jpg";
-const INTERIOR_KEY = "images/21-belso-felujitas-kivitelezes-kozben.jpg";
+const INTRO_KEY = "images/Javitastol-a-teljes-felujitasig.webp";
 const EXTERIOR_KEY = "images/19-kulso-felujitas-kivitelezes-kozben.jpg";
 const FACADE_KEY = "images/20-lakoingatlan-kulso-felujitasa.jpg";
 const FINISHED_KEY = "images/22-csaladi-haz-felujitasa.jpg";
@@ -97,8 +97,8 @@ function FelujitasEsKarbantartas() {
               <img
                 loading="lazy"
                 src={PLACEHOLDER}
-                data-src={INTERIOR_KEY}
-                alt="Belső felújítás kivitelezés közben — falak és burkolatok előkészítése"
+                data-src={INTRO_KEY}
+                alt="Javítástól a teljes felújításig — felújítás és karbantartás Egerben"
               />
               <div className="stat">
                 <b>16+</b>
