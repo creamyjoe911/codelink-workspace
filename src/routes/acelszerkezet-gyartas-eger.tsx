@@ -36,7 +36,8 @@ const PHONE = "+36 70 576 0108";
 const HERO_KEY = "images/csarnok-epites";
 const INTRO_KEY = "images/15-lemez-osszeallitasa.jpg";
 const HEAVY_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
-const WELDED_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
+const WELDED_KEY = "images/acelszerkezet-epites.webp";
+const ASSEMBLY_KEY = "images/emelos-acelszerkezes-epites.webp";
 
 function AcelszerekezetGyartasEger() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -233,15 +234,15 @@ function AcelszerekezetGyartasEger() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={WELDED_KEY}
-                  alt="Hegesztett acélváz szerelése darus teherautóval a helyszínen"
+                  alt="Acélszerkezet építése és helyszíni szerelése — acélváz felállítása"
                 />
               </div>
               <figcaption>
-                <small>Hegesztett váz</small>
+                <small>Helyszíni szerelés</small>
                 <b>Acélváz szerelése</b>
                 <span>
-                  A műhelyben hegesztett, összeállított acélváz darus teherautóval történő helyszíni
-                  beépítése.
+                  A műhelyben előre gyártott acélszerkezet helyszíni felállítása, illesztése és
+                  rögzítése — darus teherautóval.
                 </span>
               </figcaption>
             </figure>
@@ -250,16 +251,16 @@ function AcelszerekezetGyartasEger() {
                 <img
                   loading="lazy"
                   src={PLACEHOLDER}
-                  data-src={INTRO_KEY}
-                  alt="Acél lemez összeállítása a műhelyben — acélszerkezet gyártás"
+                  data-src={ASSEMBLY_KEY}
+                  alt="Emelős acélszerkezet építése — teherhordó acélváz összeállítása"
                 />
               </div>
               <figcaption>
                 <small>Műhelyi összeállítás</small>
                 <b>Lemez összeállítása</b>
                 <span>
-                  A vágott és hegesztett acél lemezek összeállítása a saját műhelyünkben — a kész
-                  szerkezetig.
+                  Emelős, teherhordó acélszerkezet és acélváz összeállítása a saját műhelyünkben — a
+                  kész szerkezetig.
                 </span>
               </figcaption>
             </figure>

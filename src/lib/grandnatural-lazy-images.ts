@@ -165,4 +165,14 @@ export const SITE_LAZY_IMAGES: Record<string, SiteImage> = {
     width: 2048,
     height: 1536,
   },
+  "images/acelszerkezet-epites.webp": {
+    src: "/images/acelszerkezet-epites.webp",
+    width: 2048,
+    height: 1536,
+  },
+  "images/emelos-acelszerkezes-epites.webp": {
+    src: "/images/emelos-acelszerkezes-epites.webp",
+    width: 2048,
+    height: 1536,
+  },
 };
