@@ -136,7 +136,7 @@ export const SITE_LAZY_IMAGES: Record<string, SiteImage> = {
     height: 1067,
   },
   "images/16-munkaink-referenciak.jpg": {
-    src: "/images/09-elkeszult-acelvazas-ipari-csarnok.jpg.webp",
+    src: "/images/szolgaltatasok.webp",
     width: 800,
     height: 600,
   },
@@ -144,6 +144,11 @@ export const SITE_LAZY_IMAGES: Record<string, SiteImage> = {
     src: "/images/csarnok-epites.webp",
     width: 2048,
     height: 1536,
+  },
+  "images/szolgaltatasok": {
+    src: "/images/szolgaltatasok.webp",
+    width: 1922,
+    height: 1080,
   },
   "images/Nyersacél": {
     src: "/images/Nyersacél.webp",

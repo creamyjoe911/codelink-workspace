@@ -33,7 +33,7 @@ export const Route = createFileRoute("/szolgaltatasok")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/csarnok-epites";
+const HERO_KEY = "images/szolgaltatasok";
 
 function Szolgaltatasok() {
   const rootRef = useRef<HTMLDivElement>(null);
