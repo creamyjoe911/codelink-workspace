@@ -40,6 +40,26 @@ export const Route = createFileRoute("/")({
   component: Grandnatural,
 });
 
+// Hero-only CSS overrides. Scoped with :not(.sm) so they affect ONLY the main
+// hero (headline "Építőipari megoldások"), never the references hero (.hero.sm).
+// Appended after SITE_CSS so later source order wins for equal specificity.
+const HERO_OVERRIDE_CSS = `
+.hero:not(.sm)::before{background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.55) 40%,rgba(0,0,0,0) 70%)}
+.hero:not(.sm) .hin{max-width:46%;margin-inline:0}
+.hero:not(.sm) .hin h1{font-size:clamp(48px,7vw,104px);line-height:.95;letter-spacing:-.03em;margin:0 0 40px;text-shadow:none}
+.hero:not(.sm) .hin h1 span{display:block}
+.hero:not(.sm) .hin p{font-size:clamp(20px,1.4vw,22px);line-height:1.5;font-weight:500;max-width:50ch;margin:0 0 32px;color:#fff;text-shadow:none;text-wrap:balance}
+.hero:not(.sm) .hin .pill{margin:0}
+.hero:not(.sm) .badge{background:#0e1a18;border:1px solid transparent;box-shadow:none}
+.hero:not(.sm) .badge b{font-size:44px;line-height:1;font-weight:800}
+.hero:not(.sm) .badge span{font-size:16px;line-height:1.2;color:#fff;font-weight:600}
+@media(max-width:960px){
+.hero:not(.sm){padding-inline:20px}
+.hero:not(.sm)::before{background:rgba(0,0,0,.6)}
+.hero:not(.sm) .hin{max-width:100%}
+}
+`;
+
 // Parse the original body HTML once and inject the original CSS + image data URIs.
 // The markup is rendered through dangerouslySetInnerHTML so the site keeps its
 // exact original structure; the small interactive behaviours are re-implemented in
@@ -60,6 +80,16 @@ function Grandnatural() {
   // after first paint by the lazy-load effect below.
   const bodyHtml = useMemo(() => {
     let html = SITE_BODY_HTML;
+    // Hero headline: break into exactly two lines ("Építőipari" / "megoldások").
+    html = html.replace(
+      "<h1>Építőipari megoldások</h1>",
+      "<h1><span>Építőipari</span><span>megoldások</span></h1>",
+    );
+    // Hero subtitle (new wording).
+    html = html.replace(
+      "<p>Építés, felújítás, acélszerkezetek és egyedi kivitelezési munkák Egerben és Heves vármegyében.</p>",
+      "<p>Építés, felújítás, acélszerkezetek és egyedi kivitelezés Egerben és Heves vármegyében.</p>",
+    );
     // Turn the four service cards in the scroll section into links to their pages.
     // Run before the image-src → data-URI swap so the filenames are still intact.
     html = html.replace(
@@ -451,7 +481,7 @@ function Grandnatural() {
   return (
     <div className="grandnatural-root" ref={rootRef}>
       <JsonLd json={LOCAL_BUSINESS_JSONLD} />
-      <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
+      <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERRIDE_CSS }} />
       <SiteNav current="/" />
       <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
     </div>
