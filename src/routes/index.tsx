@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
 // hero (headline "Építőipari megoldások"), never the references hero (.hero.sm).
 // Appended after SITE_CSS so later source order wins for equal specificity.
 const HERO_OVERRIDE_CSS = `
-.hero:not(.sm)::before{background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.55) 40%,rgba(0,0,0,0) 70%)}
+.hero:not(.sm)::before{background:linear-gradient(90deg,rgba(0,0,0,.75),rgba(0,0,0,.55) 40%,rgba(0,0,0,0) 70%)}
 .hero:not(.sm) .hin{max-width:46%;margin-inline:0}
 .hero:not(.sm) .hin h1{font-size:clamp(48px,7vw,104px);line-height:.95;letter-spacing:-.03em;margin:0 0 40px;text-shadow:none}
 .hero:not(.sm) .hin h1 span{display:block}
