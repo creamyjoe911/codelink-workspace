@@ -274,12 +274,6 @@ function AcelszerekezetGyartasEger() {
             Acél
           </div>
           <div className="wrap bc">
-            <div className="slc">
-              <h3>Saját műhely, saját daru</h3>
-              <p style={{ margin: 0, padding: "0 4px" }}>
-                Az acélszerkezetet a saját műhelyünkben gyártjuk, és saját darussal szereljük be.
-              </p>
-            </div>
             <div className="bt">
               <h2>A saját darunk, saját kézben.</h2>
               <p className="lead">
