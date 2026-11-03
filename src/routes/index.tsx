@@ -315,32 +315,41 @@ function Grandnatural() {
     };
     frm?.addEventListener("submit", onSubmit);
 
-    // references filter tabs — use event delegation on #v-ref so the filter
-    // keeps working even if the inner markup is re-created by a re-render
-    // (the body HTML is injected via dangerouslySetInnerHTML, so direct
-    // per-button listeners can go stale). Query fresh on every click.
-    const refMain = root.querySelector<HTMLElement>("#v-ref");
-    const onTabClick = (ev: Event) => {
-      const btn = (ev.target as HTMLElement).closest<HTMLButtonElement>(".tb button");
+    // references filter tabs — attach directly to document with event delegation
+    // so clicks on the buttons are caught regardless of re-renders or nested targets.
+    const onTabClick = (ev: MouseEvent) => {
+      const target = ev.target as HTMLElement | null;
+      if (!target) return;
+      const btn = target.closest<HTMLButtonElement>(".tb button");
       if (!btn) return;
-      const k = btn.dataset["f"] ?? "all";
       const scope = root.querySelector<HTMLElement>("#v-ref");
-      if (!scope) return;
+      if (!scope || !scope.contains(btn)) return;
+
+      ev.preventDefault();
+      const k = btn.dataset["f"] ?? "all";
       scope.querySelectorAll<HTMLElement>(".pj").forEach((el) => {
-        el.hidden = !(k === "all" || (el.dataset["c"] ?? "").split(" ").indexOf(k) > -1);
+        const cat = el.dataset["c"] ?? "";
+        const match = k === "all" || cat.split(/\s+/).includes(k);
+        el.hidden = !match;
+        if (match) {
+          el.style.display = "";
+          el.classList.add("in");
+        } else {
+          el.style.display = "none";
+        }
       });
       scope.querySelectorAll<HTMLButtonElement>(".tb button").forEach((b) => {
         b.setAttribute("aria-pressed", String((b.dataset["f"] ?? "") === k));
       });
     };
-    refMain?.addEventListener("click", onTabClick);
+    document.addEventListener("click", onTabClick, true);
 
     return () => {
       window.removeEventListener("scroll", upd);
       window.removeEventListener("resize", size);
       window.removeEventListener("load", size);
       frm?.removeEventListener("submit", onSubmit);
-      refMain?.removeEventListener("click", onTabClick);
+      document.removeEventListener("click", onTabClick, true);
     };
   }, []);
 
@@ -405,7 +414,15 @@ function Grandnatural() {
       const activeTab = tabs.find((b) => b.getAttribute("aria-pressed") === "true") ?? tabs[0];
       const k = activeTab?.dataset["f"] ?? "all";
       ref.querySelectorAll<HTMLElement>(".pj").forEach((el) => {
-        el.hidden = !(k === "all" || (el.dataset["c"] ?? "").split(" ").indexOf(k) > -1);
+        const cat = el.dataset["c"] ?? "";
+        const match = k === "all" || cat.split(/\s+/).includes(k);
+        el.hidden = !match;
+        if (match) {
+          el.style.display = "";
+          el.classList.add("in");
+        } else {
+          el.style.display = "none";
+        }
       });
       tabs.forEach((b) => b.setAttribute("aria-pressed", String((b.dataset["f"] ?? "") === k)));
     }
