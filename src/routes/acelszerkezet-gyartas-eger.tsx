@@ -33,7 +33,7 @@ export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/csarnok-epites";
+const HERO_KEY = "images/acelszerkezet-epites.webp";
 const INTRO_KEY = "images/15-lemez-osszeallitasa.jpg";
 const HEAVY_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
 const WELDED_KEY = "images/acelszerkezet-epites.webp";
