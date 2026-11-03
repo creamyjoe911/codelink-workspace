@@ -315,23 +315,32 @@ function Grandnatural() {
     };
     frm?.addEventListener("submit", onSubmit);
 
-    // references filter tabs
+    // references filter tabs — use event delegation on #v-ref so the filter
+    // keeps working even if the inner markup is re-created by a re-render
+    // (the body HTML is injected via dangerouslySetInnerHTML, so direct
+    // per-button listeners can go stale). Query fresh on every click.
     const refMain = root.querySelector<HTMLElement>("#v-ref");
-    const tabs = Array.from(refMain?.querySelectorAll<HTMLButtonElement>(".tb button") ?? []);
-    const items = Array.from(refMain?.querySelectorAll<HTMLElement>(".pj") ?? []);
-    const filter = (k: string) => {
-      items.forEach((el) => {
+    const onTabClick = (ev: Event) => {
+      const btn = (ev.target as HTMLElement).closest<HTMLButtonElement>(".tb button");
+      if (!btn) return;
+      const k = btn.dataset["f"] ?? "all";
+      const scope = root.querySelector<HTMLElement>("#v-ref");
+      if (!scope) return;
+      scope.querySelectorAll<HTMLElement>(".pj").forEach((el) => {
         el.hidden = !(k === "all" || (el.dataset["c"] ?? "").split(" ").indexOf(k) > -1);
       });
-      tabs.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset["f"] === k)));
+      scope.querySelectorAll<HTMLButtonElement>(".tb button").forEach((b) => {
+        b.setAttribute("aria-pressed", String((b.dataset["f"] ?? "") === k));
+      });
     };
-    tabs.forEach((b) => b.addEventListener("click", () => filter(b.dataset["f"] ?? "all")));
+    refMain?.addEventListener("click", onTabClick);
 
     return () => {
       window.removeEventListener("scroll", upd);
       window.removeEventListener("resize", size);
       window.removeEventListener("load", size);
       frm?.removeEventListener("submit", onSubmit);
+      refMain?.removeEventListener("click", onTabClick);
     };
   }, []);
 
@@ -389,14 +398,16 @@ function Grandnatural() {
         void import("@/lib/grandnatural-lazy-images").then((m) => apply(m.SITE_LAZY_IMAGES));
       }
 
-      // Re-apply the active filter so the tabs work on first open.
+      // Re-apply the active filter so the tabs work on first open. Query
+      // fresh (the markup is injected via dangerouslySetInnerHTML) and keep
+      // aria-pressed in sync with the visible set.
       const tabs = Array.from(ref.querySelectorAll<HTMLButtonElement>(".tb button"));
-      const items = Array.from(ref.querySelectorAll<HTMLElement>(".pj"));
       const activeTab = tabs.find((b) => b.getAttribute("aria-pressed") === "true") ?? tabs[0];
       const k = activeTab?.dataset["f"] ?? "all";
-      items.forEach((el) => {
+      ref.querySelectorAll<HTMLElement>(".pj").forEach((el) => {
         el.hidden = !(k === "all" || (el.dataset["c"] ?? "").split(" ").indexOf(k) > -1);
       });
+      tabs.forEach((b) => b.setAttribute("aria-pressed", String((b.dataset["f"] ?? "") === k)));
     }
   }, [isRefView]);
 
