@@ -44,16 +44,18 @@ export const Route = createFileRoute("/")({
 // hero (headline "Építőipari megoldások"), never the references hero (.hero.sm).
 // Appended after SITE_CSS so later source order wins for equal specificity.
 const HERO_OVERRIDE_CSS = `
-.hero:not(.sm)::before{background:linear-gradient(90deg,rgba(0,0,0,.75),rgba(0,0,0,.55) 40%,rgba(0,0,0,0) 70%)}
+.hero:not(.sm){position:relative}
+.hero:not(.sm)::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.55) 40%,rgba(0,0,0,0) 70%)}
+.hero:not(.sm)>*{position:relative;z-index:2}
 .hero:not(.sm) .hin{max-width:46%;margin-inline:0}
 .hero:not(.sm) .hin h1{font-size:clamp(48px,7vw,104px);line-height:.95;letter-spacing:-.03em;margin:0 0 40px;text-shadow:none}
 .hero:not(.sm) .hin h1 span{display:block}
-.hero:not(.sm) .hin p{font-size:21px;line-height:1.5;font-weight:500;max-width:50ch;margin:0 0 32px;color:#fff;text-shadow:none;text-wrap:balance}
+.hero:not(.sm) .hin p{font-size:21px;font-weight:500;line-height:1.5;max-width:50ch;margin:0 0 32px;color:#fff;text-shadow:none;text-wrap:pretty}
 .hero:not(.sm) .hin .pill{margin:0}
 .hero:not(.sm) .badge{background:#0e1a18;border:1px solid transparent;box-shadow:none}
 .hero:not(.sm) .badge b{font-size:44px;line-height:1;font-weight:800}
 .hero:not(.sm) .badge span{font-size:16px;line-height:1.2;color:#fff;font-weight:600}
-@media(max-width:960px){
+@media(max-width:768px){
 .hero:not(.sm){padding-inline:20px}
 .hero:not(.sm)::before{background:rgba(0,0,0,.6)}
 .hero:not(.sm) .hin{max-width:100%}
