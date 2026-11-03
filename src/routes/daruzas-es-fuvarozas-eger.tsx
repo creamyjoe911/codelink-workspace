@@ -34,7 +34,6 @@ export const Route = createFileRoute("/daruzas-es-fuvarozas-eger")({
 
 const PHONE = "+36 70 576 0108";
 const HERO_KEY = "/images/daruzas-es-fuvarozas-eger-background.webp";
-const TRUCK_KEY = "/images/daruzas-es-fuvarozas-eger-background.webp";
 const MAN_KEY = "images/13-man-teherauto-fulkeje-felujitas-utan.jpg";
 const LIFT_KEY = "images/06-daruval-emelt-betonlap.jpg";
 const INSTALL_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
@@ -162,30 +161,6 @@ function DaruzasEsFuvarozasEger() {
           </div>
         </section>
 
-        {/* Band — A saját darunk, saját kézben */}
-        <section className="band">
-          <img loading="lazy" src={PLACEHOLDER} data-src={TRUCK_KEY} alt="" />
-          <div className="ghost" aria-hidden="true">
-            Daruzás
-          </div>
-          <div className="wrap bc">
-            <div className="slc">
-              <h3>Saját darus teherautó</h3>
-              <p style={{ margin: 0, padding: "0 4px" }}>
-                A daru a sajátunk — a rakodást és a szállítást egy menetrendből végezzük.
-              </p>
-            </div>
-            <div className="bt">
-              <h2>A saját darunk, saját kézben.</h2>
-              <p className="lead">
-                A darus teherautónk fülkéjét is mi újítottuk fel — az előkészítéstől az elkészült
-                állapotig. Mivel a daru a sajátunk, a menetrendet és a munkát a miénkhez igazítjuk,
-                nem külsős géptől függünk.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Service area */}
         <section className="wrap" style={{ paddingBlock: "clamp(64px,8vw,120px)" }}>
           <div className="ctr" style={{ maxWidth: 720, margin: "0 auto" }}>
@@ -282,6 +257,30 @@ function DaruzasEsFuvarozasEger() {
                 </span>
               </figcaption>
             </figure>
+          </div>
+        </section>
+
+        {/* Band — A saját darunk, saját kézben */}
+        <section className="band">
+          <img loading="lazy" src={PLACEHOLDER} data-src={HERO_KEY} alt="" />
+          <div className="ghost" aria-hidden="true">
+            Daruzás
+          </div>
+          <div className="wrap bc">
+            <div className="slc">
+              <h3>Saját darus teherautó</h3>
+              <p style={{ margin: 0, padding: "0 4px" }}>
+                A daru a sajátunk — a rakodást és a szállítást egy menetrendből végezzük.
+              </p>
+            </div>
+            <div className="bt">
+              <h2>A saját darunk, saját kézben.</h2>
+              <p className="lead">
+                A darus teherautónk fülkéjét is mi újítottuk fel — az előkészítéstől az elkészült
+                állapotig. Mivel a daru a sajátunk, a menetrendet és a munkát a miénkhez igazítjuk,
+                nem külsős géptől függünk.
+              </p>
+            </div>
           </div>
         </section>
 
