@@ -48,7 +48,7 @@ const HERO_OVERRIDE_CSS = `
 .hero:not(.sm) .hin{max-width:46%;margin-inline:0}
 .hero:not(.sm) .hin h1{font-size:clamp(48px,7vw,104px);line-height:.95;letter-spacing:-.03em;margin:0 0 40px;text-shadow:none}
 .hero:not(.sm) .hin h1 span{display:block}
-.hero:not(.sm) .hin p{font-size:clamp(20px,1.4vw,22px);line-height:1.5;font-weight:500;max-width:50ch;margin:0 0 32px;color:#fff;text-shadow:none;text-wrap:balance}
+.hero:not(.sm) .hin p{font-size:21px;line-height:1.5;font-weight:500;max-width:50ch;margin:0 0 32px;color:#fff;text-shadow:none;text-wrap:balance}
 .hero:not(.sm) .hin .pill{margin:0}
 .hero:not(.sm) .badge{background:#0e1a18;border:1px solid transparent;box-shadow:none}
 .hero:not(.sm) .badge b{font-size:44px;line-height:1;font-weight:800}
