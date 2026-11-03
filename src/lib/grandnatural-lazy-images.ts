@@ -155,4 +155,9 @@ export const SITE_LAZY_IMAGES: Record<string, SiteImage> = {
     width: 800,
     height: 1067,
   },
+  "images/novenykert": {
+    src: "/images/novenykert.webp",
+    width: 1200,
+    height: 900,
+  },
 };

@@ -126,8 +126,8 @@ function Szolgaltatasok() {
               <img
                 loading="lazy"
                 src={PLACEHOLDER}
-                data-src={HERO_KEY}
-                alt="Grandnatural darus teherautója és géppark — szolgáltatások Egerben"
+                data-src="images/novenykert"
+                alt="Grandnatural kivitelezés — szolgáltatások Egerben"
               />
               <div className="stat">
                 <b>16+</b>
