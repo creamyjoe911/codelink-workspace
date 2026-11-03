@@ -76,14 +76,14 @@ export const SITE_LAZY_IMAGES: Record<string, SiteImage> = {
     height: 600,
   },
   "images/17-ipari-csarnok-kivitelezese.jpg": {
-    src: "/images/17-ipari-csarnok-kivitelezese.jpg.webp",
+    src: "/images/09-elkeszult-acelvazas-ipari-csarnok.jpg.webp",
     width: 800,
     height: 600,
   },
   "images/18-helyszini-acelszereles-es-felallitas.jpg": {
-    src: "/images/18-helyszini-acelszereles-es-felallitas.jpg.webp",
+    src: "/images/15-lemez-osszeallitasa.jpg.webp",
     width: 800,
-    height: 450,
+    height: 1066,
   },
   "images/19-kulso-felujitas-kivitelezes-kozben.jpg": {
     src: "/images/19-kulso-felujitas-kivitelezes-kozben.webp",
@@ -106,7 +106,7 @@ export const SITE_LAZY_IMAGES: Record<string, SiteImage> = {
     height: 490,
   },
   "images/23-egyedi-platooldal-keszitese.jpg": {
-    src: "/images/23-egyedi-platooldal-keszitese.jpg.webp",
+    src: "/images/11-egyedi-platooldal.jpg.webp",
     width: 800,
     height: 600,
   },
@@ -116,27 +116,27 @@ export const SITE_LAZY_IMAGES: Record<string, SiteImage> = {
     height: 1066,
   },
   "images/25-egyedi-nehezacel-szerkezet-gyartasa.jpg": {
-    src: "/images/25-egyedi-nehezacel-szerkezet-gyartasa.jpg.webp",
-    width: 800,
-    height: 1066,
+    src: "/images/10-acelvaz-szerelese-darus-teherautoval.jpg.webp",
+    width: 1000,
+    height: 563,
   },
   "images/26-hegesztett-acelszerelveny-es-bordazott-i.jpg": {
-    src: "/images/26-hegesztett-acelszerelveny-es-bordazott-i.jpg.webp",
+    src: "/images/14-hegesztett-acel-konzol.jpg.webp",
     width: 800,
     height: 1066,
   },
   "images/27-muhelyi-szerkezet-elokeszites-es-hegeszt.jpg": {
-    src: "/images/27-muhelyi-szerkezet-elokeszites-es-hegeszt.jpg.webp",
+    src: "/images/05-nyers-acel-lemez-a-muhelyben.jpg.webp",
     width: 800,
-    height: 1066,
+    height: 1067,
   },
   "images/28-darus-emeles-es-betonelem-telepites.jpg": {
-    src: "/images/28-darus-emeles-es-betonelem-telepites.jpg.webp",
+    src: "/images/06-daruval-emelt-betonlap.jpg.webp",
     width: 800,
-    height: 1066,
+    height: 1067,
   },
   "images/16-munkaink-referenciak.jpg": {
-    src: "/images/16-munkaink-referenciak.jpg.webp",
+    src: "/images/09-elkeszult-acelvazas-ipari-csarnok.jpg.webp",
     width: 800,
     height: 600,
   },
