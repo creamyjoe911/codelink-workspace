@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
 import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
+import { useReveal } from "@/hooks/use-reveal";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
@@ -42,6 +43,7 @@ const FINISHED_KEY = "images/22-csaladi-haz-felujitasa.jpg";
 function FelujitasEsKarbantartas() {
   const rootRef = useRef<HTMLDivElement>(null);
   useLazyImages(rootRef);
+  useReveal(rootRef);
 
   const logoImg = SITE_LOGO_SVG;
 

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
 import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
+import { useReveal } from "@/hooks/use-reveal";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbJsonLD, canonicalUrl } from "@/lib/seo-schema";
@@ -38,6 +39,7 @@ const HERO_KEY = "images/szolgaltatasok";
 function Szolgaltatasok() {
   const rootRef = useRef<HTMLDivElement>(null);
   useLazyImages(rootRef);
+  useReveal(rootRef);
 
   const logoImg = SITE_LOGO_SVG;
 

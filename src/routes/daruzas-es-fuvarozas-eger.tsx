@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
 import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
+import { useReveal } from "@/hooks/use-reveal";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
@@ -46,6 +47,7 @@ function DaruzasEsFuvarozasEger() {
   const logoImg = SITE_LOGO_SVG;
   const heroImg = "/images/grandnatural-hero.webp";
   useLazyImages(rootRef);
+  useReveal(rootRef);
 
   return (
     <div className="grandnatural-root" ref={rootRef}>

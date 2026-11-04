@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SITE_INLINE_IMAGES, SITE_BODY_HTML, SITE_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, getCachedLazyImages } from "@/hooks/use-lazy-images";
+import { useReveal } from "@/hooks/use-reveal";
 import { SiteNav } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
 import { LOCAL_BUSINESS_JSONLD, canonicalUrl } from "@/lib/seo-schema";
@@ -77,6 +78,7 @@ function Grandnatural() {
   // the lazy module is cached, and re-swaps on bfcache restore — so photos
   // never disappear when navigating to/from this page.
   useLazyImages(rootRef);
+  useReveal(rootRef);
 
   // Build the homepage body HTML. Only the logo and the hero photo are inlined
   // as data URIs here (so the initial HTML response stays small); every other
@@ -164,30 +166,11 @@ function Grandnatural() {
     return () => window.removeEventListener("hashchange", route);
   }, []);
 
-  // ---- After mount: wire up scroll reveals, before/after slider, services
-  // horizontal scroll, and the contact form (mailto) ----
+  // ---- After mount: wire up scroll reveals (Motion), before/after slider,
+  // services horizontal scroll, and the contact form (mailto) ----
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
-
-    // reveal-on-scroll
-    const els = Array.from(root.querySelectorAll<HTMLElement>(".rv"));
-    if ("IntersectionObserver" in window) {
-      const o = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((x) => {
-            if (x.isIntersecting) {
-              x.target.classList.add("in");
-              o.unobserve(x.target);
-            }
-          });
-        },
-        { threshold: 0.1 },
-      );
-      els.forEach((e) => o.observe(e));
-    } else {
-      els.forEach((e) => e.classList.add("in"));
-    }
 
     // before/after slider
     const rng = root.querySelector<HTMLInputElement>("#rng");
