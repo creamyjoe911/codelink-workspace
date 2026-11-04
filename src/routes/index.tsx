@@ -73,6 +73,12 @@ const HERO_OVERRIDE_CSS = `
 // filter change. Respects prefers-reduced-motion.
 function filterRefCards(scope: HTMLElement, k: string) {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Stagger: matching cards animate in sequence. The delay grows with the
+  // match index so cards cascade left-to-right, top-to-bottom. Capped so a
+  // large filter set doesn't make the last cards wait too long.
+  const STAGGER = 0.07;
+  const MAX_DELAY = 0.5;
+  let matchIdx = 0;
   scope.querySelectorAll<HTMLElement>(".pj").forEach((el) => {
     const cat = el.dataset["c"] ?? "";
     const match = k === "all" || cat.split(/\s+/).includes(k);
@@ -86,10 +92,12 @@ function filterRefCards(scope: HTMLElement, k: string) {
         el.style.opacity = "1";
         el.style.transform = "none";
       } else {
+        const delay = Math.min(matchIdx * STAGGER, MAX_DELAY);
+        matchIdx++;
         animate(
           el,
           { opacity: [0, 1], transform: ["translateY(18px)", "translateY(0px)"] },
-          { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+          { duration: 0.4, delay, ease: [0.22, 1, 0.36, 1] },
         );
       }
     } else if (reduced) {
