@@ -12,14 +12,16 @@ export function canonicalUrl(path = "/"): string {
 // LocalBusiness schema for the homepage. No street address or postal code:
 // Grandnatural is a service-area contractor (works on-site across Eger and
 // Heves vármegye), so the PostalAddress only carries locality/region/country.
-// areaServed lists the real service territory. No opening hours, geo
-// coordinates, ratings, or reviews per the spec.
+// areaServed is a City + an AdministrativeArea (the service territory);
+// sameAs links the verified Facebook page. image is the site's main hero
+// photo. No openingHours, geo coordinates, priceRange, ratings, or reviews.
 export const LOCAL_BUSINESS_JSONLD: string = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": `${SITE_URL}/#business`,
   name: "Grandnatural Kft.",
   url: canonicalUrl("/"),
+  image: `${SITE_URL}/images/grandnatural-hero.webp`,
   telephone: "+36 70 576 0108",
   email: "grandnatural2010@gmail.com",
   address: {
@@ -28,7 +30,13 @@ export const LOCAL_BUSINESS_JSONLD: string = JSON.stringify({
     addressRegion: "Heves",
     addressCountry: "HU",
   },
-  areaServed: ["Eger", "Heves vármegye"],
+  areaServed: [
+    { "@type": "City", name: "Eger" },
+    { "@type": "AdministrativeArea", name: "Heves vármegye" },
+  ],
+  sameAs: ["https://www.facebook.com/profile.php?id=61589404299906"],
+  description:
+    "Építés, felújítás, lakatosmunka, acélszerkezet-gyártás, daruzás és egyedi kivitelezés Egerben és Heves vármegyében — saját műhelyből és darus teherautóval, egy kivitelezőtől.",
 });
 
 // BreadcrumbList schema for a page. `crumbs` is the trail from the homepage
