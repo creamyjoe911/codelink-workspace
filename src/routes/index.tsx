@@ -275,7 +275,10 @@ function Grandnatural() {
       const last = cards[cards.length - 1];
       const trkRect = trk.getBoundingClientRect();
       const lastRect = last ? last.getBoundingClientRect() : trkRect;
-      D = Math.max(0, lastRect.right - trkRect.left - (vp ? vp.clientWidth : trk.clientWidth));
+      const vpW = vp ? vp.clientWidth : trk.clientWidth;
+      // Scroll ~8% past the last card's right edge so the whole Felújítás card
+      // clears the .vp edge-fade mask and stays fully visible.
+      D = Math.max(0, lastRect.right - trkRect.left - vpW + vpW * 0.08);
       svw.style.height = `${window.innerHeight + D}px`;
       upd();
     };
