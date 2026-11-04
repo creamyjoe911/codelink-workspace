@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
-import { SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
@@ -84,7 +84,7 @@ function Szolgaltatasok() {
           { name: "Szolgáltatások", path: "/szolgaltatasok" },
         ])}
       />
-      <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
+      <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 
       <SiteNav current="/szolgaltatasok" />
 
@@ -97,6 +97,7 @@ function Szolgaltatasok() {
             data-src={HERO_KEY}
             alt="Elkészült acélvázas ipari csarnok — szolgáltatások Egerben"
           />
+          <div className="ovl" aria-hidden="true" />
           <div className="hin">
             <h1>Szolgáltatások</h1>
             <p>

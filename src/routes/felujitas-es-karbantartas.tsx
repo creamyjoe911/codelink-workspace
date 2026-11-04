@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
-import { SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
@@ -54,7 +54,7 @@ function FelujitasEsKarbantartas() {
           { name: "Felújítás és karbantartás", path: "/felujitas-es-karbantartas" },
         ])}
       />
-      <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
+      <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 
       <SiteNav current="/felujitas-es-karbantartas" />
 
@@ -67,6 +67,7 @@ function FelujitasEsKarbantartas() {
             data-src={HERO_KEY}
             alt="Felújított lakótér új burkolattal — felújítás és karbantartás Egerben"
           />
+          <div className="ovl" aria-hidden="true" />
           <div className="hin">
             <ServiceBreadcrumb current="Felújítás és karbantartás" />
             <h1>Felújítás és karbantartás Eger</h1>

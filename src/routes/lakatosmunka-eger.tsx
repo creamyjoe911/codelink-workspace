@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
-import { SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
@@ -53,7 +53,7 @@ function LakatosmunkaEger() {
           { name: "Lakatosmunka Eger", path: "/lakatosmunka-eger" },
         ])}
       />
-      <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
+      <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 
       <SiteNav current="/lakatosmunka-eger" />
 
@@ -66,6 +66,7 @@ function LakatosmunkaEger() {
             data-src={HERO_KEY}
             alt="Elkészült, piros festett platóoldal — lakatosmunka Egerben"
           />
+          <div className="ovl" aria-hidden="true" />
           <div className="hin">
             <ServiceBreadcrumb current="Lakatosmunka Eger" />
             <h1>Lakatosmunka Eger</h1>

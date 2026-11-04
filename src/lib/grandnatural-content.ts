@@ -15,3 +15,16 @@ export const SITE_INLINE_IMAGES: Record<string, SiteImage> = {
     height: 54,
   },
 };
+
+// Hero overlay — the dark gradient that sits above the hero background photo
+// and below the hero text/badge (the "shadowy" effect). Scoped with
+// :not(.sm) so the references hero (.hero.sm) keeps its own ::before
+// gradient. Shared by every page whose hero is a full-bleed photo
+// (the service pages + the Szolgáltatások hub); the homepage has its own
+// copy in HERO_OVERRIDE_CSS in index.tsx.
+export const HERO_OVERLAY_CSS = `
+.hero:not(.sm)::before{background:none}
+.hero:not(.sm) .ovl{position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.55) 40%,rgba(0,0,0,0) 70%)}
+.hero:not(.sm) .hin,.hero:not(.sm) .badge{z-index:2}
+@media(max-width:768px){.hero:not(.sm) .ovl{background:rgba(0,0,0,.6)}}
+`;

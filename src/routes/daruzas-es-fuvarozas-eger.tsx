@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
-import { SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
@@ -56,7 +56,7 @@ function DaruzasEsFuvarozasEger() {
           { name: "Daruzás és fuvarozás Eger", path: "/daruzas-es-fuvarozas-eger" },
         ])}
       />
-      <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
+      <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 
       <SiteNav current="/daruzas-es-fuvarozas-eger" />
 
@@ -68,6 +68,7 @@ function DaruzasEsFuvarozasEger() {
             src={heroImg}
             alt="Grandnatural MAN darus teherautója és géppark — daruzás és fuvarozás Egerben"
           />
+          <div className="ovl" aria-hidden="true" />
           <div className="hin">
             <ServiceBreadcrumb current="Daruzás és fuvarozás Eger" />
             <h1>Daruzás és fuvarozás Eger</h1>

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
-import { SITE_CSS } from "@/lib/grandnatural-content";
+import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
@@ -52,7 +52,7 @@ function AcelszerekezetGyartasEger() {
           { name: "Acélszerkezet gyártás Eger", path: "/acelszerkezet-gyartas-eger" },
         ])}
       />
-      <style dangerouslySetInnerHTML={{ __html: SITE_CSS }} />
+      <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 
       <SiteNav current="/acelszerkezet-gyartas-eger" />
 
@@ -65,6 +65,7 @@ function AcelszerekezetGyartasEger() {
             data-src={HERO_KEY}
             alt="Acélvázas ipari csarnok építése — acélszerkezet gyártás Egerben"
           />
+          <div className="ovl" aria-hidden="true" />
           <div className="hin">
             <ServiceBreadcrumb current="Acélszerkezet gyártás Eger" />
             <h1>Acélszerkezet gyártás Eger</h1>
