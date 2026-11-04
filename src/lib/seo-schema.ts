@@ -3,7 +3,7 @@
 // SITE_URL is the published production origin. Update it here (one place)
 // when a custom domain is attached — every route's canonical link and every
 // JSON-LD @id/item URL is derived from it.
-export const SITE_URL = "https://codelink-workspace.vibepreview.app";
+export const SITE_URL = "https://grandnatural.hu";
 
 export function canonicalUrl(path = "/"): string {
   return SITE_URL + (path.startsWith("/") ? path : `/${path}`);
