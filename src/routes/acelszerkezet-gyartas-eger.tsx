@@ -8,25 +8,21 @@ import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbJsonLD, canonicalUrl } from "@/lib/seo-schema";
+import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD } from "@/lib/seo-schema";
+
+const TITLE = "Acélszerkezet gyártás Eger – acélvázak | Grandnatural";
+const DESC =
+  "Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak gyártása és szerelése saját műhelyből Egerben. Kérjen ajánlatot: +36 70 576 0108.";
 
 export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
   head: () => ({
     meta: [
-      { title: "Acélszerkezet gyártás Eger | Grandnatural" },
-      {
-        name: "description",
-        content:
-          "Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak gyártása és helyszíni szerelése saját műhelyből Egerben és Heves vármegyében. Kérjen ajánlatot: +36 70 576 0108.",
-      },
-      { property: "og:title", content: "Acélszerkezet gyártás Eger | Grandnatural" },
-      {
-        property: "og:description",
-        content:
-          "Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak gyártása és helyszíni szerelése saját műhelyből Egerben és Heves vármegyében. Kérjen ajánlatot: +36 70 576 0108.",
-      },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [{ rel: "canonical", href: canonicalUrl("/acelszerkezet-gyartas-eger") }],
   }),
@@ -54,6 +50,7 @@ function AcelszerekezetGyartasEger() {
           { name: "Acélszerkezet gyártás Eger", path: "/acelszerkezet-gyartas-eger" },
         ])}
       />
+      <JsonLd json={serviceJsonLD({ name: "Acélszerkezet gyártás Eger", description: DESC })} />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 
       <SiteNav current="/acelszerkezet-gyartas-eger" />
@@ -65,7 +62,7 @@ function AcelszerekezetGyartasEger() {
             className="bg"
             src={PLACEHOLDER}
             data-src={HERO_KEY}
-            alt="Acélvázas ipari csarnok építése — acélszerkezet gyártás Egerben"
+            alt="Acélvázas ipari csarnok építése"
           />
           <div className="ovl" aria-hidden="true" />
           <div className="hin">
@@ -99,7 +96,7 @@ function AcelszerekezetGyartasEger() {
                 loading="lazy"
                 src={PLACEHOLDER}
                 data-src={INTRO_KEY}
-                alt="Acél lemez összeállítása a műhelyben — acélszerkezet gyártás"
+                alt="Acél lemez összeállítása a műhelyben"
               />
               <div className="stat">
                 <b>16+</b>
@@ -153,8 +150,8 @@ function AcelszerekezetGyartasEger() {
               <div className="wr">
                 <h3>3. Összeállítás</h3>
                 <p>
-                  A hegesztett elemeket összeállítjuk, ellenőrizzük, és a helyszínre készre
-                  készítjük a szereléshez.
+                  A hegesztett elemeket összeállítjuk, ellenőrizzük, és előkészítjük a
+                  helyszíni szereléshez.
                 </p>
               </div>
               <div className="wr">
@@ -219,7 +216,7 @@ function AcelszerekezetGyartasEger() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={HEAVY_KEY}
-                  alt="Elkészült acélvázas ipari csarnok — teherhordó acélszerkezet Egerben"
+                  alt="Elkészült acélvázas ipari csarnok"
                 />
               </div>
               <figcaption>
@@ -237,7 +234,7 @@ function AcelszerekezetGyartasEger() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={WELDED_KEY}
-                  alt="Acélszerkezet építése és helyszíni szerelése — acélváz felállítása"
+                  alt="Acélváz felállítása helyszíni szereléssel"
                 />
               </div>
               <figcaption>
@@ -255,7 +252,7 @@ function AcelszerekezetGyartasEger() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={ASSEMBLY_KEY}
-                  alt="Emelős acélszerkezet építése — teherhordó acélváz összeállítása"
+                  alt="Lemez összeállítása a műhelyben"
                 />
               </div>
               <figcaption>
@@ -333,8 +330,8 @@ function AcelszerekezetGyartasEger() {
               <details>
                 <summary>Hogyan kérhetek ajánlatot acélszerkezetre?</summary>
                 <p>
-                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az ajánlatkérő űrlapot a
-                  főoldalon. A munka részleteit egyeztetjük.
+                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az alábbi űrlapot. A
+                  munka részleteit egyeztetjük.
                 </p>
               </details>
             </div>

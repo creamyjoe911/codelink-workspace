@@ -8,25 +8,21 @@ import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbJsonLD, canonicalUrl } from "@/lib/seo-schema";
+import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD } from "@/lib/seo-schema";
+
+const TITLE = "Lakatosmunka Eger – kapuk, korlátok, lépcsők | Grandnatural";
+const DESC =
+  "Kapuk, korlátok, lépcsők, előtetők és műszaki biztonsági szerkezetek gyártása és helyszíni szerelése Egerben. Kérjen ajánlatot: +36 70 576 0108.";
 
 export const Route = createFileRoute("/lakatosmunka-eger")({
   head: () => ({
     meta: [
-      { title: "Lakatosmunka Eger | Grandnatural" },
-      {
-        name: "description",
-        content:
-          "Kapuk, korlátok, lépcsők, előtetők és műszaki biztonsági szerkezetek gyártása és helyszíni szerelése Egerben. Kérjen ajánlatot: +36 70 576 0108.",
-      },
-      { property: "og:title", content: "Lakatosmunka Eger | Grandnatural" },
-      {
-        property: "og:description",
-        content:
-          "Kapuk, korlátok, lépcsők, előtetők és műszaki biztonsági szerkezetek gyártása és helyszíni szerelése Egerben. Kérjen ajánlatot: +36 70 576 0108.",
-      },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [{ rel: "canonical", href: canonicalUrl("/lakatosmunka-eger") }],
   }),
@@ -55,6 +51,7 @@ function LakatosmunkaEger() {
           { name: "Lakatosmunka Eger", path: "/lakatosmunka-eger" },
         ])}
       />
+      <JsonLd json={serviceJsonLD({ name: "Lakatosmunka Eger", description: DESC })} />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 
       <SiteNav current="/lakatosmunka-eger" />
@@ -66,7 +63,7 @@ function LakatosmunkaEger() {
             className="bg"
             src={PLACEHOLDER}
             data-src={HERO_KEY}
-            alt="Elkészült, piros festett platóoldal — lakatosmunka Egerben"
+            alt="Elkészült, piros festett platóoldal"
           />
           <div className="ovl" aria-hidden="true" />
           <div className="hin">
@@ -100,7 +97,7 @@ function LakatosmunkaEger() {
                 loading="lazy"
                 src={PLACEHOLDER}
                 data-src={SECTION_KEY}
-                alt="Nyersacél lemez a műhelyben — a lakatosmunka kiinduló anyaga"
+                alt="Nyersacél lemez a műhelyben"
               />
               <div className="stat">
                 <b>16+</b>
@@ -179,7 +176,7 @@ function LakatosmunkaEger() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={CUSTOM_KEY}
-                  alt="Egyedi lakatosmunkával készült platóoldal — lakatosmunka Egerben"
+                  alt="Egyedi platóoldal lakatosmunkával"
                 />
               </div>
               <figcaption>
@@ -194,7 +191,7 @@ function LakatosmunkaEger() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={ASSEMBLY_KEY}
-                  alt="Lemez összeállítása a műhelyben — lakatosmunka Egerben"
+                  alt="Lemez összeállítása a műhelyben"
                 />
               </div>
               <figcaption>
@@ -279,8 +276,8 @@ function LakatosmunkaEger() {
               <details>
                 <summary>Hogyan kérhetek ajánlatot?</summary>
                 <p>
-                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az ajánlatkérő űrlapot a
-                  főoldalon. Szívesen felvesszük a munka részleteit.
+                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az alábbi űrlapot.
+                  Szívesen felvesszük a munka részleteit.
                 </p>
               </details>
               <details>

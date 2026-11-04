@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
           "Acélszerkezetek, lakatosmunkák, daruzás és egyedi kivitelezés Egerben. Saját darus teherautó, több mint 16 év tapasztalat a Heves vármegyei építkezéseken.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [
       {
@@ -131,11 +131,19 @@ function Grandnatural() {
   // after first paint by the lazy-load effect below.
   const bodyHtml = useMemo(() => {
     let html = SITE_BODY_HTML;
-    // Hero headline: break into exactly two lines ("Építőipari" / "megoldások").
+    // Hero headline: "Építőipari megoldások Egerben" with real spaces (kept on
+    // two visual lines via spans; textContent preserves the spaces for SEO).
     html = html.replace(
       "<h1>Építőipari megoldások</h1>",
-      "<h1><span>Építőipari</span><span>megoldások</span></h1>",
+      "<h1><span>Építőipari megoldások</span> <span>Egerben</span></h1>",
     );
+    // Point the "Szolgáltatásaink" button and the footer "Szolgáltatások"
+    // link to the hub page instead of the #szolg anchor.
+    html = html.replace('href="#szolg">Szolgáltatásaink', 'href="/szolgaltatasok">Szolgáltatásaink');
+    html = html.split('href="#szolg">Szolgáltatások</a>').join('href="/szolgaltatasok">Szolgáltatások</a>');
+    // The "Helyszíni kivitelezés" card now links to the hub; drop the removed
+    // csarnoképítés service from its description.
+    html = html.replace('Építőipari kivitelezés, csarnoképítés, szendvicspaneles burkolás', 'Építőipari kivitelezés, szendvicspaneles burkolás');
     // Hero subtitle (new wording).
     html = html.replace(
       "<p>Építés, felújítás, acélszerkezetek és egyedi kivitelezési munkák Egerben és Heves vármegyében.</p>",
@@ -165,7 +173,7 @@ function Grandnatural() {
     );
     html = html.replace(
       /<article class="sc">(<img loading="lazy" src="images\/10-acelvaz-szerelese-darus-teherautoval\.jpg"[\s\S]*?)<\/article>/,
-      '<a class="sc" style="text-decoration:none" href="/felujitas-es-karbantartas">$1</a>',
+      '<a class="sc" style="text-decoration:none" href="/szolgaltatasok">$1</a>',
     );
     // Add a hub link ("Összes szolgáltatás") into the services section header
     // so the homepage services section links to the Szolgáltatások hub page.

@@ -8,25 +8,21 @@ import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbJsonLD, canonicalUrl } from "@/lib/seo-schema";
+import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD } from "@/lib/seo-schema";
+
+const TITLE = "Felújítás és karbantartás Eger – ingatlanok | Grandnatural";
+const DESC =
+  "Magán- és ipari ingatlanok felújítása, karbantartása és korszerűsítése Egerben és Heves vármegyében. Kérjen ajánlatot: +36 70 576 0108.";
 
 export const Route = createFileRoute("/felujitas-es-karbantartas")({
   head: () => ({
     meta: [
-      { title: "Felújítás és karbantartás Eger | Grandnatural" },
-      {
-        name: "description",
-        content:
-          "Magán- és ipari ingatlanok felújítása, karbantartása, javítása és korszerűsítése Egerben és Heves vármegyében. Saját műhelyből, egy kivitelezőtől. +36 70 576 0108.",
-      },
-      { property: "og:title", content: "Felújítás és karbantartás Eger | Grandnatural" },
-      {
-        property: "og:description",
-        content:
-          "Magán- és ipari ingatlanok felújítása, karbantartása, javítása és korszerűsítése Egerben és Heves vármegyében. Saját műhelyből, egy kivitelezőtől.",
-      },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [{ rel: "canonical", href: canonicalUrl("/felujitas-es-karbantartas") }],
   }),
@@ -56,6 +52,7 @@ function FelujitasEsKarbantartas() {
           { name: "Felújítás és karbantartás", path: "/felujitas-es-karbantartas" },
         ])}
       />
+      <JsonLd json={serviceJsonLD({ name: "Felújítás és karbantartás Eger", description: DESC })} />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 
       <SiteNav current="/felujitas-es-karbantartas" />
@@ -67,7 +64,7 @@ function FelujitasEsKarbantartas() {
             className="bg"
             src={PLACEHOLDER}
             data-src={HERO_KEY}
-            alt="Felújított lakótér új burkolattal — felújítás és karbantartás Egerben"
+            alt="Felújított lakótér új burkolattal"
           />
           <div className="ovl" aria-hidden="true" />
           <div className="hin">
@@ -101,7 +98,7 @@ function FelujitasEsKarbantartas() {
                 loading="lazy"
                 src={PLACEHOLDER}
                 data-src={INTRO_KEY}
-                alt="Javítástól a teljes felújításig — felújítás és karbantartás Egerben"
+                alt="Belső felújítás kivitelezés közben"
               />
               <div className="stat">
                 <b>16+</b>
@@ -118,9 +115,9 @@ function FelujitasEsKarbantartas() {
                 acélmunkákat is egy kézből kapja.
               </p>
               <p>
-                Mivel a műhely, a daru és a helyszíni csapat mind a miénk, a felújítást nem több
-                alvállalkozóra bontjuk — egy menetrendből, egy felelőstől történik, Egerben és Heves
-                vármegyében.
+                Mivel a műhely, a daru és a helyszíni csapat mind a miénk, a felújítást nem
+                több alvállalkozóra bontjuk — egy menetrendben, egy felelős vezetésével
+                végezzük el, Egerben és Heves vármegyében.
               </p>
               <a className="pill" href="/#kapcsolat">
                 Kérjen ajánlatot<i>→</i>
@@ -190,7 +187,7 @@ function FelujitasEsKarbantartas() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={EXTERIOR_KEY}
-                  alt="Külső felújítás kivitelezés közben — homlokzat előkészítése és javítása"
+                  alt="Külső felújítás kivitelezés közben"
                 />
               </div>
               <figcaption>
@@ -208,7 +205,7 @@ function FelujitasEsKarbantartas() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={FACADE_KEY}
-                  alt="Családi ház külső felújítása — javítás és korszerűsítés"
+                  alt="Családi ház külső felújítása"
                 />
               </div>
               <figcaption>
@@ -226,7 +223,7 @@ function FelujitasEsKarbantartas() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={FINISHED_KEY}
-                  alt="Felújított óvoda kész állapotban — óvoda felújítása"
+                  alt="Felújított óvoda kész állapotban"
                 />
               </div>
               <figcaption>
@@ -303,8 +300,8 @@ function FelujitasEsKarbantartas() {
               <details>
                 <summary>Hogyan kérhetek ajánlatot felújításra?</summary>
                 <p>
-                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az ajánlatkérő űrlapot a
-                  főoldalon. A munkák körét és sorrendjét egyeztetjük.
+                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az alábbi űrlapot. A
+                  munkák körét és sorrendjét egyeztetjük.
                 </p>
               </details>
             </div>

@@ -7,26 +7,19 @@ import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbJsonLD, canonicalUrl } from "@/lib/seo-schema";
 
+const TITLE = "Szolgáltatások | Grandnatural — Eger, Heves vármegye";
+const DESC =
+  "Lakatosmunka, acélszerkezet gyártás, daruzás és felújítás Egerben és Heves vármegyében, egy kivitelezőtől. Kérjen ajánlatot: +36 70 576 0108.";
+
 export const Route = createFileRoute("/szolgaltatasok")({
   head: () => ({
     meta: [
-      { title: "Szolgáltatások | Grandnatural — Eger, Heves vármegye" },
-      {
-        name: "description",
-        content:
-          "Acélszerkezet, daruzás és kivitelezés Egerben — lakatosmunka, acélgyártás, daruzás és csarnoképítés egy kivitelezőtől. Kérjen ajánlatot: +36 70 576 0108.",
-      },
-      {
-        property: "og:title",
-        content: "Szolgáltatások | Grandnatural — Eger, Heves vármegye",
-      },
-      {
-        property: "og:description",
-        content:
-          "Acélszerkezet, daruzás és kivitelezés Egerben — lakatosmunka, acélgyártás, daruzás és csarnoképítés egy kivitelezőtől.",
-      },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [{ rel: "canonical", href: canonicalUrl("/szolgaltatasok") }],
   }),
@@ -56,7 +49,7 @@ function Szolgaltatasok() {
       href: "/acelszerkezet-gyartas-eger",
       title: "Acélszerkezet gyártás",
       img: "images/05-nyers-acel-lemez-a-muhelyben.jpg",
-      alt: "Nyers acél lemez a műhelyben — acélszerkezet gyártás Egerben",
+      alt: "Nyers acél lemez a műhelyben",
       summary:
         "Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak műhelyi gyártása és helyszíni szerelése.",
     },
@@ -64,7 +57,7 @@ function Szolgaltatasok() {
       href: "/daruzas-es-fuvarozas-eger",
       title: "Daruzás és fuvarozás",
       img: "images/06-daruval-emelt-betonlap.jpg",
-      alt: "Daruval emelt betonlap — darus rakodás és telepítés Egerben",
+      alt: "Daruval emelt betonlap",
       summary:
         "Építőanyagok, nehézgépek, csarnok- és betonelemek darus rakodása és szállítása saját MAN darus teherautóval.",
     },
@@ -72,7 +65,7 @@ function Szolgaltatasok() {
       href: "/felujitas-es-karbantartas",
       title: "Felújítás és karbantartás",
       img: "images/08-felujitott-lakoter-uj-burkolattal.jpg",
-      alt: "Felújított lakótér új burkolattal — felújítás és karbantartás",
+      alt: "Felújított lakótér új burkolattal",
       summary:
         "Magán- és ipari ingatlanok felújítása, karbantartása, javítási és korszerűsítési munkálatok.",
     },
@@ -97,14 +90,15 @@ function Szolgaltatasok() {
             className="bg"
             src={PLACEHOLDER}
             data-src={HERO_KEY}
-            alt="Elkészült acélvázas ipari csarnok — szolgáltatások Egerben"
+            alt="Grandnatural szolgáltatások és géppark"
           />
           <div className="ovl" aria-hidden="true" />
           <div className="hin">
             <h1>Szolgáltatások</h1>
             <p>
-              Acélszerkezet, daruzás és kivitelezés Egerben — építés, acélgyártás, daruzás és
-              csarnoképítés egy kivitelezőtől, saját műhelyből és saját daruval.
+              Lakatosmunka, acélszerkezet gyártás, daruzás és felújítás Egerben és Heves
+              vármegyében — építés, acélgyártás, daruzás és kivitelezés egy kivitelezőtől,
+              saját műhelyből és saját daruval.
             </p>
             <a className="pill" href="/#kapcsolat">
               Ajánlatkérés<i>→</i>
@@ -130,7 +124,7 @@ function Szolgaltatasok() {
                 loading="lazy"
                 src={PLACEHOLDER}
                 data-src="images/novenykert"
-                alt="Grandnatural kivitelezés — szolgáltatások Egerben"
+                alt="Grandnatural szolgáltatások és géppark"
               />
               <div className="stat">
                 <b>16+</b>
@@ -142,8 +136,8 @@ function Szolgaltatasok() {
               <h2>EGY kivitelező, négy szolgáltatás.</h2>
               <p style={{ marginTop: 24 }}>
                 A Grandnaturalnál a műhely, a daru és a helyszíni munka egy kézből van —
-                lakatosmunkát, acélszerkezet-gyártást, daruzást és csarnoképítést egy kivitelezőtől
-                kapja Egerben és Heves vármegyében.
+                lakatosmunkát, acélszerkezet-gyártást, daruzást és felújítást egy
+                kivitelezőtől kapja Egerben és Heves vármegyében.
               </p>
               <p>
                 Minden szolgáltatás saját műhelyből indul, és saját daru teherautóval ér a
@@ -163,7 +157,7 @@ function Szolgaltatasok() {
             <div className="ctr" style={{ maxWidth: 720, margin: "0 auto" }}>
               <h2>Mit vállalunk?</h2>
               <p style={{ marginTop: 16 }}>
-                A lakatosmunkától a csarnoképítésig — minden a saját műhelyünkben készül, és a
+                A lakatosmunkától a felújításig — minden a saját műhelyünkben készül, és a
                 helyszínen szereljük be.
               </p>
             </div>

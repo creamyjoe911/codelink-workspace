@@ -8,25 +8,21 @@ import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbJsonLD, canonicalUrl } from "@/lib/seo-schema";
+import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD } from "@/lib/seo-schema";
+
+const TITLE = "Daruzás és fuvarozás Eger – darus rakodás | Grandnatural";
+const DESC =
+  "Darus rakodás és szállítás saját MAN darus teherautóval Egerben és Heves vármegyében. Kérjen ajánlatot: +36 70 576 0108.";
 
 export const Route = createFileRoute("/daruzas-es-fuvarozas-eger")({
   head: () => ({
     meta: [
-      { title: "Daruzás és fuvarozás Eger | Grandnatural" },
-      {
-        name: "description",
-        content:
-          "Darus rakodás és szállítás saját MAN darus teherautóval Egerben és Heves vármegyében. Építőanyag, nehézgép, csarnok- és betonelem emelés, fuvarozás.",
-      },
-      { property: "og:title", content: "Daruzás és fuvarozás Eger | Grandnatural" },
-      {
-        property: "og:description",
-        content:
-          "Darus rakodás és szállítás saját MAN darus teherautóval Egerben és Heves vármegyében. Építőanyag, nehézgép, csarnok- és betonelem emelés, fuvarozás.",
-      },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [{ rel: "canonical", href: canonicalUrl("/daruzas-es-fuvarozas-eger") }],
   }),
@@ -58,6 +54,7 @@ function DaruzasEsFuvarozasEger() {
           { name: "Daruzás és fuvarozás Eger", path: "/daruzas-es-fuvarozas-eger" },
         ])}
       />
+      <JsonLd json={serviceJsonLD({ name: "Daruzás és fuvarozás Eger", description: DESC })} />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 
       <SiteNav current="/daruzas-es-fuvarozas-eger" />
@@ -68,7 +65,7 @@ function DaruzasEsFuvarozasEger() {
           <img
             className="bg"
             src={heroImg}
-            alt="Grandnatural MAN darus teherautója és géppark — daruzás és fuvarozás Egerben"
+            alt="Grandnatural MAN darus teherautója és géppark"
           />
           <div className="ovl" aria-hidden="true" />
           <div className="hin">
@@ -102,7 +99,7 @@ function DaruzasEsFuvarozasEger() {
                 loading="lazy"
                 src={PLACEHOLDER}
                 data-src={LIFT_KEY}
-                alt="Daruval emelt betonlap — darus rakodás és telepítés Egerben"
+                alt="Daruval emelt betonlap"
               />
               <div className="stat">
                 <b>16+</b>
@@ -215,7 +212,7 @@ function DaruzasEsFuvarozasEger() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={LIFT_KEY}
-                  alt="Darus emelés és betonelem telepítés — darus rakodás Egerben"
+                  alt="Darus emelés és betonelem telepítés"
                 />
               </div>
               <figcaption>
@@ -232,7 +229,7 @@ function DaruzasEsFuvarozasEger() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={INSTALL_KEY}
-                  alt="Acélszerkezet és nehéz elem beemelése darus teherautóval a helyszínen"
+                  alt="Acélszerkezet beemelése darus teherautóval"
                 />
               </div>
               <figcaption>
@@ -249,7 +246,7 @@ function DaruzasEsFuvarozasEger() {
                   loading="lazy"
                   src={PLACEHOLDER}
                   data-src={MAN_KEY}
-                  alt="MAN darus teherautó fülkéje felújítás után — daruzás és fuvarozás Egerben"
+                  alt="MAN darus teherautó fülkéje felújítás után"
                 />
               </div>
               <figcaption>
@@ -323,15 +320,16 @@ function DaruzasEsFuvarozasEger() {
               <details>
                 <summary>Milyen adat kell az ajánlatkéréshez?</summary>
                 <p>
-                  Az emelendő-szállítandó terhelő darab, a helyszín és a kívánt időpont segít pontos
-                  ajánlatot adni. Ezeket telefonon vagy az űrlapon egyeztethetjük.
+                  Az emelendő vagy szállítandó teher típusa és súlya, a helyszín és a kívánt
+                  időpont segít a pontos ajánlat elkészítésében. Ezeket telefonon vagy az
+                  űrlapon egyeztethetjük.
                 </p>
               </details>
               <details>
                 <summary>Hogyan lehet időpontot foglalni?</summary>
                 <p>
-                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az ajánlatkérő űrlapot a
-                  főoldalon. A helyszínt és a feladatot egyeztetve foglalunk időpontot.
+                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az alábbi űrlapot. A
+                  helyszínt és a feladatot egyeztetve foglalunk időpontot.
                 </p>
               </details>
             </div>

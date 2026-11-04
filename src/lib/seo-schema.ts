@@ -46,3 +46,18 @@ export function breadcrumbJsonLD(crumbs: ReadonlyArray<{ name: string; path: str
     })),
   });
 }
+
+// Service schema for a service landing page. `name` is the page's H1,
+// `description` is the page's meta description. areaServed and provider are
+// shared across every service page — the provider references the homepage
+// LocalBusiness @id.
+export function serviceJsonLD(opts: { name: string; description: string }): string {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: opts.name,
+    description: opts.description,
+    areaServed: ["Eger", "Heves vármegye"],
+    provider: { "@id": `${SITE_URL}/#business` },
+  });
+}
