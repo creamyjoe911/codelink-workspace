@@ -51,7 +51,7 @@ const HERO_OVERRIDE_CSS = `
 .hero:not(.sm) .hin,.hero:not(.sm) .badge{z-index:2}
 .hero:not(.sm) .hin{max-width:46%;margin-inline:0}
 .hero:not(.sm) .hin h1{font-size:clamp(48px,7vw,104px);line-height:.95;letter-spacing:-.03em;margin:0 0 40px;text-shadow:none}
-.hero:not(.sm) .hin h1 span{display:block}
+.hero:not(.sm) .hin h1 .hc{display:block}
 .hero:not(.sm) .hin p{font-size:21px;line-height:1.5;font-weight:500;max-width:50ch;margin:0 0 32px;color:#fff;text-shadow:none;text-wrap:balance}
 .hero:not(.sm) .hin .pill{margin:0}
 .hero:not(.sm) .badge{background:#0e1a18;border:1px solid transparent;box-shadow:none}
@@ -60,6 +60,10 @@ const HERO_OVERRIDE_CSS = `
 @media(max-width:960px){
 .hero:not(.sm){padding-inline:20px}
 .hero:not(.sm) .hin{max-width:100%}
+.hero:not(.sm) .hin h1 .hb{display:block}
+.tick{height:auto;min-height:0}
+.tk{position:relative;left:auto;top:auto;width:100%;padding-block:16px}
+.tk.a,.tk.b{transform:none}
 }
 @media(max-width:768px){
 .hero:not(.sm) .ovl{background:rgba(0,0,0,.6)}
@@ -135,7 +139,7 @@ function Grandnatural() {
     // two visual lines via spans; textContent preserves the spaces for SEO).
     html = html.replace(
       "<h1>Építőipari megoldások</h1>",
-      "<h1><span>Építőipari megoldások</span> <span>Egerben</span></h1>",
+      '<h1><span class="ha">Építőipari</span> <span class="hb">megoldások</span><span class="hc">Egerben</span></h1>',
     );
     // Point the "Szolgáltatásaink" button and the footer "Szolgáltatások"
     // link to the hub page instead of the #szolg anchor.
