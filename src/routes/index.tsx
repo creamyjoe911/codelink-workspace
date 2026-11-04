@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { SITE_INLINE_IMAGES, SITE_BODY_HTML, SITE_CSS } from "@/lib/grandnatural-content";
 import { useLazyImages, getCachedLazyImages } from "@/hooks/use-lazy-images";
 import { useReveal } from "@/hooks/use-reveal";
+import { animate } from "motion";
 import { SiteNav } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
 import { LOCAL_BUSINESS_JSONLD, canonicalUrl } from "@/lib/seo-schema";
@@ -64,6 +65,42 @@ const HERO_OVERRIDE_CSS = `
 .hero:not(.sm) .ovl{background:rgba(0,0,0,.6)}
 }
 `;
+
+// Smooth Motion animation for the references gallery cards when the active
+// category filter changes. Matching cards fade+slide in; non-matching cards
+// fade out then collapse. A per-element generation guard prevents a stale
+// hide callback from hiding a card that has since been re-shown by a newer
+// filter change. Respects prefers-reduced-motion.
+function filterRefCards(scope: HTMLElement, k: string) {
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  scope.querySelectorAll<HTMLElement>(".pj").forEach((el) => {
+    const cat = el.dataset["c"] ?? "";
+    const match = k === "all" || cat.split(/\s+/).includes(k);
+    const gen = ((el as unknown as { _fg?: number })._fg ?? 0) + 1;
+    (el as unknown as { _fg?: number })._fg = gen;
+    if (match) {
+      el.hidden = false;
+      el.style.display = "";
+      el.classList.add("in");
+      if (reduced) {
+        el.style.opacity = "1";
+        el.style.transform = "none";
+      } else {
+        animate(
+          el,
+          { opacity: [0, 1], transform: ["translateY(18px)", "translateY(0px)"] },
+          { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+        );
+      }
+    } else if (reduced) {
+      el.style.display = "none";
+    } else {
+      animate(el, { opacity: [1, 0] }, { duration: 0.25 }).finished.then(() => {
+        if ((el as unknown as { _fg?: number })._fg === gen) el.style.display = "none";
+      });
+    }
+  });
+}
 
 // Parse the original body HTML once and inject the original CSS + image data URIs.
 // The markup is rendered through dangerouslySetInnerHTML so the site keeps its
@@ -369,17 +406,7 @@ function Grandnatural() {
 
       ev.preventDefault();
       const k = btn.dataset["f"] ?? "all";
-      scope.querySelectorAll<HTMLElement>(".pj").forEach((el) => {
-        const cat = el.dataset["c"] ?? "";
-        const match = k === "all" || cat.split(/\s+/).includes(k);
-        el.hidden = !match;
-        if (match) {
-          el.style.display = "";
-          el.classList.add("in");
-        } else {
-          el.style.display = "none";
-        }
-      });
+      filterRefCards(scope, k);
       scope.querySelectorAll<HTMLButtonElement>(".tb button").forEach((b) => {
         b.setAttribute("aria-pressed", String((b.dataset["f"] ?? "") === k));
       });
@@ -458,17 +485,7 @@ function Grandnatural() {
       const tabs = Array.from(ref.querySelectorAll<HTMLButtonElement>(".tb button"));
       const activeTab = tabs.find((b) => b.getAttribute("aria-pressed") === "true") ?? tabs[0];
       const k = activeTab?.dataset["f"] ?? "all";
-      ref.querySelectorAll<HTMLElement>(".pj").forEach((el) => {
-        const cat = el.dataset["c"] ?? "";
-        const match = k === "all" || cat.split(/\s+/).includes(k);
-        el.hidden = !match;
-        if (match) {
-          el.style.display = "";
-          el.classList.add("in");
-        } else {
-          el.style.display = "none";
-        }
-      });
+      filterRefCards(ref, k);
       tabs.forEach((b) => b.setAttribute("aria-pressed", String((b.dataset["f"] ?? "") === k)));
     }
   }, [isRefView]);
