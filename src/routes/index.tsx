@@ -264,7 +264,18 @@ function Grandnatural() {
         svw.style.height = "";
         return;
       }
-      D = Math.max(0, trk.scrollWidth - trk.parentElement!.clientWidth);
+      const vp = trk.parentElement;
+      // Stop the horizontal scroll when the last service card (Felújítás és
+      // karbantartás) reaches the right edge, instead of scrolling through the
+      // track's trailing padding. lastRect.right - trkRect.left is the last
+      // card's right edge measured from the track's left edge; it is
+      // transform-independent (the active translate shifts both trk and its
+      // children equally), so it stays accurate even when measured mid-scroll.
+      const cards = trk.querySelectorAll<HTMLElement>("article.sc");
+      const last = cards[cards.length - 1];
+      const trkRect = trk.getBoundingClientRect();
+      const lastRect = last ? last.getBoundingClientRect() : trkRect;
+      D = Math.max(0, lastRect.right - trkRect.left - (vp ? vp.clientWidth : trk.clientWidth));
       svw.style.height = `${window.innerHeight + D}px`;
       upd();
     };
