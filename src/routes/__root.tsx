@@ -15,6 +15,7 @@ import appCss from "../styles.css?url";
 // @import in styles.css.
 import barlowLatin400Url from "@fontsource/barlow/files/barlow-latin-400-normal.woff2?url";
 import { reportVibeError } from "../lib/vibe-error-reporting";
+import Lenis from "lenis";
 
 function NotFoundComponent() {
   return (
@@ -130,6 +131,26 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  // Lenis smooth scrolling — applied once on the client for every page.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+    let rafId = 0;
+    const raf = (time: number) => {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
