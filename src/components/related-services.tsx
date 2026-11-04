@@ -18,7 +18,7 @@ const SERVICES = [
     desc: "Építőanyagok, nehézgépek, csarnok- és betonelemek darus rakodása és szállítása saját géppel.",
   },
   {
-    href: "/felujitas-es-karbantartas",
+    href: "/felujitas-es-karbantartas-eger",
     label: "Felújítás és karbantartás Egerben",
     desc: "Magán- és ipari ingatlanok felújítása, karbantartása, javítása és korszerűsítése egy kivitelezőtől.",
   },

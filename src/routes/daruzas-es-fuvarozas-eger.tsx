@@ -258,7 +258,11 @@ function DaruzasEsFuvarozasEger() {
 
         {/* Band — A saját darunk, saját kézben */}
         <section className="band">
-          <img loading="lazy" src={HERO_KEY} alt="" />
+          <img
+            loading="lazy"
+            src={HERO_KEY}
+            alt="MAN darus teherautó daruzás és fuvarozás közben"
+          />
           <div className="ghost" aria-hidden="true">
             Daruzás
           </div>
@@ -391,7 +395,7 @@ function DaruzasEsFuvarozasEger() {
               <a href="/lakatosmunka-eger">Lakatosmunkák</a>
               <a href="/acelszerkezet-gyartas-eger">Acélszerkezetek</a>
               <a href="/daruzas-es-fuvarozas-eger">Daruzás és fuvarozás</a>
-              <a href="/felujitas-es-karbantartas">Felújítás és karbantartás</a>
+              <a href="/felujitas-es-karbantartas-eger">Felújítás és karbantartás</a>
               <a href="/szolgaltatasok">Kivitelezés</a>
             </div>
             <div>

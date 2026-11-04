@@ -19,7 +19,7 @@ const SERVICE_LINKS = [
   { href: "/lakatosmunka-eger", label: "Lakatosmunka" },
   { href: "/acelszerkezet-gyartas-eger", label: "Acélszerkezet gyártás" },
   { href: "/daruzas-es-fuvarozas-eger", label: "Daruzás és fuvarozás" },
-  { href: "/felujitas-es-karbantartas", label: "Felújítás és karbantartás" },
+  { href: "/felujitas-es-karbantartas-eger", label: "Felújítás és karbantartás" },
 ] as const;
 
 // Invisible bridge so the pointer can travel from the Szolgáltatások trigger

@@ -39,15 +39,15 @@ function Szolgaltatasok() {
   const services = [
     {
       href: "/lakatosmunka-eger",
-      title: "Lakatosmunka",
+      title: "Lakatosmunka Egerben",
       img: "images/04-elkeszult-piros-festett-platooldal.jpg",
-      alt: "Elkészült, piros festett platóoldal — lakatosmunka Egerben",
+      alt: "Elkészült, piros festett platóoldal",
       summary:
         "Kapuk, korlátok, lépcsők, előtetők és biztonsági szerkezetek gyártása és helyszíni szerelése saját műhelyből.",
     },
     {
       href: "/acelszerkezet-gyartas-eger",
-      title: "Acélszerkezet gyártás",
+      title: "Acélszerkezet gyártás Egerben",
       img: "images/05-nyers-acel-lemez-a-muhelyben.jpg",
       alt: "Nyers acél lemez a műhelyben",
       summary:
@@ -55,15 +55,15 @@ function Szolgaltatasok() {
     },
     {
       href: "/daruzas-es-fuvarozas-eger",
-      title: "Daruzás és fuvarozás",
+      title: "Daruzás és fuvarozás Egerben",
       img: "images/06-daruval-emelt-betonlap.jpg",
       alt: "Daruval emelt betonlap",
       summary:
         "Építőanyagok, nehézgépek, csarnok- és betonelemek darus rakodása és szállítása saját MAN darus teherautóval.",
     },
     {
-      href: "/felujitas-es-karbantartas",
-      title: "Felújítás és karbantartás",
+      href: "/felujitas-es-karbantartas-eger",
+      title: "Felújítás és karbantartás Egerben",
       img: "images/08-felujitott-lakoter-uj-burkolattal.jpg",
       alt: "Felújított lakótér új burkolattal",
       summary:
@@ -295,7 +295,7 @@ function Szolgaltatasok() {
               <a href="/lakatosmunka-eger">Lakatosmunkák</a>
               <a href="/acelszerkezet-gyartas-eger">Acélszerkezetek</a>
               <a href="/daruzas-es-fuvarozas-eger">Daruzás és fuvarozás</a>
-              <a href="/felujitas-es-karbantartas">Felújítás és karbantartás</a>
+              <a href="/felujitas-es-karbantartas-eger">Felújítás és karbantartás</a>
               <a href="/szolgaltatasok">Összes szolgáltatás</a>
             </div>
             <div>

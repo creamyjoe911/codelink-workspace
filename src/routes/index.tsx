@@ -139,7 +139,7 @@ function Grandnatural() {
     // two visual lines via spans; textContent preserves the spaces for SEO).
     html = html.replace(
       "<h1>Építőipari megoldások</h1>",
-      '<h1><span class="ha">Építőipari</span> <span class="hb">megoldások</span><span class="hc">Egerben</span></h1>',
+      "<h1>Acélszerkezet, daruzás és kivitelezés Egerben</h1>",
     );
     // Point the "Szolgáltatásaink" button and the footer "Szolgáltatások"
     // link to the hub page instead of the #szolg anchor.
@@ -168,6 +168,15 @@ function Grandnatural() {
     html = html.replace(
       'alt="Grandnatural darus teherautója és géppark">',
       'alt="Grandnatural darus teherautója és géppark"><div class="ovl" aria-hidden="true"></div>',
+    );
+    // Add descriptive alt text to the two empty-alt images (band + references hero).
+    html = html.replace(
+      'src="images/03-betonozas-az-alapon-mogotte-ket-betonkev.jpg" alt=""',
+      'src="images/03-betonozas-az-alapon-mogotte-ket-betonkev.jpg" alt="Betonozás az alapon két betonkeverő teherautóval"',
+    );
+    html = html.replace(
+      'src="images/16-munkaink-referenciak.jpg" alt=""',
+      'src="images/16-munkaink-referenciak.jpg" alt="Grandnatural munkáink referenciái"',
     );
     // Turn the four service cards in the scroll section into links to their pages.
     // Run before the image-src → data-URI swap so the filenames are still intact.
