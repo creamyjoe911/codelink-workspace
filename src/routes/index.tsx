@@ -65,15 +65,13 @@ const HERO_OVERRIDE_CSS = `
 .hero:not(.sm) .ovl{background:rgba(0,0,0,.6)}
 }
 /* Mobile: the services track (.vp) becomes a native overflow-x:auto
-   scroller. Lenis registers a passive:false touchmove listener on the
-   document; without an explicit touch-action the browser defers to that
-   listener and the horizontal pan never engages on touch. touch-action:pan-x
-   reserves horizontal panning for the native scroller (Lenis can't cancel it),
-   -webkit-overflow-scrolling gives iOS momentum, and overscroll-behavior-x
-   stops the pan from chaining to the page. Keep data-lenis-prevent as well. */
-@media(max-width:960px){
-.vp{touch-action:pan-x;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
-}
+   scroller. The .lenis-smooth [data-lenis-prevent] rule in styles.css
+   already sets overscroll-behavior:contain on it, and we use
+   data-lenis-prevent-horizontal (not the generic data-lenis-prevent) so
+   Lenis only steps aside for horizontal pans — vertical swipes still
+   smooth-scroll the page instead of freezing. No touch-action override:
+   pan-x would block native vertical scroll on the track and freeze the
+   page when a touch starts there. */
 `;
 
 // Smooth Motion animation for the references gallery cards when the active
@@ -200,12 +198,14 @@ function Grandnatural() {
       '<a class="pill o" href="/szolgaltatasok" style="margin-right:14px">Összes szolgáltatás<i>\u2192</i></a><a class="pill" href="#kapcsolat">Kapcsolat<i>\u2192</i></a></div>',
     );
     // On mobile the services track (.vp) becomes a plain overflow-x:auto
-    // scroller. Lenis intercepts touch gestures on the whole document, so
-    // without data-lenis-prevent the horizontal swipe never reaches the
-    // native scroller and the cards can't be scrolled on touch devices.
+    // scroller. data-lenis-prevent-horizontal tells Lenis to step aside ONLY
+    // for horizontal gestures, so the native carousel pan works while vertical
+    // swipes still smooth-scroll the page (no frozen scroll). Do NOT use the
+    // generic data-lenis-prevent — it bails on vertical too and the page
+    // can't scroll when a touch starts on the track.
     html = html.replace(
       '<div class="vp"><div class="trk2" id="trk2">',
-      '<div class="vp" data-lenis-prevent><div class="trk2" id="trk2">',
+      '<div class="vp" data-lenis-prevent-horizontal><div class="trk2" id="trk2">',
     );
     // Inline only the logo and the hero photo. The hero is the first paint's
     // background; the logo is in the (stripped) nav + footer. Every other

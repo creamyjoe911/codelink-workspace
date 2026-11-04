@@ -160,7 +160,9 @@ html.lenis body {
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
-.lenis.lenis-smooth [data-lenis-prevent] {
+.lenis.lenis-smooth [data-lenis-prevent],
+.lenis.lenis-smooth [data-lenis-prevent-horizontal],
+.lenis.lenis-smooth [data-lenis-prevent-vertical] {
   overscroll-behavior: contain;
 }
 .lenis.lenis-stopped {
