@@ -5,9 +5,9 @@
 // JSON-LD @id/item URL is derived from it.
 export const SITE_URL = "https://grandnatural.hu";
 
-// Default social share image (1200x630). Used as og:image / twitter:image on
-// every route. Served from /public/images/og-image.jpg.
-export const OG_IMAGE = `${SITE_URL}/images/og-image.jpg`;
+// Default social share image. Used as og:image / twitter:image on every
+// route. Served from /public/images/og-image-wide.jpg.
+export const OG_IMAGE = `${SITE_URL}/images/og-image-wide.jpg`;
 
 export function canonicalUrl(path = "/"): string {
   return SITE_URL + (path.startsWith("/") ? path : `/${path}`);
