@@ -149,6 +149,13 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+
+  /* Text selection — uses the site's teal accent on the dark-green ink,
+     matching the brand palette (teal #1fb5a4, dark #0e1a18). */
+  ::selection {
+    background: #1fb5a4;
+    color: #0e1a18;
+  }
 }
 
 /* Lenis smooth scroll — required rules so the smoothing doesn't fight the
