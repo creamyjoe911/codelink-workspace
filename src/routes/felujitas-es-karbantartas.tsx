@@ -246,11 +246,11 @@ function FelujitasEsKarbantartas() {
           </div>
           <div className="wrap bc">
             <div className="bt">
-              <h2>A javítástól a teljes felújításig — egy kézből.</h2>
+              <h2>Minden egy kézből, a javítástól a teljes felújításig.</h2>
               <p className="lead">
                 A felújítás során felmerülő kapukat, korlátokat, lépcsőket és acélmunkákat a saját
                 műhelyünkben gyártjuk, darus teherautónkkal szállítjuk és a helyszínen szereljük be.
-                A műhely, a daru és a helyszíni csapat mind a miénk — így a felújítást nem több
+                A műhely, a daru és a helyszíni csapat mind a miénk, így a felújítást nem több
                 alvállalkozóra bontjuk, hanem egy menetrendből, egy felelőstől végigviszik.
               </p>
             </div>

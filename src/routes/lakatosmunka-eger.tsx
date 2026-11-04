@@ -228,12 +228,12 @@ function LakatosmunkaEger() {
           </div>
           <div className="wrap bc">
             <div className="bt">
-              <h2>A méretezéstől a beépítésig — egy kézből.</h2>
+              <h2>Minden egy kézből, a méretezéstől a beépítésig.</h2>
               <p className="lead">
                 A kapukat, korlátokat és lépcsőket a saját műhelyünkben méretre vágjuk és
                 hegesztjük, a kész szerkezetet darus teherautónkkal szállítjuk és a helyszínen
-                építjük be — a méretezéstől a beépítésig. Így a lakatosmunka és a helyszíni szerelés
-                egy kézből, egy menetrendből történik; nem kell utólag darut vagy szerelőt keresnie.
+                építjük be. Így a lakatosmunka és a helyszíni szerelés egy kézből, egy menetrendből
+                történik; nem kell utólag darut vagy szerelőt keresnie.
               </p>
             </div>
           </div>
