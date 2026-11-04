@@ -404,6 +404,9 @@ function Grandnatural() {
 
     // references filter tabs — attach directly to document with event delegation
     // so clicks on the buttons are caught regardless of re-renders or nested targets.
+    // Track the active filter so re-clicking the already-active category is a
+    // no-op (prevents spamming the stagger animation by clicking the same tab).
+    let activeFilter = "all";
     const onTabClick = (ev: MouseEvent) => {
       const target = ev.target as HTMLElement | null;
       if (!target) return;
@@ -412,8 +415,13 @@ function Grandnatural() {
       const scope = root.querySelector<HTMLElement>("#v-ref");
       if (!scope || !scope.contains(btn)) return;
 
-      ev.preventDefault();
       const k = btn.dataset["f"] ?? "all";
+      if (k === activeFilter) {
+        ev.preventDefault();
+        return;
+      }
+      ev.preventDefault();
+      activeFilter = k;
       filterRefCards(scope, k);
       scope.querySelectorAll<HTMLButtonElement>(".tb button").forEach((b) => {
         b.setAttribute("aria-pressed", String((b.dataset["f"] ?? "") === k));
