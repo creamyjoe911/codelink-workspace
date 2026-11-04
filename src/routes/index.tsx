@@ -64,6 +64,16 @@ const HERO_OVERRIDE_CSS = `
 @media(max-width:768px){
 .hero:not(.sm) .ovl{background:rgba(0,0,0,.6)}
 }
+/* Mobile: the services track (.vp) becomes a native overflow-x:auto
+   scroller. Lenis registers a passive:false touchmove listener on the
+   document; without an explicit touch-action the browser defers to that
+   listener and the horizontal pan never engages on touch. touch-action:pan-x
+   reserves horizontal panning for the native scroller (Lenis can't cancel it),
+   -webkit-overflow-scrolling gives iOS momentum, and overscroll-behavior-x
+   stops the pan from chaining to the page. Keep data-lenis-prevent as well. */
+@media(max-width:960px){
+.vp{touch-action:pan-x;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+}
 `;
 
 // Smooth Motion animation for the references gallery cards when the active
