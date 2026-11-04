@@ -150,8 +150,8 @@ function AcelszerekezetGyartasEger() {
               <div className="wr">
                 <h3>3. Összeállítás</h3>
                 <p>
-                  A hegesztett elemeket összeállítjuk, ellenőrizzük, és előkészítjük a
-                  helyszíni szereléshez.
+                  A hegesztett elemeket összeállítjuk, ellenőrizzük, és előkészítjük a helyszíni
+                  szereléshez.
                 </p>
               </div>
               <div className="wr">
@@ -330,8 +330,8 @@ function AcelszerekezetGyartasEger() {
               <details>
                 <summary>Hogyan kérhetek ajánlatot acélszerkezetre?</summary>
                 <p>
-                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az alábbi űrlapot. A
-                  munka részleteit egyeztetjük.
+                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az alábbi űrlapot. A munka
+                  részleteit egyeztetjük.
                 </p>
               </details>
             </div>

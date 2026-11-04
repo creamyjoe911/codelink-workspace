@@ -115,9 +115,9 @@ function FelujitasEsKarbantartas() {
                 acélmunkákat is egy kézből kapja.
               </p>
               <p>
-                Mivel a műhely, a daru és a helyszíni csapat mind a miénk, a felújítást nem
-                több alvállalkozóra bontjuk — egy menetrendben, egy felelős vezetésével
-                végezzük el, Egerben és Heves vármegyében.
+                Mivel a műhely, a daru és a helyszíni csapat mind a miénk, a felújítást nem több
+                alvállalkozóra bontjuk — egy menetrendben, egy felelős vezetésével végezzük el,
+                Egerben és Heves vármegyében.
               </p>
               <a className="pill" href="/#kapcsolat">
                 Kérjen ajánlatot<i>→</i>
@@ -300,8 +300,8 @@ function FelujitasEsKarbantartas() {
               <details>
                 <summary>Hogyan kérhetek ajánlatot felújításra?</summary>
                 <p>
-                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az alábbi űrlapot. A
-                  munkák körét és sorrendjét egyeztetjük.
+                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az alábbi űrlapot. A munkák körét
+                  és sorrendjét egyeztetjük.
                 </p>
               </details>
             </div>

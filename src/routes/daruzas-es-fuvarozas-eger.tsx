@@ -62,11 +62,7 @@ function DaruzasEsFuvarozasEger() {
       <main>
         {/* Hero */}
         <section className="hero">
-          <img
-            className="bg"
-            src={heroImg}
-            alt="Grandnatural MAN darus teherautója és géppark"
-          />
+          <img className="bg" src={heroImg} alt="Grandnatural MAN darus teherautója és géppark" />
           <div className="ovl" aria-hidden="true" />
           <div className="hin">
             <ServiceBreadcrumb current="Daruzás és fuvarozás Eger" />
@@ -320,16 +316,16 @@ function DaruzasEsFuvarozasEger() {
               <details>
                 <summary>Milyen adat kell az ajánlatkéréshez?</summary>
                 <p>
-                  Az emelendő vagy szállítandó teher típusa és súlya, a helyszín és a kívánt
-                  időpont segít a pontos ajánlat elkészítésében. Ezeket telefonon vagy az
-                  űrlapon egyeztethetjük.
+                  Az emelendő vagy szállítandó teher típusa és súlya, a helyszín és a kívánt időpont
+                  segít a pontos ajánlat elkészítésében. Ezeket telefonon vagy az űrlapon
+                  egyeztethetjük.
                 </p>
               </details>
               <details>
                 <summary>Hogyan lehet időpontot foglalni?</summary>
                 <p>
-                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az alábbi űrlapot. A
-                  helyszínt és a feladatot egyeztetve foglalunk időpontot.
+                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az alábbi űrlapot. A helyszínt és
+                  a feladatot egyeztetve foglalunk időpontot.
                 </p>
               </details>
             </div>

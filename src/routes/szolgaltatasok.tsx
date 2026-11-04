@@ -96,9 +96,9 @@ function Szolgaltatasok() {
           <div className="hin">
             <h1>Szolgáltatások</h1>
             <p>
-              Lakatosmunka, acélszerkezet gyártás, daruzás és felújítás Egerben és Heves
-              vármegyében — építés, acélgyártás, daruzás és kivitelezés egy kivitelezőtől,
-              saját műhelyből és saját daruval.
+              Lakatosmunka, acélszerkezet gyártás, daruzás és felújítás Egerben és Heves vármegyében
+              — építés, acélgyártás, daruzás és kivitelezés egy kivitelezőtől, saját műhelyből és
+              saját daruval.
             </p>
             <a className="pill" href="/#kapcsolat">
               Ajánlatkérés<i>→</i>
@@ -136,8 +136,8 @@ function Szolgaltatasok() {
               <h2>EGY kivitelező, négy szolgáltatás.</h2>
               <p style={{ marginTop: 24 }}>
                 A Grandnaturalnál a műhely, a daru és a helyszíni munka egy kézből van —
-                lakatosmunkát, acélszerkezet-gyártást, daruzást és felújítást egy
-                kivitelezőtől kapja Egerben és Heves vármegyében.
+                lakatosmunkát, acélszerkezet-gyártást, daruzást és felújítást egy kivitelezőtől
+                kapja Egerben és Heves vármegyében.
               </p>
               <p>
                 Minden szolgáltatás saját műhelyből indul, és saját daru teherautóval ér a

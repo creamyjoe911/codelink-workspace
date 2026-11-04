@@ -276,8 +276,8 @@ function LakatosmunkaEger() {
               <details>
                 <summary>Hogyan kérhetek ajánlatot?</summary>
                 <p>
-                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az alábbi űrlapot.
-                  Szívesen felvesszük a munka részleteit.
+                  Telefonáljon a {PHONE}-as számon, vagy töltse ki az alábbi űrlapot. Szívesen
+                  felvesszük a munka részleteit.
                 </p>
               </details>
               <details>

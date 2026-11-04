@@ -139,11 +139,19 @@ function Grandnatural() {
     );
     // Point the "Szolgáltatásaink" button and the footer "Szolgáltatások"
     // link to the hub page instead of the #szolg anchor.
-    html = html.replace('href="#szolg">Szolgáltatásaink', 'href="/szolgaltatasok">Szolgáltatásaink');
-    html = html.split('href="#szolg">Szolgáltatások</a>').join('href="/szolgaltatasok">Szolgáltatások</a>');
+    html = html.replace(
+      'href="#szolg">Szolgáltatásaink',
+      'href="/szolgaltatasok">Szolgáltatásaink',
+    );
+    html = html
+      .split('href="#szolg">Szolgáltatások</a>')
+      .join('href="/szolgaltatasok">Szolgáltatások</a>');
     // The "Helyszíni kivitelezés" card now links to the hub; drop the removed
     // csarnoképítés service from its description.
-    html = html.replace('Építőipari kivitelezés, csarnoképítés, szendvicspaneles burkolás', 'Építőipari kivitelezés, szendvicspaneles burkolás');
+    html = html.replace(
+      "Építőipari kivitelezés, csarnoképítés, szendvicspaneles burkolás",
+      "Építőipari kivitelezés, szendvicspaneles burkolás",
+    );
     // Hero subtitle (new wording).
     html = html.replace(
       "<p>Építés, felújítás, acélszerkezetek és egyedi kivitelezési munkák Egerben és Heves vármegyében.</p>",
@@ -249,10 +257,16 @@ function Grandnatural() {
       cur = 0,
       tgt = 0,
       run = false;
+    // The pinned horizontal scroll only runs on wide screens. On narrow
+    // viewports (<=960px) the CSS collapses .svw to a normal height and makes
+    // .vp a plain overflow-x:auto scroller; the JS must bail here too, otherwise
+    // it keeps inflating .svw's height by the full scroll distance (D) and the
+    // section keeps "scrolling" with empty space long after the cards end.
     const rm = window.matchMedia("(prefers-reduced-motion:reduce)");
+    const narrow = window.matchMedia("(max-width:960px)");
     const size = () => {
       if (!svw || !trk) return;
-      if (rm.matches) {
+      if (rm.matches || narrow.matches) {
         svw.style.height = "";
         return;
       }
@@ -261,7 +275,7 @@ function Grandnatural() {
       upd();
     };
     const upd = () => {
-      if (!svw || !trk || rm.matches) return;
+      if (!svw || !trk || rm.matches || narrow.matches) return;
       const r = svw.getBoundingClientRect();
       tgt = (D ? Math.min(1, Math.max(0, -r.top / D)) : 0) * D;
       if (!run) {
