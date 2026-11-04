@@ -64,14 +64,6 @@ const HERO_OVERRIDE_CSS = `
 @media(max-width:768px){
 .hero:not(.sm) .ovl{background:rgba(0,0,0,.6)}
 }
-/* Mobile: the services track (.vp) becomes a native overflow-x:auto
-   scroller. The .lenis-smooth [data-lenis-prevent] rule in styles.css
-   already sets overscroll-behavior:contain on it, and we use
-   data-lenis-prevent-horizontal (not the generic data-lenis-prevent) so
-   Lenis only steps aside for horizontal pans — vertical swipes still
-   smooth-scroll the page instead of freezing. No touch-action override:
-   pan-x would block native vertical scroll on the track and freeze the
-   page when a touch starts there. */
 `;
 
 // Smooth Motion animation for the references gallery cards when the active
@@ -197,16 +189,6 @@ function Grandnatural() {
       '<a class="pill" href="#kapcsolat">Kapcsolat<i>\u2192</i></a></div>',
       '<a class="pill o" href="/szolgaltatasok" style="margin-right:14px">Összes szolgáltatás<i>\u2192</i></a><a class="pill" href="#kapcsolat">Kapcsolat<i>\u2192</i></a></div>',
     );
-    // On mobile the services track (.vp) becomes a plain overflow-x:auto
-    // scroller. data-lenis-prevent-horizontal tells Lenis to step aside ONLY
-    // for horizontal gestures, so the native carousel pan works while vertical
-    // swipes still smooth-scroll the page (no frozen scroll). Do NOT use the
-    // generic data-lenis-prevent — it bails on vertical too and the page
-    // can't scroll when a touch starts on the track.
-    html = html.replace(
-      '<div class="vp"><div class="trk2" id="trk2">',
-      '<div class="vp" data-lenis-prevent-horizontal><div class="trk2" id="trk2">',
-    );
     // Inline only the logo and the hero photo. The hero is the first paint's
     // background; the logo is in the (stripped) nav + footer. Every other
     // photo keeps its `images/...` filename in a data-src attribute with a
@@ -275,16 +257,10 @@ function Grandnatural() {
       cur = 0,
       tgt = 0,
       run = false;
-    // The pinned horizontal scroll only runs on wide screens. On narrow
-    // viewports (<=960px) the CSS collapses .svw to a normal height and makes
-    // .vp a plain overflow-x:auto scroller; the JS must bail here too, otherwise
-    // it keeps inflating .svw's height by the full scroll distance (D) and the
-    // section keeps "scrolling" with empty space long after the cards end.
     const rm = window.matchMedia("(prefers-reduced-motion:reduce)");
-    const narrow = window.matchMedia("(max-width:960px)");
     const size = () => {
       if (!svw || !trk) return;
-      if (rm.matches || narrow.matches) {
+      if (rm.matches) {
         svw.style.height = "";
         return;
       }
@@ -293,7 +269,7 @@ function Grandnatural() {
       upd();
     };
     const upd = () => {
-      if (!svw || !trk || rm.matches || narrow.matches) return;
+      if (!svw || !trk || rm.matches) return;
       const r = svw.getBoundingClientRect();
       tgt = (D ? Math.min(1, Math.max(0, -r.top / D)) : 0) * D;
       if (!run) {
