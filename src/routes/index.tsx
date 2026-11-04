@@ -189,6 +189,14 @@ function Grandnatural() {
       '<a class="pill" href="#kapcsolat">Kapcsolat<i>\u2192</i></a></div>',
       '<a class="pill o" href="/szolgaltatasok" style="margin-right:14px">Összes szolgáltatás<i>\u2192</i></a><a class="pill" href="#kapcsolat">Kapcsolat<i>\u2192</i></a></div>',
     );
+    // On mobile the services track (.vp) becomes a plain overflow-x:auto
+    // scroller. Lenis intercepts touch gestures on the whole document, so
+    // without data-lenis-prevent the horizontal swipe never reaches the
+    // native scroller and the cards can't be scrolled on touch devices.
+    html = html.replace(
+      '<div class="vp"><div class="trk2" id="trk2">',
+      '<div class="vp" data-lenis-prevent><div class="trk2" id="trk2">',
+    );
     // Inline only the logo and the hero photo. The hero is the first paint's
     // background; the logo is in the (stripped) nav + footer. Every other
     // photo keeps its `images/...` filename in a data-src attribute with a
