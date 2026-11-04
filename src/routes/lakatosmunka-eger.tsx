@@ -228,7 +228,7 @@ function LakatosmunkaEger() {
           </div>
           <div className="wrap bc">
             <div className="bt">
-              <h2>A saját darunk, saját kézben.</h2>
+              <h2>A méretezéstől a beépítésig — egy kézből.</h2>
               <p className="lead">
                 A kapukat, korlátokat és lépcsőket a saját műhelyünkben méretre vágjuk és
                 hegesztjük, a kész szerkezetet darus teherautónkkal szállítjuk és a helyszínen

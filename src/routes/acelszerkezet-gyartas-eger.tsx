@@ -275,7 +275,7 @@ function AcelszerekezetGyartasEger() {
           </div>
           <div className="wrap bc">
             <div className="bt">
-              <h2>A saját darunk, saját kézben.</h2>
+              <h2>A nyersacéltól a felállásig — egy kézből.</h2>
               <p className="lead">
                 Az acélszerkezetet a saját műhelyünkben vágjuk, hegesztjük és festjük, majd darus
                 teherautónkkal szállítjuk és a helyszínen építjük be — a nyersacéltól a felállásig.

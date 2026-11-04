@@ -246,7 +246,7 @@ function FelujitasEsKarbantartas() {
           </div>
           <div className="wrap bc">
             <div className="bt">
-              <h2>A saját darunk, saját kézben.</h2>
+              <h2>A javítástól a teljes felújításig — egy kézből.</h2>
               <p className="lead">
                 A felújítás során felmerülő kapukat, korlátokat, lépcsőket és acélmunkákat a saját
                 műhelyünkben gyártjuk, darus teherautónkkal szállítjuk és a helyszínen szereljük be.
