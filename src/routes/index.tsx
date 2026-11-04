@@ -6,7 +6,7 @@ import { useReveal } from "@/hooks/use-reveal";
 import { animate } from "motion";
 import { SiteNav } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
-import { LOCAL_BUSINESS_JSONLD, canonicalUrl } from "@/lib/seo-schema";
+import { LOCAL_BUSINESS_JSONLD, canonicalUrl, OG_IMAGE } from "@/lib/seo-schema";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,7 +27,9 @@ export const Route = createFileRoute("/")({
           "Acélszerkezetek, lakatosmunkák, daruzás és egyedi kivitelezés Egerben. Saját darus teherautó, több mint 16 év tapasztalat a Heves vármegyei építkezéseken.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [
       {

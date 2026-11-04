@@ -8,7 +8,7 @@ import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD } from "@/lib/seo-schema";
+import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD, OG_IMAGE } from "@/lib/seo-schema";
 
 const TITLE = "Acélszerkezet gyártás Eger – acélvázak | Grandnatural";
 const DESC =
@@ -22,7 +22,9 @@ export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: canonicalUrl("/acelszerkezet-gyartas-eger") }],
   }),

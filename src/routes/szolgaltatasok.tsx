@@ -5,7 +5,7 @@ import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { useReveal } from "@/hooks/use-reveal";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbJsonLD, canonicalUrl } from "@/lib/seo-schema";
+import { breadcrumbJsonLD, canonicalUrl, OG_IMAGE } from "@/lib/seo-schema";
 
 const TITLE = "Szolgáltatások | Grandnatural — Eger, Heves vármegye";
 const DESC =
@@ -19,7 +19,9 @@ export const Route = createFileRoute("/szolgaltatasok")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: canonicalUrl("/szolgaltatasok") }],
   }),
