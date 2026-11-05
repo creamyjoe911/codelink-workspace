@@ -71,15 +71,34 @@ export function useReveal(rootRef: { current: HTMLElement | null }) {
       el.style.opacity = "1";
       el.style.transform = "none";
     });
-    // Force a reflow so the transition:none + final styles commit before any
-    // later style change could re-enable the transition.
-    if (visible.length) void visible[0]!.offsetWidth;
+
+    // Pre-hide the below-the-fold elements NOW (opacity:0 + translateY(24px))
+    // with no transition, so they're in the hidden state before any scroll
+    // reveal fires. This is the key fix for the scroll "flash": without it
+    // these elements render at opacity:1 (the `.js .rv{opacity:0}` CSS is
+    // never applied — nothing adds the `.js` class), so when Motion's
+    // `inView` fires it snaps them 1→0 then animates 0→1, producing the
+    // quick disappear-then-reappear flash. Setting them to 0 up front means
+    // the `inView` 0→1 animation starts from the already-hidden state — no
+    // flash. They're below the fold at this instant, so nothing visible
+    // flickers while we hide them.
+    hidden.forEach((el) => {
+      el.style.transition = "none";
+      el.style.opacity = "0";
+      el.style.transform = "translateY(24px)";
+    });
+
+    // Force a reflow so the transition:none + initial styles commit before
+    // Motion re-enables transitions via its own animation.
+    if (visible.length || hidden.length) void (visible[0] ?? hidden[0])!.offsetWidth;
 
     if (hidden.length === 0) return;
 
     // `inView` fires once per element when it enters the viewport. The
     // callback receives the element as its first argument. We animate opacity
-    // + a small translateY fade-up. This mirrors the original
+    // + a small translateY fade-up. Because the element is already at
+    // opacity:0 / translateY(24px), the [0→1] / [24px→0px] animation runs
+    // seamlessly with no initial jump. This mirrors the original
     // IntersectionObserver → add("in") flow so the reveal happens once.
     const stop = inView(
       hidden,
