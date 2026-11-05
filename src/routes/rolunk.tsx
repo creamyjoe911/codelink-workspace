@@ -175,28 +175,6 @@ function Rolunk() {
           </div>
         </section>
 
-        {/* Fuvarozás */}
-        <section className="band">
-          <Img
-            imgKey="images/grandnatural-hero"
-            alt="Grandnatural darus teherautója áruszállítás közben"
-            className="bg"
-            loading="lazy"
-            decoding="async"
-          />
-          <div className="ghost" aria-hidden="true">
-            Fuvarozás
-          </div>
-          <div className="wrap bc">
-            <div className="bt rv">
-              <h2>Fuvarozás.</h2>
-              <p className="lead">
-                Áruszállítás és fuvarozás 3,5–40 tonnáig, az igényekhez igazodó járműkapacitással.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Hogyan dolgozunk */}
         <section
           className="wrap"
