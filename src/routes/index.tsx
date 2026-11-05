@@ -140,20 +140,24 @@ function Grandnatural() {
     // Turn the four service cards in the scroll section into links to their pages.
     // Run before the image-src → data-URI swap so the filenames are still intact.
     html = html.replace(
-      /<article class="sc">(<img loading="lazy" src="images\/04-elkeszult-piros-festett-platooldal\.jpg"[\s\S]*?)<\/article>/,
+      /<article class="sc">([\s\S]*?images\/04-elkeszult-piros-festett-platooldal\.jpg[\s\S]*?)<\/article>/,
       '<a class="sc" style="text-decoration:none" href="/lakatosmunka-eger">$1</a>',
     );
     html = html.replace(
-      /<article class="sc">(<img loading="lazy" src="images\/05-nyers-acel-lemez-a-muhelyben\.jpg"[\s\S]*?)<\/article>/,
+      /<article class="sc">([\s\S]*?images\/05-nyers-acel-lemez-a-muhelyben\.jpg[\s\S]*?)<\/article>/,
       '<a class="sc" style="text-decoration:none" href="/acelszerkezet-gyartas-eger">$1</a>',
     );
     html = html.replace(
-      /<article class="sc">(<img loading="lazy" src="images\/06-daruval-emelt-betonlap\.jpg"[\s\S]*?)<\/article>/,
+      /<article class="sc">([\s\S]*?images\/06-daruval-emelt-betonlap\.jpg[\s\S]*?)<\/article>/,
       '<a class="sc" style="text-decoration:none" href="/daruzas-es-fuvarozas-eger">$1</a>',
     );
     html = html.replace(
-      /<article class="sc">(<img loading="lazy" src="images\/10-acelvaz-szerelese-darus-teherautoval\.jpg"[\s\S]*?)<\/article>/,
+      /<article class="sc">([\s\S]*?images\/10-acelvaz-szerelese-darus-teherautoval\.jpg[\s\S]*?)<\/article>/,
       '<a class="sc" style="text-decoration:none" href="/szolgaltatasok">$1</a>',
+    );
+    html = html.replace(
+      /<article class="sc">([\s\S]*?images\/08-felujitott-lakoter-uj-burkolattal\.jpg[\s\S]*?)<\/article>/,
+      '<a class="sc" style="text-decoration:none" href="/felujitas-es-karbantartas-eger">$1</a>',
     );
     // Add a hub link ("Összes szolgáltatás") into the services section header
     // so the homepage services section links to the Szolgáltatások hub page.
