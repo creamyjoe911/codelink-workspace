@@ -50,8 +50,8 @@ const HERO_OVERRIDE_CSS = `
 .hero:not(.sm)::before{background:none}
 .hero:not(.sm) .ovl{position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.55) 40%,rgba(0,0,0,0) 70%)}
 .hero:not(.sm) .hin,.hero:not(.sm) .badge{z-index:2}
-.hero:not(.sm) .hin{max-width:46%;margin-inline:0}
-.hero:not(.sm) .hin h1{font-size:clamp(48px,7vw,104px);line-height:.95;letter-spacing:-.03em;margin:0 0 40px;text-shadow:none}
+.hero:not(.sm) .hin{max-width:min(680px,52%);margin-inline:0}
+.hero:not(.sm) .hin h1{font-size:clamp(44px,6.2vw,96px);line-height:.95;letter-spacing:-.03em;margin:0 0 40px;text-shadow:none;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal}
 .hero:not(.sm) .hin h1 .hc{display:block}
 .hero:not(.sm) .hin p,.hero:not(.sm) .hin .hin-sub{font-size:21px;line-height:1.5;font-weight:500;max-width:50ch;margin:0 0 32px;color:#fff;text-shadow:none;text-wrap:balance}
 .hero:not(.sm) .hin .pill{margin:0}
