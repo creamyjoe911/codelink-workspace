@@ -153,9 +153,7 @@ function AcelszerekezetGyartasEger() {
           <div className="ctr" style={{ maxWidth: 860, margin: "0 auto" }}>
             <h2>Tudnivalók az acélszerkezet-gyártásról.</h2>
             <p className="lead" style={{ marginTop: 16 }}>
-              Mennyibe kerül egy acélszerkezet Egerben? Az ár a mérettől, az anyagtól, a hegesztés
-              módjától és a helyszíni szereléstől függ — pontos árat telefonon vagy űrlapon
-              egyeztetünk.
+              Vállalunk acélszerkezet-gyártást és helyszíni szerelést Egerben és Heves vármegyében.
             </p>
             <div
               className="mx"
@@ -163,26 +161,28 @@ function AcelszerekezetGyartasEger() {
             >
               <div className="cd">
                 <h3>Típusos munkák</h3>
-                <p>Ipari acélvázak, teherhordó szerkezetek, egyedi gépvázak — [FELSOROLÁS]</p>
-              </div>
-              <div className="cd">
-                <h3>Anyagok</h3>
-                <p>[ANYAGOK] — nyersacél lemez, profilok, hegesztőanyagok, festékek.</p>
-              </div>
-              <div className="cd">
-                <h3>Átfutási idő</h3>
-                <p>[IDŐ] — kis szerkezetek 1–2 hét, nagy ipari vázak 3–6 hét.</p>
-              </div>
-              <div className="cd">
-                <h3>Árat befolyásoló tényezők</h3>
                 <p>
-                  [MÉRET, ANYAG, SZERELÉS, SZÁLLÍTÁS] — a helyszíni szerelés és a szállítás is
-                  belesámítandó.
+                  Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak gyártása és szerelése.
                 </p>
               </div>
               <div className="cd">
+                <h3>Anyagok</h3>
+                <p>Nyersacél lemez, profilok, hegesztőanyagok és festékek.</p>
+              </div>
+              <div className="cd">
+                <h3>Árazás</h3>
+                <p>
+                  Az árat a munka mérete, az anyag és a helyszín határozza meg, ezért egyedi
+                  ajánlatot adunk.
+                </p>
+              </div>
+              <div className="cd">
+                <h3>Szolgáltatási terület</h3>
+                <p>Eger és Heves vármegye.</p>
+              </div>
+              <div className="cd">
                 <h3>Ajánlatkérés</h3>
-                <p>[TELEFON / ŰRLAP] — telefonon vagy az alábbi űrlapon kérhet árajánlatot.</p>
+                <p>Telefonon a +36 70 576 0108-as számon vagy az alábbi űrlapon.</p>
               </div>
             </div>
           </div>

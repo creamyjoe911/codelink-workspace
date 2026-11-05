@@ -158,9 +158,7 @@ function FelujitasEsKarbantartas() {
           <div className="ctr" style={{ maxWidth: 860, margin: "0 auto" }}>
             <h2>Tudnivalók a felújításról és karbantartásról.</h2>
             <p className="lead" style={{ marginTop: 16 }}>
-              Mennyibe kerül egy felújítás Egerben? Az ár a munka körétől, az anyagtól, a helyszíni
-              kivitelezéstől és a befejező munkálatoktól függ — pontos árat telefonon vagy űrlapon
-              egyeztetünk.
+              Vállalunk felújítást és karbantartást Egerben és Heves vármegyében.
             </p>
             <div
               className="mx"
@@ -168,27 +166,29 @@ function FelujitasEsKarbantartas() {
             >
               <div className="cd">
                 <h3>Típusos munkák</h3>
-                <p>Belső és külső felújítás, karbantartás, javítás, korszerűsítés — [FELSOROLÁS]</p>
+                <p>
+                  Magán- és ipari ingatlanok belső és külső felújítása, karbantartása, javítása és
+                  korszerűsítése.
+                </p>
               </div>
               <div className="cd">
                 <h3>Anyagok</h3>
+                <p>Burkolóanyagok, festékek, gipsz, vakolat, lakatos- és acélanyagok.</p>
+              </div>
+              <div className="cd">
+                <h3>Árazás</h3>
                 <p>
-                  [ANYAGOK] — burkolóanyagok, festékek, gipsz, vakolat, lakatos- és acélanyagok.
+                  Az árat a munka mérete, az anyag és a helyszín határozza meg, ezért egyedi
+                  ajánlatot adunk.
                 </p>
               </div>
               <div className="cd">
-                <h3>Átfutási idő</h3>
-                <p>[IDŐ] — kis javítások 1–2 hét, teljes felújítás 4–8 hét.</p>
-              </div>
-              <div className="cd">
-                <h3>Árat befolyásoló tényezők</h3>
-                <p>
-                  [MÉRET, ANYAG, SZERELÉS, SZÁLLÍTÁS] — a lakatos- és acélmunkák is beleszámítanak.
-                </p>
+                <h3>Szolgáltatási terület</h3>
+                <p>Eger és Heves vármegye.</p>
               </div>
               <div className="cd">
                 <h3>Ajánlatkérés</h3>
-                <p>[TELEFON / ŰRLAP] — telefonon vagy az alábbi űrlapon kérhet árajánlatot.</p>
+                <p>Telefonon a +36 70 576 0108-as számon vagy az alábbi űrlapon.</p>
               </div>
             </div>
           </div>

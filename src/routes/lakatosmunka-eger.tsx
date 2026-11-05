@@ -150,9 +150,7 @@ function LakatosmunkaEger() {
           <div className="ctr" style={{ maxWidth: 860, margin: "0 auto" }}>
             <h2>Tudnivalók a lakatosmunkáról.</h2>
             <p className="lead" style={{ marginTop: 16 }}>
-              Mennyibe kerül a lakatosmunka Egerben? Az ár a munka típusától, az anyagtól, a
-              szerelés módjától és a szállítástól függ — pontos árat telefonon vagy űrlapon
-              egyeztetünk.
+              Vállalunk lakatosmunkát Egerben és Heves vármegyében.
             </p>
             <div
               className="mx"
@@ -160,26 +158,29 @@ function LakatosmunkaEger() {
             >
               <div className="cd">
                 <h3>Típusos munkák</h3>
-                <p>Kapuk, korlátok, lépcsők, előtetők, biztonsági szerkezetek — [FELSOROLÁS]</p>
-              </div>
-              <div className="cd">
-                <h3>Anyagok</h3>
-                <p>[ANYAGOK] — acéllemez, profilok, hegesztőanyagok, festékek.</p>
-              </div>
-              <div className="cd">
-                <h3>Átfutási idő</h3>
-                <p>[IDŐ] — kis munkák 1–2 hét, nagyobb szerkezetek 2–4 hét.</p>
-              </div>
-              <div className="cd">
-                <h3>Árat befolyásoló tényezők</h3>
                 <p>
-                  [MÉRET, ANYAG, SZERELÉS, SZÁLLÍTÁS] — minél pontosabb az adat, annál pontosabb az
-                  árajánlat.
+                  Kapuk, korlátok, lépcsők, előtetők és műszaki biztonsági szerkezetek gyártása,
+                  javítása és helyszíni szerelése.
                 </p>
               </div>
               <div className="cd">
+                <h3>Anyagok</h3>
+                <p>Acéllemez, profilok, hegesztőanyagok és festékek.</p>
+              </div>
+              <div className="cd">
+                <h3>Árazás</h3>
+                <p>
+                  Az árat a munka mérete, az anyag és a helyszín határozza meg, ezért egyedi
+                  ajánlatot adunk.
+                </p>
+              </div>
+              <div className="cd">
+                <h3>Szolgáltatási terület</h3>
+                <p>Eger és Heves vármegye.</p>
+              </div>
+              <div className="cd">
                 <h3>Ajánlatkérés</h3>
-                <p>[TELEFON / ŰRLAP] — telefonon vagy az alábbi űrlapon kérhet árajánlatot.</p>
+                <p>Telefonon a +36 70 576 0108-as számon vagy az alábbi űrlapon.</p>
               </div>
             </div>
           </div>
