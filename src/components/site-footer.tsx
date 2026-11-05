@@ -54,10 +54,6 @@ export function SiteFooter({ current }: { current?: string }) {
               Eger és Heves vármegye
               <br />
               Hétfő–Péntek 8:00–17:00
-              <br />
-              Adószám: [ADÓSZÁM]
-              <br />
-              Cégjegyzékszám: [CÉGJEGYZÉKSZÁM]
             </p>
             <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer">
               Facebook
