@@ -130,7 +130,10 @@ function Rolunk() {
           <div className="sk"></div>
           <section className="wrap ab">
             <div className="al">
-              <Img imgKey="images/nyersacel" alt="Nyersacél lemez a műhelyben" />
+              <Img
+                imgKey="images/Javitastol-a-teljes-felujitasig"
+                alt="Felújítás a teljes befejezésig — egy kézből"
+              />
             </div>
             <div className="rv">
               <h2>Kik vagyunk.</h2>
