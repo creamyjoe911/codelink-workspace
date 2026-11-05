@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { SITE_INLINE_IMAGES, SITE_BODY_HTML, SITE_CSS } from "@/lib/grandnatural-content";
 import { IMAGE_PATHS } from "@/lib/image-paths";
 import { useReveal } from "@/hooks/use-reveal";
-import { animate } from "motion";
 import { SiteNav } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
 import { LOCAL_BUSINESS_JSONLD, canonicalUrl, OG_IMAGE } from "@/lib/seo-schema";
@@ -72,57 +71,12 @@ const HERO_OVERRIDE_CSS = `
 }
 `;
 
-// Smooth Motion animation for the references gallery cards when the active
-// category filter changes. Matching cards fade+slide in; non-matching cards
-// fade out then collapse. A per-element generation guard prevents a stale
-// hide callback from hiding a card that has since been re-shown by a newer
-// filter change. Respects prefers-reduced-motion.
-function filterRefCards(scope: HTMLElement, k: string) {
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  // Stagger: matching cards animate in sequence. The delay grows with the
-  // match index so cards cascade left-to-right, top-to-bottom. Capped so a
-  // large filter set doesn't make the last cards wait too long.
-  const STAGGER = 0.07;
-  const MAX_DELAY = 0.5;
-  let matchIdx = 0;
-  scope.querySelectorAll<HTMLElement>(".pj").forEach((el) => {
-    const cat = el.dataset["c"] ?? "";
-    const match = k === "all" || cat.split(/\s+/).includes(k);
-    const gen = ((el as unknown as { _fg?: number })._fg ?? 0) + 1;
-    (el as unknown as { _fg?: number })._fg = gen;
-    if (match) {
-      el.hidden = false;
-      el.style.display = "";
-      el.classList.add("in");
-      if (reduced) {
-        el.style.opacity = "1";
-        el.style.transform = "none";
-      } else {
-        const delay = Math.min(matchIdx * STAGGER, MAX_DELAY);
-        matchIdx++;
-        animate(
-          el,
-          { opacity: [0, 1], transform: ["translateY(18px)", "translateY(0px)"] },
-          { duration: 0.4, delay, ease: [0.22, 1, 0.36, 1] },
-        );
-      }
-    } else if (reduced) {
-      el.style.display = "none";
-    } else {
-      animate(el, { opacity: [1, 0] }, { duration: 0.25 }).finished.then(() => {
-        if ((el as unknown as { _fg?: number })._fg === gen) el.style.display = "none";
-      });
-    }
-  });
-}
-
 // Parse the original body HTML once and inject the original CSS + image data URIs.
 // The markup is rendered through dangerouslySetInnerHTML so the site keeps its
 // exact original structure; the small interactive behaviours are re-implemented in
 // React via refs/observers attached after mount.
 function Grandnatural() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const [isRefView, setIsRefView] = useState(false);
 
   // Swap every <img data-src="images/..."> to its embedded data URI. Runs on
   // every mount (i.e. every client-side nav / revisit), stays synchronous once
@@ -236,14 +190,6 @@ function Grandnatural() {
       '<a href="/daruzas-es-fuvarozas-eger">Daruzás</a>',
     );
     return html;
-  }, []);
-
-  // ---- Hash routing between home (#) and references (#referenciak) ----
-  useEffect(() => {
-    const route = () => setIsRefView(window.location.hash.slice(1) === "referenciak");
-    route();
-    window.addEventListener("hashchange", route);
-    return () => window.removeEventListener("hashchange", route);
   }, []);
 
   // ---- After mount: wire up scroll reveals (Motion), before/after slider,
@@ -451,97 +397,16 @@ function Grandnatural() {
     };
     frm?.addEventListener("submit", onSubmit);
 
-    // references filter tabs — attach directly to document with event delegation
-    // so clicks on the buttons are caught regardless of re-renders or nested targets.
-    // Track the active filter so re-clicking the already-active category is a
-    // no-op (prevents spamming the stagger animation by clicking the same tab).
-    let activeFilter = "all";
-    const onTabClick = (ev: MouseEvent) => {
-      const target = ev.target as HTMLElement | null;
-      if (!target) return;
-      const btn = target.closest<HTMLButtonElement>(".tb button");
-      if (!btn) return;
-      const scope = root.querySelector<HTMLElement>("#v-ref");
-      if (!scope || !scope.contains(btn)) return;
-
-      const k = btn.dataset["f"] ?? "all";
-      if (k === activeFilter) {
-        ev.preventDefault();
-        return;
-      }
-      ev.preventDefault();
-      activeFilter = k;
-      filterRefCards(scope, k);
-      scope.querySelectorAll<HTMLButtonElement>(".tb button").forEach((b) => {
-        b.setAttribute("aria-pressed", String((b.dataset["f"] ?? "") === k));
-      });
-    };
-    document.addEventListener("click", onTabClick, true);
-
     return () => {
       window.removeEventListener("scroll", upd);
       window.removeEventListener("resize", size);
       window.removeEventListener("load", size);
       frm?.removeEventListener("submit", onSubmit);
-      document.removeEventListener("click", onTabClick, true);
       ro?.disconnect();
       window.clearTimeout(reTimer);
       window.clearTimeout(reTimer2);
     };
   }, []);
-
-  // Toggle visibility of the two <main> views based on hash routing.
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-    const home = root.querySelector<HTMLElement>("#v-home");
-    const ref = root.querySelector<HTMLElement>("#v-ref");
-    const navref = root.querySelector<HTMLElement>("#navref");
-    if (home) home.hidden = isRefView;
-    if (ref) ref.hidden = !isRefView;
-    if (navref) {
-      if (isRefView) navref.setAttribute("aria-current", "page");
-      else navref.removeAttribute("aria-current");
-    }
-    document.title = isRefView
-      ? "Referenciák | Grandnatural"
-      : "Grandnatural – Acélszerkezet, daruzás és kivitelezés Egerben";
-    if (isRefView) window.scrollTo(0, 0);
-
-    // The references view is a hidden <main> toggled by a hash change (not a
-    // route change). useLazyImages swaps its images to a real src on mount, but
-    // they keep loading="lazy" while inside the display:none container, so the
-    // browser never fetched them. When the view becomes visible, give every
-    // image its real src, drop loading="lazy", and force-reload any not yet
-    // fetched so the gallery photos appear immediately. One pass, no races:
-    // not-yet-swapped (data-src) images are swapped here, already-swapped ones
-    // are made eager + reloaded.
-    if (isRefView && ref) {
-      // The references gallery lives in a hidden <main>. Its images carry
-      // real srcs but loading="lazy", so while the container is display:none
-      // the browser never fetched them. Now that the view is visible, drop
-      // loading="lazy" and force-reload any not yet fetched so the gallery
-      // photos appear immediately.
-      const imgs = Array.from(ref.querySelectorAll<HTMLImageElement>("img"));
-      for (const img of imgs) {
-        img.removeAttribute("loading");
-        if (!img.complete || img.naturalWidth === 0) {
-          const s = img.src;
-          img.src = "";
-          img.src = s;
-        }
-      }
-
-      // Re-apply the active filter so the tabs work on first open. Query
-      // fresh (the markup is injected via dangerouslySetInnerHTML) and keep
-      // aria-pressed in sync with the visible set.
-      const tabs = Array.from(ref.querySelectorAll<HTMLButtonElement>(".tb button"));
-      const activeTab = tabs.find((b) => b.getAttribute("aria-pressed") === "true") ?? tabs[0];
-      const k = activeTab?.dataset["f"] ?? "all";
-      filterRefCards(ref, k);
-      tabs.forEach((b) => b.setAttribute("aria-pressed", String((b.dataset["f"] ?? "") === k)));
-    }
-  }, [isRefView]);
 
   return (
     <div className="grandnatural-root" ref={rootRef}>

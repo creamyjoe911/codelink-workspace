@@ -16,6 +16,7 @@ import { Route as DaruzasEsFuvarozasEgerRouteImport } from './routes/daruzas-es-
 import { Route as FelujitasEsKarbantartasRouteImport } from './routes/felujitas-es-karbantartas'
 import { Route as FelujitasEsKarbantartasEgerRouteImport } from './routes/felujitas-es-karbantartas-eger'
 import { Route as LakatosmunkaEgerRouteImport } from './routes/lakatosmunka-eger'
+import { Route as ReferenciakRouteImport } from './routes/referenciak'
 import { Route as SzolgaltatasokRouteImport } from './routes/szolgaltatasok'
 
 const IndexRoute = IndexRouteImport.update({
@@ -56,6 +57,11 @@ const LakatosmunkaEgerRoute = LakatosmunkaEgerRouteImport.update({
   path: '/lakatosmunka-eger',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReferenciakRoute = ReferenciakRouteImport.update({
+  id: '/referenciak',
+  path: '/referenciak',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SzolgaltatasokRoute = SzolgaltatasokRouteImport.update({
   id: '/szolgaltatasok',
   path: '/szolgaltatasok',
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/felujitas-es-karbantartas': typeof FelujitasEsKarbantartasRoute
   '/felujitas-es-karbantartas-eger': typeof FelujitasEsKarbantartasEgerRoute
   '/lakatosmunka-eger': typeof LakatosmunkaEgerRoute
+  '/referenciak': typeof ReferenciakRoute
   '/szolgaltatasok': typeof SzolgaltatasokRoute
 }
 export interface FileRoutesByTo {
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/felujitas-es-karbantartas': typeof FelujitasEsKarbantartasRoute
   '/felujitas-es-karbantartas-eger': typeof FelujitasEsKarbantartasEgerRoute
   '/lakatosmunka-eger': typeof LakatosmunkaEgerRoute
+  '/referenciak': typeof ReferenciakRoute
   '/szolgaltatasok': typeof SzolgaltatasokRoute
 }
 export interface FileRoutesById {
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   '/felujitas-es-karbantartas': typeof FelujitasEsKarbantartasRoute
   '/felujitas-es-karbantartas-eger': typeof FelujitasEsKarbantartasEgerRoute
   '/lakatosmunka-eger': typeof LakatosmunkaEgerRoute
+  '/referenciak': typeof ReferenciakRoute
   '/szolgaltatasok': typeof SzolgaltatasokRoute
 }
 export interface FileRouteTypes {
@@ -103,6 +112,7 @@ export interface FileRouteTypes {
     | '/felujitas-es-karbantartas'
     | '/felujitas-es-karbantartas-eger'
     | '/lakatosmunka-eger'
+    | '/referenciak'
     | '/szolgaltatasok'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -113,6 +123,7 @@ export interface FileRouteTypes {
     | '/felujitas-es-karbantartas'
     | '/felujitas-es-karbantartas-eger'
     | '/lakatosmunka-eger'
+    | '/referenciak'
     | '/szolgaltatasok'
   id:
     | '__root__'
@@ -123,6 +134,7 @@ export interface FileRouteTypes {
     | '/felujitas-es-karbantartas'
     | '/felujitas-es-karbantartas-eger'
     | '/lakatosmunka-eger'
+    | '/referenciak'
     | '/szolgaltatasok'
   fileRoutesById: FileRoutesById
 }
@@ -134,6 +146,7 @@ export interface RootRouteChildren {
   FelujitasEsKarbantartasRoute: typeof FelujitasEsKarbantartasRoute
   FelujitasEsKarbantartasEgerRoute: typeof FelujitasEsKarbantartasEgerRoute
   LakatosmunkaEgerRoute: typeof LakatosmunkaEgerRoute
+  ReferenciakRoute: typeof ReferenciakRoute
   SzolgaltatasokRoute: typeof SzolgaltatasokRoute
 }
 
@@ -188,6 +201,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LakatosmunkaEgerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/referenciak': {
+      id: '/referenciak'
+      path: '/referenciak'
+      fullPath: '/referenciak'
+      preLoaderRoute: typeof ReferenciakRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/szolgaltatasok': {
       id: '/szolgaltatasok'
       path: '/szolgaltatasok'
@@ -206,6 +226,7 @@ const rootRouteChildren: RootRouteChildren = {
   FelujitasEsKarbantartasRoute: FelujitasEsKarbantartasRoute,
   FelujitasEsKarbantartasEgerRoute: FelujitasEsKarbantartasEgerRoute,
   LakatosmunkaEgerRoute: LakatosmunkaEgerRoute,
+  ReferenciakRoute: ReferenciakRoute,
   SzolgaltatasokRoute: SzolgaltatasokRoute,
 }
 export const routeTree = rootRouteImport

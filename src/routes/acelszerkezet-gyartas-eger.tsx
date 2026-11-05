@@ -394,7 +394,7 @@ function AcelszerekezetGyartasEger() {
               <b>Kapcsolat</b>
               <a href="tel:+36705760108">{PHONE}</a>
               <a href="/#kapcsolat">Ajánlatkérés</a>
-              <a href="/#referenciak">Referenciák</a>
+              <a href="/referenciak">Referenciák</a>
             </div>
           </div>
           <div className="gh" aria-hidden="true">
