@@ -131,7 +131,7 @@ function Rolunk() {
           <section className="wrap ab">
             <div className="al">
               <Img
-                imgKey="images/Javitastol-a-teljes-felujitasig"
+                imgKey="images/Javitastol-a-teljes-felujitasig.webp"
                 alt="Felújítás a teljes befejezésig — egy kézből"
               />
             </div>
