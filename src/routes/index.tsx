@@ -10,7 +10,7 @@ import { LOCAL_BUSINESS_JSONLD, canonicalUrl, OG_IMAGE, faqPageJsonLD } from "@/
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Grandnatural – Acélszerkezet, daruzás és kivitelezés Egerben" },
+      { title: "Acélszerkezet, daruzás és kivitelezés Egerben | Grandnatural" },
       {
         name: "description",
         content:
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "Grandnatural – Acélszerkezet, daruzás és kivitelezés Egerben",
+        content: "Acélszerkezet, daruzás és kivitelezés Egerben | Grandnatural",
       },
       {
         property: "og:description",
@@ -53,7 +53,7 @@ const HERO_OVERRIDE_CSS = `
 .hero:not(.sm) .hin{max-width:46%;margin-inline:0}
 .hero:not(.sm) .hin h1{font-size:clamp(48px,7vw,104px);line-height:.95;letter-spacing:-.03em;margin:0 0 40px;text-shadow:none}
 .hero:not(.sm) .hin h1 .hc{display:block}
-.hero:not(.sm) .hin p{font-size:21px;line-height:1.5;font-weight:500;max-width:50ch;margin:0 0 32px;color:#fff;text-shadow:none;text-wrap:balance}
+.hero:not(.sm) .hin p,.hero:not(.sm) .hin .hin-sub{font-size:21px;line-height:1.5;font-weight:500;max-width:50ch;margin:0 0 32px;color:#fff;text-shadow:none;text-wrap:balance}
 .hero:not(.sm) .hin .pill{margin:0}
 .hero:not(.sm) .badge{background:#0e1a18;border:1px solid transparent;box-shadow:none}
 .hero:not(.sm) .badge b{font-size:44px;line-height:1;font-weight:800}
@@ -92,10 +92,7 @@ function Grandnatural() {
     let html = SITE_BODY_HTML;
     // Hero headline: "Építőipari megoldások Egerben" with real spaces (kept on
     // two visual lines via spans; textContent preserves the spaces for SEO).
-    html = html.replace(
-      "<h1>Építőipari megoldások</h1>",
-      "<h1>Acélszerkezet, daruzás és kivitelezés Egerben</h1>",
-    );
+    html = html.replace("<h1>Építőipari megoldások</h1>", "<h1>Építőipari megoldások Egerben</h1>");
     // Point the "Szolgáltatásaink" button and the footer "Szolgáltatások"
     // link to the hub page instead of the #szolg anchor.
     html = html.replace(
@@ -111,10 +108,11 @@ function Grandnatural() {
       "Építőipari kivitelezés, csarnoképítés, szendvicspaneles burkolás",
       "Építőipari kivitelezés, szendvicspaneles burkolás",
     );
-    // Hero subtitle (new wording).
+    // Hero subtitle: turn the lead paragraph into an H2 with the new wording,
+    // keeping the paragraph's visual style via .hin-sub (see HERO_OVERRIDE_CSS).
     html = html.replace(
       "<p>Építés, felújítás, acélszerkezetek és egyedi kivitelezési munkák Egerben és Heves vármegyében.</p>",
-      "<p>Építés, felújítás, acélszerkezetek és egyedi kivitelezés Egerben és Heves vármegyében.</p>",
+      '<h2 class="hin-sub">Acélszerkezet, daruzás és kivitelezés Egerben és Heves vármegyében – építés, felújítás és egyedi acélszerkezetek.</h2>',
     );
     // Hero overlay: one empty div placed directly above the background photo
     // and below the text content, carrying the darkening gradient. The CSS in
