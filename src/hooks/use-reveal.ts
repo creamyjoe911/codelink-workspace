@@ -1,11 +1,13 @@
 // Motion-powered scroll reveal. Replaces the manual IntersectionObserver logic
 // that previously added a `.in` class to `.rv` elements.
 //
-// Motion's `inView` + `animate` drive the same visual behaviour the CSS already
-// encodes (the `.js .rv` → `.js .rv.in` fade-up) but in a way that re-runs on
-// every mount and every route change, including client-side navigations back to
-// a page and bfcache restores — which the original `useEffect([])` observer
-// did not reliably handle.
+// Hybrid behaviour to avoid the "flash" on already-visible content:
+// - Elements already inside the viewport at mount (above the fold) are shown
+//   immediately with no animation — animating them on load is what caused the
+//   flash, since `inView` fires instantly for them.
+// - Elements below the fold get the fade-up reveal the first time they enter
+//   the viewport from below, preserving the scroll-reveal effect where it
+//   matters.
 //
 // Why `motion` (not `motion/react`)? The homepage renders its body through
 // `dangerouslySetInnerHTML`, so the `.rv` elements are plain DOM nodes, not
@@ -45,12 +47,35 @@ export function useReveal(rootRef: { current: HTMLElement | null }) {
       return;
     }
 
+    // Split into already-visible (above the fold) vs. below-the-fold.
+    // Already-visible elements are shown immediately — no animation — so they
+    // don't flash on mount. Below-the-fold elements keep the scroll reveal.
+    const vh = window.innerHeight;
+    const visible: HTMLElement[] = [];
+    const hidden: HTMLElement[] = [];
+    for (const el of els) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < vh) {
+        visible.push(el);
+      } else {
+        hidden.push(el);
+      }
+    }
+
+    // Show already-visible elements right away.
+    visible.forEach((el) => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
+
+    if (hidden.length === 0) return;
+
     // `inView` fires once per element when it enters the viewport. The
     // callback receives the element as its first argument. We animate opacity
     // + a small translateY fade-up. This mirrors the original
     // IntersectionObserver → add("in") flow so the reveal happens once.
     const stop = inView(
-      els,
+      hidden,
       (target: Element) => {
         animate(
           target as HTMLElement,
