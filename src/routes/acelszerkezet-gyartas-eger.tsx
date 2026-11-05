@@ -148,6 +148,46 @@ function AcelszerekezetGyartasEger() {
           </section>
         </div>
 
+        {/* Tudnivalók */}
+        <section className="wrap" style={{ paddingBlock: "clamp(48px,6vw,90px)" }}>
+          <div className="ctr" style={{ maxWidth: 860, margin: "0 auto" }}>
+            <h2>Tudnivalók az acélszerkezet-gyártásról.</h2>
+            <p className="lead" style={{ marginTop: 16 }}>
+              Mennyibe kerül egy acélszerkezet Egerben? Az ár a mérettől, az anyagtól, a hegesztés
+              módjától és a helyszíni szereléstől függ — pontos árat telefonon vagy űrlapon
+              egyeztetünk.
+            </p>
+            <div
+              className="mx"
+              style={{ marginTop: "clamp(28px,4vw,48px)", gridTemplateColumns: "1fr 1fr" }}
+            >
+              <div className="cd">
+                <h3>Típusos munkák</h3>
+                <p>Ipari acélvázak, teherhordó szerkezetek, egyedi gépvázak — [FELSOROLÁS]</p>
+              </div>
+              <div className="cd">
+                <h3>Anyagok</h3>
+                <p>[ANYAGOK] — nyersacél lemez, profilok, hegesztőanyagok, festékek.</p>
+              </div>
+              <div className="cd">
+                <h3>Átfutási idő</h3>
+                <p>[IDŐ] — kis szerkezetek 1–2 hét, nagy ipari vázak 3–6 hét.</p>
+              </div>
+              <div className="cd">
+                <h3>Árat befolyásoló tényezők</h3>
+                <p>
+                  [MÉRET, ANYAG, SZERELÉS, SZÁLLÍTÁS] — a helyszíni szerelés és a szállítás is
+                  belesámítandó.
+                </p>
+              </div>
+              <div className="cd">
+                <h3>Ajánlatkérés</h3>
+                <p>[TELEFON / ŰRLAP] — telefonon vagy az alábbi űrlapon kérhet árajánlatot.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Process */}
         <section className="soft">
           <div className="sk"></div>

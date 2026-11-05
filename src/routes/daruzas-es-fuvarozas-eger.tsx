@@ -149,6 +149,48 @@ function DaruzasEsFuvarozasEger() {
           </section>
         </div>
 
+        {/* Tudnivalók */}
+        <section className="wrap" style={{ paddingBlock: "clamp(48px,6vw,90px)" }}>
+          <div className="ctr" style={{ maxWidth: 860, margin: "0 auto" }}>
+            <h2>Tudnivalók a daruzásról és fuvarozásról.</h2>
+            <p className="lead" style={{ marginTop: 16 }}>
+              Mennyibe kerül a daruzás Egerben? Az ár a teher típusától és súlyától, a helyszíntől
+              és a kívánt időponttól függ — pontos árat telefonon vagy űrlapon egyeztetünk.
+            </p>
+            <div
+              className="mx"
+              style={{ marginTop: "clamp(28px,4vw,48px)", gridTemplateColumns: "1fr 1fr" }}
+            >
+              <div className="cd">
+                <h3>Típusos munkák</h3>
+                <p>
+                  Építőanyagok, nehézgépek, csarnok- és betonelemek darus rakodás és szállítás —
+                  [FELSOROLÁS]
+                </p>
+              </div>
+              <div className="cd">
+                <h3>Anyagok</h3>
+                <p>[ANYAGOK] — építőanyagok, betonelemek, acélszerkezetek, nehézgépek.</p>
+              </div>
+              <div className="cd">
+                <h3>Átfutási idő</h3>
+                <p>[IDŐ] — kis szállítások 1–2 nap, nagy emelések 1–3 nap.</p>
+              </div>
+              <div className="cd">
+                <h3>Árat befolyásoló tényezők</h3>
+                <p>
+                  [MÉRET, ANYAG, SZERELÉS, SZÁLLÍTÁS] — daru teherbírása [TONNA], kinyúlás [MÉTER],
+                  jármű [TÍPUS, ÉVJÁRAT].
+                </p>
+              </div>
+              <div className="cd">
+                <h3>Ajánlatkérés</h3>
+                <p>[TELEFON / ŰRLAP] — telefonon vagy az alábbi űrlapon kérhet árajánlatot.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* What we lift */}
         <section className="soft">
           <div className="sk"></div>

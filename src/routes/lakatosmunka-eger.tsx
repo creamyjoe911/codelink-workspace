@@ -145,6 +145,46 @@ function LakatosmunkaEger() {
           </section>
         </div>
 
+        {/* Tudnivalók */}
+        <section className="wrap" style={{ paddingBlock: "clamp(48px,6vw,90px)" }}>
+          <div className="ctr" style={{ maxWidth: 860, margin: "0 auto" }}>
+            <h2>Tudnivalók a lakatosmunkáról.</h2>
+            <p className="lead" style={{ marginTop: 16 }}>
+              Mennyibe kerül a lakatosmunka Egerben? Az ár a munka típusától, az anyagtól, a
+              szerelés módjától és a szállítástól függ — pontos árat telefonon vagy űrlapon
+              egyeztetünk.
+            </p>
+            <div
+              className="mx"
+              style={{ marginTop: "clamp(28px,4vw,48px)", gridTemplateColumns: "1fr 1fr" }}
+            >
+              <div className="cd">
+                <h3>Típusos munkák</h3>
+                <p>Kapuk, korlátok, lépcsők, előtetők, biztonsági szerkezetek — [FELSOROLÁS]</p>
+              </div>
+              <div className="cd">
+                <h3>Anyagok</h3>
+                <p>[ANYAGOK] — acéllemez, profilok, hegesztőanyagok, festékek.</p>
+              </div>
+              <div className="cd">
+                <h3>Átfutási idő</h3>
+                <p>[IDŐ] — kis munkák 1–2 hét, nagyobb szerkezetek 2–4 hét.</p>
+              </div>
+              <div className="cd">
+                <h3>Árat befolyásoló tényezők</h3>
+                <p>
+                  [MÉRET, ANYAG, SZERELÉS, SZÁLLÍTÁS] — minél pontosabb az adat, annál pontosabb az
+                  árajánlat.
+                </p>
+              </div>
+              <div className="cd">
+                <h3>Ajánlatkérés</h3>
+                <p>[TELEFON / ŰRLAP] — telefonon vagy az alábbi űrlapon kérhet árajánlatot.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Process */}
         <section className="soft">
           <div className="sk"></div>
