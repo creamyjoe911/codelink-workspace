@@ -144,48 +144,6 @@ function LakatosmunkaEger() {
             </div>
           </section>
         </div>
-
-        {/* Tudnivalók */}
-        <section className="wrap" style={{ paddingBlock: "clamp(48px,6vw,90px)" }}>
-          <div className="ctr" style={{ maxWidth: 860, margin: "0 auto" }}>
-            <h2>Tudnivalók a lakatosmunkáról.</h2>
-            <p className="lead" style={{ marginTop: 16 }}>
-              Vállalunk lakatosmunkát Egerben és Heves vármegyében.
-            </p>
-            <div
-              className="mx"
-              style={{ marginTop: "clamp(28px,4vw,48px)", gridTemplateColumns: "1fr 1fr" }}
-            >
-              <div className="cd">
-                <h3>Típusos munkák</h3>
-                <p>
-                  Kapuk, korlátok, lépcsők, előtetők és műszaki biztonsági szerkezetek gyártása,
-                  javítása és helyszíni szerelése.
-                </p>
-              </div>
-              <div className="cd">
-                <h3>Anyagok</h3>
-                <p>Acéllemez, profilok, hegesztőanyagok és festékek.</p>
-              </div>
-              <div className="cd">
-                <h3>Árazás</h3>
-                <p>
-                  Az árat a munka mérete, az anyag és a helyszín határozza meg, ezért egyedi
-                  ajánlatot adunk.
-                </p>
-              </div>
-              <div className="cd">
-                <h3>Szolgáltatási terület</h3>
-                <p>Eger és Heves vármegye.</p>
-              </div>
-              <div className="cd">
-                <h3>Ajánlatkérés</h3>
-                <p>Telefonon a +36 70 576 0108-as számon vagy az alábbi űrlapon.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Process */}
         <section className="soft">
           <div className="sk"></div>

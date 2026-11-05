@@ -148,50 +148,6 @@ function DaruzasEsFuvarozasEger() {
             </div>
           </section>
         </div>
-
-        {/* Tudnivalók */}
-        <section className="wrap" style={{ paddingBlock: "clamp(48px,6vw,90px)" }}>
-          <div className="ctr" style={{ maxWidth: 860, margin: "0 auto" }}>
-            <h2>Tudnivalók a daruzásról és fuvarozásról.</h2>
-            <p className="lead" style={{ marginTop: 16 }}>
-              Vállalunk daruzást és fuvarozást Egerben és Heves vármegyében.
-            </p>
-            <div
-              className="mx"
-              style={{ marginTop: "clamp(28px,4vw,48px)", gridTemplateColumns: "1fr 1fr" }}
-            >
-              <div className="cd">
-                <h3>Típusos munkák</h3>
-                <p>
-                  Építőanyagok, nehézgépek, csarnok- és betonelemek darus rakodása és szállítása.
-                </p>
-              </div>
-              <div className="cd">
-                <h3>Fuvarozás</h3>
-                <p>
-                  Fuvarozás 3,5–40 tonnáig. Áruszállítás és fuvarozás 3,5–40 tonnáig, az igényekhez
-                  igazodó járműkapacitással.
-                </p>
-              </div>
-              <div className="cd">
-                <h3>Árazás</h3>
-                <p>
-                  Az árat a munka mérete, az anyag és a helyszín határozza meg, ezért egyedi
-                  ajánlatot adunk.
-                </p>
-              </div>
-              <div className="cd">
-                <h3>Szolgáltatási terület</h3>
-                <p>Eger és Heves vármegye.</p>
-              </div>
-              <div className="cd">
-                <h3>Ajánlatkérés</h3>
-                <p>Telefonon a +36 70 576 0108-as számon vagy az alábbi űrlapon.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* What we lift */}
         <section className="soft">
           <div className="sk"></div>
