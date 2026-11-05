@@ -17,9 +17,9 @@ import {
   OG_IMAGE,
 } from "@/lib/seo-schema";
 
-const TITLE = "Felújítás és karbantartás Egerben | Grandnatural";
+const TITLE = "Felújítás és karbantartás Eger – ingatlanok | Grandnatural";
 const DESC =
-  "Magán- és ipari ingatlanok felújítása, karbantartása és korszerűsítése Egerben és Heves vármegyében. Kérjen ajánlatot: +36 70 576 0108.";
+  "Magán- és ipari ingatlanok felújítása, karbantartása és korszerűsítése Egerben és Heves vármegyében, egy kivitelezőtől. Kérjen ajánlatot: +36 70 576 0108.";
 
 export const Route = createFileRoute("/felujitas-es-karbantartas-eger")({
   head: () => ({

@@ -20,7 +20,7 @@ import {
 
 const TITLE = "Daruzás és fuvarozás Eger – darus rakodás | Grandnatural";
 const DESC =
-  "Darus rakodás és szállítás saját MAN darus teherautóval Egerben és Heves vármegyében. Kérjen ajánlatot: +36 70 576 0108.";
+  "Darus rakodás és szállítás saját MAN darus teherautóval Egerben és Heves vármegyében, építőanyagok, nehézgépek és betonelemek. Ajánlat: +36 70 576 0108.";
 
 export const Route = createFileRoute("/daruzas-es-fuvarozas-eger")({
   head: () => ({
