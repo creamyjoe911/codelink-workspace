@@ -120,10 +120,7 @@ function Szolgaltatasok() {
 
           <section className="wrap ab">
             <div className="al">
-              <Img
-                imgKey="images/novenykert"
-                alt="Grandnatural szolgáltatások és géppark"
-              />
+              <Img imgKey="images/novenykert" alt="Grandnatural szolgáltatások és géppark" />
               <div className="stat">
                 <b>16+</b>
                 <span>év szakmai tapasztalat</span>

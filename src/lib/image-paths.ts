@@ -50,11 +50,6 @@ export const IMAGE_PATHS: Record<string, ImgInfo> = {
     width: 800,
     height: 600,
   },
-  "images/12-man-teherauto-fulkeje-felujitas-elott.jpg": {
-    src: "/images/12-man-teherauto-fulkeje-felujitas-elott.jpg.webp",
-    width: 800,
-    height: 600,
-  },
   "images/13-man-teherauto-fulkeje-felujitas-utan.jpg": {
     src: "/images/13-man-teherauto-fulkeje-felujitas-utan.jpg.webp",
     width: 800,

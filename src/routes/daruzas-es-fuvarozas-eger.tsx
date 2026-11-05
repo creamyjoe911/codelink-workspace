@@ -93,10 +93,7 @@ function DaruzasEsFuvarozasEger() {
 
           <section className="wrap ab">
             <div className="al">
-              <Img
-                imgKey="images/06-daruval-emelt-betonlap.jpg"
-                alt="Daruval emelt betonlap"
-              />
+              <Img imgKey="images/06-daruval-emelt-betonlap.jpg" alt="Daruval emelt betonlap" />
               <div className="stat">
                 <b>16+</b>
                 <span>év szakmai tapasztalat</span>

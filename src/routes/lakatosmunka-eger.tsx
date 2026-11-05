@@ -90,10 +90,7 @@ function LakatosmunkaEger() {
 
           <section className="wrap ab">
             <div className="al">
-              <Img
-                imgKey="images/nyersacel"
-                alt="Nyersacél lemez a műhelyben"
-              />
+              <Img imgKey="images/nyersacel" alt="Nyersacél lemez a műhelyben" />
               <div className="stat">
                 <b>16+</b>
                 <span>év szakmai tapasztalat</span>
@@ -211,10 +208,7 @@ function LakatosmunkaEger() {
 
         {/* Band — A saját darunk, saját kézben */}
         <section className="band">
-          <Img
-            imgKey="images/lakatosmunka-hero"
-            alt="Lakatosmunka és hegesztés a műhelyben"
-          />
+          <Img imgKey="images/lakatosmunka-hero" alt="Lakatosmunka és hegesztés a műhelyben" />
           <div className="ghost" aria-hidden="true">
             Lakatosmunka
           </div>

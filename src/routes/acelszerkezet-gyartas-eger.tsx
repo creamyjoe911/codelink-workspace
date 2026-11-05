@@ -259,10 +259,7 @@ function AcelszerekezetGyartasEger() {
 
         {/* Band — A saját darunk, saját kézben */}
         <section className="band">
-          <Img
-            imgKey="images/csarnok-epites"
-            alt="Acélvázas ipari csarnok építése"
-          />
+          <Img imgKey="images/csarnok-epites" alt="Acélvázas ipari csarnok építése" />
           <div className="ghost" aria-hidden="true">
             Acél
           </div>
