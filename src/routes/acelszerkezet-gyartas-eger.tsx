@@ -8,7 +8,13 @@ import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
 import { Img } from "@/components/img";
-import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD, OG_IMAGE } from "@/lib/seo-schema";
+import {
+  breadcrumbJsonLD,
+  canonicalUrl,
+  serviceJsonLD,
+  faqPageJsonLD,
+  OG_IMAGE,
+} from "@/lib/seo-schema";
 
 const TITLE = "Acélszerkezet gyártás Eger – acélvázak | Grandnatural";
 const DESC =
@@ -47,6 +53,30 @@ function AcelszerekezetGyartasEger() {
         ])}
       />
       <JsonLd json={serviceJsonLD({ name: "Acélszerkezet gyártás Eger", description: DESC })} />
+      <JsonLd
+        json={faqPageJsonLD([
+          {
+            question: "Milyen acélszerkezeteket gyártanak?",
+            answer:
+              "Ipari acélvázakat, teherhordó szerkezeteket és egyedi gépvázakat gyártunk és szerelünk — egyedi méretben, az igények szerint.",
+          },
+          {
+            question: "Egyedi méretre is elkészítik a szerkezetet?",
+            answer:
+              "Igen. Minden acélszerkezetet saját műhelyünkben, egyedi méretre készítünk — a nyersacéltól a festésig.",
+          },
+          {
+            question: "A gyártás után a helyszíni szerelést is elvégzik?",
+            answer:
+              "Igen. A kész szerkezetet darus teherautónkkal kiszállítjuk és a helyszínen beépítjük, rögzítjük — a gyártás és a szerelés egy kivitelezőtől.",
+          },
+          {
+            question: "Hogyan kérhetek ajánlatot acélszerkezetre?",
+            answer:
+              "Telefonáljon a +36 70 576 0108-as számon, vagy töltse ki az alábbi űrlapot. A munka részleteit egyeztetjük.",
+          },
+        ])}
+      />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 
       <SiteNav current="/acelszerkezet-gyartas-eger" />

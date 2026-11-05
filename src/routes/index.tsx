@@ -5,7 +5,7 @@ import { IMAGE_PATHS } from "@/lib/image-paths";
 import { useReveal } from "@/hooks/use-reveal";
 import { SiteNav } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
-import { LOCAL_BUSINESS_JSONLD, canonicalUrl, OG_IMAGE } from "@/lib/seo-schema";
+import { LOCAL_BUSINESS_JSONLD, canonicalUrl, OG_IMAGE, faqPageJsonLD } from "@/lib/seo-schema";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -415,6 +415,31 @@ function Grandnatural() {
   return (
     <div className="grandnatural-root" ref={rootRef}>
       <JsonLd json={LOCAL_BUSINESS_JSONLD} />
+      <JsonLd
+        json={faqPageJsonLD([
+          {
+            question: "Milyen munkákat vállalnak?",
+            answer:
+              "Lakatosmunkákat, egyedi acélszerkezetek gyártását, daruzást és fuvarozást, helyszíni kivitelezést, valamint ingatlanfelújítást és karbantartást.",
+          },
+          { question: "Hol dolgoznak?", answer: "Egerben és Heves vármegyében." },
+          {
+            question: "Vállalnak daruzást és szállítást?",
+            answer:
+              "Igen. Saját darus teherautóval végzünk darus rakodást és szállítást: építőanyagokat, nehézgépeket, csarnok- és betonelemeket.",
+          },
+          {
+            question: "Készítenek egyedi acélszerkezeteket?",
+            answer:
+              "Igen. Műhelyünkben egyedi acélszerkezeteket gyártunk és javítunk, és a helyszínen is szereljük őket.",
+          },
+          {
+            question: "Hogyan kérhetek ajánlatot?",
+            answer:
+              "Hívjon a +36 70 576 0108 számon, vagy töltse ki az alábbi űrlapot, és adja meg a munka alapvető paramétereit.",
+          },
+        ])}
+      />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERRIDE_CSS }} />
       <SiteNav current="/" />
       <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />

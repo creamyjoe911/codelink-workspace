@@ -9,7 +9,13 @@ import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
 import { Img } from "@/components/img";
 import { HERO_IMAGE } from "@/lib/image-paths";
-import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD, OG_IMAGE } from "@/lib/seo-schema";
+import {
+  breadcrumbJsonLD,
+  canonicalUrl,
+  serviceJsonLD,
+  faqPageJsonLD,
+  OG_IMAGE,
+} from "@/lib/seo-schema";
 
 const TITLE = "Daruzás és fuvarozás Eger – darus rakodás | Grandnatural";
 const DESC =
@@ -48,6 +54,30 @@ function DaruzasEsFuvarozasEger() {
         ])}
       />
       <JsonLd json={serviceJsonLD({ name: "Daruzás és fuvarozás Eger", description: DESC })} />
+      <JsonLd
+        json={faqPageJsonLD([
+          {
+            question: "Mit lehet daruzni és szállítani?",
+            answer:
+              "Építőanyagokat, nehézgépeket, csarnok- és betonelemeket emelünk és szállítunk — saját darus teherautóval, Egerben és Heves vármegyében.",
+          },
+          {
+            question: "Saját daruval dolgoznak?",
+            answer:
+              "Igen. Saját MAN darus teherautóval végzünk daruzást és fuvarozást, így a rakodást és a szállítást összehangoltan, egy kivitelezőtől kapja.",
+          },
+          {
+            question: "Milyen adat kell az ajánlatkéréshez?",
+            answer:
+              "Az emelendő vagy szállítandó teher típusa és súlya, a helyszín és a kívánt időpont segít a pontos ajánlat elkészítésében. Ezeket telefonon vagy az űrlapon egyeztethetjük.",
+          },
+          {
+            question: "Hogyan lehet időpontot foglalni?",
+            answer:
+              "Telefonáljon a +36 70 576 0108-as számon, vagy töltse ki az alábbi űrlapot. A helyszínt és a feladatot egyeztetve foglalunk időpontot.",
+          },
+        ])}
+      />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 
       <SiteNav current="/daruzas-es-fuvarozas-eger" />

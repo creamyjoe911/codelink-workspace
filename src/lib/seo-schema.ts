@@ -73,3 +73,18 @@ export function serviceJsonLD(opts: { name: string; description: string }): stri
     provider: { "@id": `${SITE_URL}/#business` },
   });
 }
+
+// FAQPage schema for a page with a visible FAQ. `faqs` is the list of
+// question/answer pairs exactly as they appear on the page (word for word);
+// no extra or invented questions are added.
+export function faqPageJsonLD(faqs: ReadonlyArray<{ question: string; answer: string }>): string {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  });
+}

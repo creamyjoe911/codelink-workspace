@@ -8,7 +8,13 @@ import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
 import { Img } from "@/components/img";
-import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD, OG_IMAGE } from "@/lib/seo-schema";
+import {
+  breadcrumbJsonLD,
+  canonicalUrl,
+  serviceJsonLD,
+  faqPageJsonLD,
+  OG_IMAGE,
+} from "@/lib/seo-schema";
 
 const TITLE = "Felújítás és karbantartás Egerben | Grandnatural";
 const DESC =
@@ -48,6 +54,30 @@ function FelujitasEsKarbantartas() {
       />
       <JsonLd
         json={serviceJsonLD({ name: "Felújítás és karbantartás Egerben", description: DESC })}
+      />
+      <JsonLd
+        json={faqPageJsonLD([
+          {
+            question: "Milyen felújítási munkákat vállal?",
+            answer:
+              "Magán- és ipari ingatlanok belső és külső felújítását, karbantartását, javítását és korszerűsítését — a kisebb javításoktól a teljes felújításig.",
+          },
+          {
+            question: "A lakatos- és acélmunkákat is elvégzi?",
+            answer:
+              "Igen. A felújítás során felmerülő lakatos- és acélszerkezeti munkákat saját műhelyünkben gyártjuk és a helyszínen szereljük — egy kivitelezőtől.",
+          },
+          {
+            question: "Egerben és Heves vármegyében vállal felújítást?",
+            answer:
+              "Igen, Egerben és Heves vármegyében vállalunk felújítási és karbantartási munkákat — saját műhelyből és darus géppel.",
+          },
+          {
+            question: "Hogyan kérhetek ajánlatot felújításra?",
+            answer:
+              "Telefonáljon a +36 70 576 0108-as számon, vagy töltse ki az alábbi űrlapot. A munkák körét és sorrendjét egyeztetjük.",
+          },
+        ])}
       />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 

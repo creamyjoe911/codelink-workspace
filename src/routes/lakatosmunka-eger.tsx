@@ -8,7 +8,13 @@ import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
 import { Img } from "@/components/img";
-import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD, OG_IMAGE } from "@/lib/seo-schema";
+import {
+  breadcrumbJsonLD,
+  canonicalUrl,
+  serviceJsonLD,
+  faqPageJsonLD,
+  OG_IMAGE,
+} from "@/lib/seo-schema";
 
 const TITLE = "Lakatosmunka Eger – kapuk, korlátok, lépcsők | Grandnatural";
 const DESC =
@@ -47,6 +53,30 @@ function LakatosmunkaEger() {
         ])}
       />
       <JsonLd json={serviceJsonLD({ name: "Lakatosmunka Eger", description: DESC })} />
+      <JsonLd
+        json={faqPageJsonLD([
+          {
+            question: "Milyen lakatosmunkákat vállal?",
+            answer:
+              "Kapukat, korlátokat, lépcsőket, előtetőket és műszaki biztonsági szerkezeteket gyártunk és javítunk — egyedi méretben, az igények szerint.",
+          },
+          {
+            question: "Helyszíni szerelést is elvégez?",
+            answer:
+              "Igen. A kész szerkezetet kiszállítjuk és a helyszínen beépítjük, rögzítjük. Saját darus teherautóval dolgozunk, így a szállítást és a szerelést összehangoltan oldjuk meg.",
+          },
+          {
+            question: "Hogyan kérhetek ajánlatot?",
+            answer:
+              "Telefonáljon a +36 70 576 0108-as számon, vagy töltse ki az alábbi űrlapot. Szívesen felvesszük a munka részleteit.",
+          },
+          {
+            question: "Egerben és Heves vármegyében vállal munkát?",
+            answer:
+              "Igen, Egerben és Heves vármegyében vállalunk lakatosmunkát és helyszíni szerelést.",
+          },
+        ])}
+      />
       <style dangerouslySetInnerHTML={{ __html: SITE_CSS + HERO_OVERLAY_CSS }} />
 
       <SiteNav current="/lakatosmunka-eger" />
