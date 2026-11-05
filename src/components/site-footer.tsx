@@ -43,6 +43,7 @@ export function SiteFooter({ current }: { current?: string }) {
           <div>
             <b>Kapcsolat</b>
             <a href="tel:+36705760108">{PHONE}</a>
+            <a href="mailto:grandnatural2010@gmail.com">grandnatural2010@gmail.com</a>
             <a href="/#kapcsolat">Ajánlatkérés</a>
             <a href="/referenciak">Referenciák</a>
             <a href="/rolunk">Rólunk</a>
@@ -51,7 +52,7 @@ export function SiteFooter({ current }: { current?: string }) {
           <div>
             <b>Grandnatural Kft.</b>
             <p style={{ margin: 0 }}>
-              Eger, Heves vármegye
+              Eger és Heves vármegye
               <br />
               Hétfő–Péntek 8:00–17:00
               <br />
@@ -69,7 +70,7 @@ export function SiteFooter({ current }: { current?: string }) {
         </div>
         <div className="cp">
           <span>© {year} Grandnatural Kft.</span>
-          <span>Eger, Heves vármegye</span>
+          <span>Eger és Heves vármegye</span>
         </div>
       </div>
     </footer>
