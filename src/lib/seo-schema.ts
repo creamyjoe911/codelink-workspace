@@ -108,3 +108,21 @@ export function faqPageJsonLD(faqs: ReadonlyArray<{ question: string; answer: st
     })),
   });
 }
+
+// AboutPage schema for the Rólunk page. `description` is the page's meta
+// description. The provider references the homepage LocalBusiness @id so the
+// two blocks stay linked. No invented facts are added here — only the name
+// and description the page already states.
+export function aboutPageJsonLD(opts: { name: string; description: string }): string {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: opts.name,
+    description: opts.description,
+    url: canonicalUrl("/rolunk"),
+    mainEntity: {
+      "@type": "LocalBusiness",
+      "@id": `${SITE_URL}/#business`,
+    },
+  });
+}

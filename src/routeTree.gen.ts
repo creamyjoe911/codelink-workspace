@@ -18,6 +18,7 @@ import { Route as FelujitasEsKarbantartasRouteImport } from './routes/felujitas-
 import { Route as FelujitasEsKarbantartasEgerRouteImport } from './routes/felujitas-es-karbantartas-eger'
 import { Route as LakatosmunkaEgerRouteImport } from './routes/lakatosmunka-eger'
 import { Route as ReferenciakRouteImport } from './routes/referenciak'
+import { Route as RolunkRouteImport } from './routes/rolunk'
 import { Route as SzolgaltatasokRouteImport } from './routes/szolgaltatasok'
 
 const IndexRoute = IndexRouteImport.update({
@@ -68,6 +69,11 @@ const ReferenciakRoute = ReferenciakRouteImport.update({
   path: '/referenciak',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RolunkRoute = RolunkRouteImport.update({
+  id: '/rolunk',
+  path: '/rolunk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SzolgaltatasokRoute = SzolgaltatasokRouteImport.update({
   id: '/szolgaltatasok',
   path: '/szolgaltatasok',
@@ -84,6 +90,7 @@ export interface FileRoutesByFullPath {
   '/felujitas-es-karbantartas-eger': typeof FelujitasEsKarbantartasEgerRoute
   '/lakatosmunka-eger': typeof LakatosmunkaEgerRoute
   '/referenciak': typeof ReferenciakRoute
+  '/rolunk': typeof RolunkRoute
   '/szolgaltatasok': typeof SzolgaltatasokRoute
 }
 export interface FileRoutesByTo {
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/felujitas-es-karbantartas-eger': typeof FelujitasEsKarbantartasEgerRoute
   '/lakatosmunka-eger': typeof LakatosmunkaEgerRoute
   '/referenciak': typeof ReferenciakRoute
+  '/rolunk': typeof RolunkRoute
   '/szolgaltatasok': typeof SzolgaltatasokRoute
 }
 export interface FileRoutesById {
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/felujitas-es-karbantartas-eger': typeof FelujitasEsKarbantartasEgerRoute
   '/lakatosmunka-eger': typeof LakatosmunkaEgerRoute
   '/referenciak': typeof ReferenciakRoute
+  '/rolunk': typeof RolunkRoute
   '/szolgaltatasok': typeof SzolgaltatasokRoute
 }
 export interface FileRouteTypes {
@@ -123,6 +132,7 @@ export interface FileRouteTypes {
     | '/felujitas-es-karbantartas-eger'
     | '/lakatosmunka-eger'
     | '/referenciak'
+    | '/rolunk'
     | '/szolgaltatasok'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -135,6 +145,7 @@ export interface FileRouteTypes {
     | '/felujitas-es-karbantartas-eger'
     | '/lakatosmunka-eger'
     | '/referenciak'
+    | '/rolunk'
     | '/szolgaltatasok'
   id:
     | '__root__'
@@ -147,6 +158,7 @@ export interface FileRouteTypes {
     | '/felujitas-es-karbantartas-eger'
     | '/lakatosmunka-eger'
     | '/referenciak'
+    | '/rolunk'
     | '/szolgaltatasok'
   fileRoutesById: FileRoutesById
 }
@@ -160,6 +172,7 @@ export interface RootRouteChildren {
   FelujitasEsKarbantartasEgerRoute: typeof FelujitasEsKarbantartasEgerRoute
   LakatosmunkaEgerRoute: typeof LakatosmunkaEgerRoute
   ReferenciakRoute: typeof ReferenciakRoute
+  RolunkRoute: typeof RolunkRoute
   SzolgaltatasokRoute: typeof SzolgaltatasokRoute
 }
 
@@ -228,6 +241,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReferenciakRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rolunk': {
+      id: '/rolunk'
+      path: '/rolunk'
+      fullPath: '/rolunk'
+      preLoaderRoute: typeof RolunkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/szolgaltatasok': {
       id: '/szolgaltatasok'
       path: '/szolgaltatasok'
@@ -248,6 +268,7 @@ const rootRouteChildren: RootRouteChildren = {
   FelujitasEsKarbantartasEgerRoute: FelujitasEsKarbantartasEgerRoute,
   LakatosmunkaEgerRoute: LakatosmunkaEgerRoute,
   ReferenciakRoute: ReferenciakRoute,
+  RolunkRoute: RolunkRoute,
   SzolgaltatasokRoute: SzolgaltatasokRoute,
 }
 export const routeTree = rootRouteImport

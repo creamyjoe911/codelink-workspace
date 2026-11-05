@@ -92,7 +92,9 @@ export function SiteNav({ current }: Props) {
           <img src={SITE_LOGO_SVG} alt="Grandnatural Kft." />
         </a>
         <nav className={menuOpen ? "open" : undefined}>
-          <a href="/#rolunk">Rólunk</a>
+          <a href="/rolunk" aria-current={current === "/rolunk" ? "page" : undefined}>
+            Rólunk
+          </a>
           <span
             className="dd"
             onMouseEnter={() => setDdOpen(true)}
@@ -168,7 +170,11 @@ export function SiteNav({ current }: Props) {
           onClick={() => setMenuOpen(false)}
         >
           <nav className="mbn" onClick={(e) => e.stopPropagation()} aria-label="Fő navigáció">
-            <a href="/#rolunk" onClick={() => setMenuOpen(false)}>
+            <a
+              href="/rolunk"
+              aria-current={current === "/rolunk" ? "page" : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
               Rólunk
             </a>
             <a
