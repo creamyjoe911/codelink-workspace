@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SITE_INLINE_IMAGES, SITE_BODY_HTML, SITE_CSS } from "@/lib/grandnatural-content";
-import { useLazyImages, getCachedLazyImages } from "@/hooks/use-lazy-images";
+import { IMAGE_PATHS } from "@/lib/image-paths";
 import { useReveal } from "@/hooks/use-reveal";
 import { animate } from "motion";
 import { SiteNav } from "@/components/site-nav";
@@ -128,7 +128,6 @@ function Grandnatural() {
   // every mount (i.e. every client-side nav / revisit), stays synchronous once
   // the lazy module is cached, and re-swaps on bfcache restore — so photos
   // never disappear when navigating to/from this page.
-  useLazyImages(rootRef);
   useReveal(rootRef);
 
   // Build the homepage body HTML. Only the logo and the hero photo are inlined
@@ -167,6 +166,10 @@ function Grandnatural() {
     // and below the text content, carrying the darkening gradient. The CSS in
     // HERO_OVERRIDE_CSS gives it z-index:1 (above the bg img) and lifts the
     // text column + badge to z-index:2 so they sit above it.
+    html = html.replace(
+      'class="bg" fetchpriority="high" src="/images/grandnatural-hero.webp"',
+      'class="bg" loading="eager" fetchpriority="high" src="/images/grandnatural-hero.webp"',
+    );
     html = html.replace(
       'alt="Grandnatural darus teherautója és géppark">',
       'alt="Grandnatural darus teherautója és géppark"><div class="ovl" aria-hidden="true"></div>',
@@ -213,12 +216,13 @@ function Grandnatural() {
     for (const [name, img] of Object.entries(SITE_INLINE_IMAGES)) {
       html = html.split(`"${name}"`).join(`"${img.src}"`);
     }
-    const PLACEHOLDER =
-      "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
-    html = html.replace(
-      /src="(images\/[^"]+)"/g,
-      (_m, p1: string) => `src="${PLACEHOLDER}" data-src="${p1}"`,
-    );
+    // Resolve every remaining images/... src to its real static URL from
+    // IMAGE_PATHS — no data-src, no placeholder, no runtime swap. The browser
+    // fetches the real file directly (lazy below the fold, eager for hero).
+    html = html.replace(/src="(images\/[^"]+)"/g, (_m, p1: string) => {
+      const info = IMAGE_PATHS[p1];
+      return `src="${info ? info.src : p1}"`;
+    });
     // The top nav + call bar are rendered by <SiteNav> in React, so strip the
     // original raw-HTML nav and call bar from the body markup to avoid a
     // duplicate, non-interactive nav.
@@ -513,31 +517,19 @@ function Grandnatural() {
     // not-yet-swapped (data-src) images are swapped here, already-swapped ones
     // are made eager + reloaded.
     if (isRefView && ref) {
-      const apply = (map: Record<string, { src: string }>) => {
-        const imgs = Array.from(ref.querySelectorAll<HTMLImageElement>("img"));
-        for (const img of imgs) {
-          const ds = img.getAttribute("data-src");
-          if (ds && map[ds]) {
-            img.removeAttribute("loading");
-            img.src = map[ds].src;
-            img.removeAttribute("data-src");
-            continue;
-          }
-          // already swapped to a real src — make it eager and reload it so a
-          // previously-hidden, never-fetched lazy image actually loads now
-          img.removeAttribute("loading");
-          if (!img.complete || img.naturalWidth === 0) {
-            const s = img.src;
-            img.src = "";
-            img.src = s;
-          }
+      // The references gallery lives in a hidden <main>. Its images carry
+      // real srcs but loading="lazy", so while the container is display:none
+      // the browser never fetched them. Now that the view is visible, drop
+      // loading="lazy" and force-reload any not yet fetched so the gallery
+      // photos appear immediately.
+      const imgs = Array.from(ref.querySelectorAll<HTMLImageElement>("img"));
+      for (const img of imgs) {
+        img.removeAttribute("loading");
+        if (!img.complete || img.naturalWidth === 0) {
+          const s = img.src;
+          img.src = "";
+          img.src = s;
         }
-      };
-      const cached = getCachedLazyImages();
-      if (cached) {
-        apply(cached);
-      } else {
-        void import("@/lib/grandnatural-lazy-images").then((m) => apply(m.SITE_LAZY_IMAGES));
       }
 
       // Re-apply the active filter so the tabs work on first open. Query

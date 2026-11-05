@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
 import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
-import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { useReveal } from "@/hooks/use-reveal";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
+import { Img } from "@/components/img";
 import { breadcrumbJsonLD, canonicalUrl, OG_IMAGE } from "@/lib/seo-schema";
 
 const TITLE = "Szolgáltatások | Grandnatural — Eger, Heves vármegye";
@@ -29,49 +29,45 @@ export const Route = createFileRoute("/szolgaltatasok")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/szolgaltatasok";
+
+const services = [
+  {
+    href: "/lakatosmunka-eger",
+    title: "Lakatosmunka Egerben",
+    img: "images/04-elkeszult-piros-festett-platooldal.jpg",
+    alt: "Elkészült, piros festett platóoldal",
+    summary:
+      "Kapuk, korlátok, lépcsők, előtetők és biztonsági szerkezetek gyártása és helyszíni szerelése saját műhelyből.",
+  },
+  {
+    href: "/acelszerkezet-gyartas-eger",
+    title: "Acélszerkezet gyártás Egerben",
+    img: "images/05-nyers-acel-lemez-a-muhelyben.jpg",
+    alt: "Nyers acél lemez a műhelyben",
+    summary:
+      "Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak műhelyi gyártása és helyszíni szerelése.",
+  },
+  {
+    href: "/daruzas-es-fuvarozas-eger",
+    title: "Daruzás és fuvarozás Egerben",
+    img: "images/06-daruval-emelt-betonlap.jpg",
+    alt: "Daruval emelt betonlap",
+    summary:
+      "Építőanyagok, nehézgépek, csarnok- és betonelemek darus rakodása és szállítása saját MAN darus teherautóval.",
+  },
+  {
+    href: "/felujitas-es-karbantartas-eger",
+    title: "Felújítás és karbantartás Egerben",
+    img: "images/08-felujitott-lakoter-uj-burkolattal.jpg",
+    alt: "Felújított lakótér új burkolattal",
+    summary:
+      "Magán- és ipari ingatlanok felújítása, karbantartása, javítási és korszerűsítési munkálatok.",
+  },
+];
 
 function Szolgaltatasok() {
   const rootRef = useRef<HTMLDivElement>(null);
-  useLazyImages(rootRef);
   useReveal(rootRef);
-
-  const logoImg = SITE_LOGO_SVG;
-
-  const services = [
-    {
-      href: "/lakatosmunka-eger",
-      title: "Lakatosmunka Egerben",
-      img: "images/04-elkeszult-piros-festett-platooldal.jpg",
-      alt: "Elkészült, piros festett platóoldal",
-      summary:
-        "Kapuk, korlátok, lépcsők, előtetők és biztonsági szerkezetek gyártása és helyszíni szerelése saját műhelyből.",
-    },
-    {
-      href: "/acelszerkezet-gyartas-eger",
-      title: "Acélszerkezet gyártás Egerben",
-      img: "images/05-nyers-acel-lemez-a-muhelyben.jpg",
-      alt: "Nyers acél lemez a műhelyben",
-      summary:
-        "Ipari acélvázak, teherhordó szerkezetek és egyedi gépvázak műhelyi gyártása és helyszíni szerelése.",
-    },
-    {
-      href: "/daruzas-es-fuvarozas-eger",
-      title: "Daruzás és fuvarozás Egerben",
-      img: "images/06-daruval-emelt-betonlap.jpg",
-      alt: "Daruval emelt betonlap",
-      summary:
-        "Építőanyagok, nehézgépek, csarnok- és betonelemek darus rakodása és szállítása saját MAN darus teherautóval.",
-    },
-    {
-      href: "/felujitas-es-karbantartas-eger",
-      title: "Felújítás és karbantartás Egerben",
-      img: "images/08-felujitott-lakoter-uj-burkolattal.jpg",
-      alt: "Felújított lakótér új burkolattal",
-      summary:
-        "Magán- és ipari ingatlanok felújítása, karbantartása, javítási és korszerűsítési munkálatok.",
-    },
-  ];
 
   return (
     <div className="grandnatural-root" ref={rootRef}>
@@ -88,11 +84,13 @@ function Szolgaltatasok() {
       <main>
         {/* Hero */}
         <section className="hero">
-          <img
-            className="bg"
-            src={PLACEHOLDER}
-            data-src={HERO_KEY}
+          <Img
+            imgKey="images/szolgaltatasok"
             alt="Grandnatural szolgáltatások és géppark"
+            className="bg"
+            loading="eager"
+            fetchpriority="high"
+            decoding="sync"
           />
           <div className="ovl" aria-hidden="true" />
           <div className="hin">
@@ -122,10 +120,8 @@ function Szolgaltatasok() {
 
           <section className="wrap ab">
             <div className="al">
-              <img
-                loading="lazy"
-                src={PLACEHOLDER}
-                data-src="images/novenykert"
+              <Img
+                imgKey="images/novenykert"
                 alt="Grandnatural szolgáltatások és géppark"
               />
               <div className="stat">
@@ -172,7 +168,7 @@ function Szolgaltatasok() {
                   style={{ textDecoration: "none" }}
                 >
                   <div className="im">
-                    <img loading="lazy" src={PLACEHOLDER} data-src={s.img} alt={s.alt} />
+                    <Img imgKey={s.img} alt={s.alt} />
                   </div>
                   <figcaption>
                     <h3>{s.title}</h3>
@@ -287,7 +283,7 @@ function Szolgaltatasok() {
           </div>
           <div className="fc">
             <div>
-              <img src={logoImg} alt="Grandnatural" />
+              <img src={SITE_LOGO_SVG} alt="Grandnatural" />
               <p>
                 Acélszerkezetek, lakatosmunkák, daruzás és kivitelezés Egerben, Heves vármegyében.
               </p>

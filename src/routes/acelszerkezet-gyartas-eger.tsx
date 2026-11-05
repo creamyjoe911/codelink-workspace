@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
 import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
-import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { useReveal } from "@/hooks/use-reveal";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
+import { Img } from "@/components/img";
 import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD, OG_IMAGE } from "@/lib/seo-schema";
 
 const TITLE = "Acélszerkezet gyártás Eger – acélvázak | Grandnatural";
@@ -32,15 +32,9 @@ export const Route = createFileRoute("/acelszerkezet-gyartas-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/csarnok-epites";
-const INTRO_KEY = "images/15-lemez-osszeallitasa.jpg";
-const HEAVY_KEY = "images/09-elkeszult-acelvazas-ipari-csarnok.jpg";
-const WELDED_KEY = "images/acelszerkezet-epites.webp";
-const ASSEMBLY_KEY = "images/emelos-acelszerkezes-epites.webp";
 
 function AcelszerekezetGyartasEger() {
   const rootRef = useRef<HTMLDivElement>(null);
-  useLazyImages(rootRef);
   useReveal(rootRef);
 
   return (
@@ -60,11 +54,13 @@ function AcelszerekezetGyartasEger() {
       <main>
         {/* Hero */}
         <section className="hero">
-          <img
-            className="bg"
-            src={PLACEHOLDER}
-            data-src={HERO_KEY}
+          <Img
+            imgKey="images/csarnok-epites"
             alt="Acélvázas ipari csarnok építése"
+            className="bg"
+            loading="eager"
+            fetchpriority="high"
+            decoding="sync"
           />
           <div className="ovl" aria-hidden="true" />
           <div className="hin">
@@ -94,10 +90,8 @@ function AcelszerekezetGyartasEger() {
 
           <section className="wrap ab">
             <div className="al">
-              <img
-                loading="lazy"
-                src={PLACEHOLDER}
-                data-src={INTRO_KEY}
+              <Img
+                imgKey="images/15-lemez-osszeallitasa.jpg"
                 alt="Acél lemez összeállítása a műhelyben"
               />
               <div className="stat">
@@ -214,10 +208,8 @@ function AcelszerekezetGyartasEger() {
           <div className="gr" style={{ marginTop: "clamp(28px,4vw,48px)" }}>
             <figure className="pj">
               <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={HEAVY_KEY}
+                <Img
+                  imgKey="images/09-elkeszult-acelvazas-ipari-csarnok.jpg"
                   alt="Elkészült acélvázas ipari csarnok"
                 />
               </div>
@@ -232,10 +224,8 @@ function AcelszerekezetGyartasEger() {
             </figure>
             <figure className="pj">
               <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={WELDED_KEY}
+                <Img
+                  imgKey="images/acelszerkezet-epites.webp"
                   alt="Acélváz felállítása helyszíni szereléssel"
                 />
               </div>
@@ -250,11 +240,9 @@ function AcelszerekezetGyartasEger() {
             </figure>
             <figure className="pj">
               <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={ASSEMBLY_KEY}
-                  alt="Lemez összeállítása a műhelyben"
+                <Img
+                  imgKey="images/emelos-acelszerkezes-epites.webp"
+                  alt="Emelős acélszerkezet összeállítása a műhelyben"
                 />
               </div>
               <figcaption>
@@ -271,10 +259,8 @@ function AcelszerekezetGyartasEger() {
 
         {/* Band — A saját darunk, saját kézben */}
         <section className="band">
-          <img
-            loading="lazy"
-            src={PLACEHOLDER}
-            data-src={HERO_KEY}
+          <Img
+            imgKey="images/csarnok-epites"
             alt="Acélvázas ipari csarnok építése"
           />
           <div className="ghost" aria-hidden="true">

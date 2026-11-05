@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
 import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
-import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { useReveal } from "@/hooks/use-reveal";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
+import { Img } from "@/components/img";
 import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD, OG_IMAGE } from "@/lib/seo-schema";
 
 const TITLE = "Felújítás és karbantartás Egerben | Grandnatural";
@@ -32,18 +32,10 @@ export const Route = createFileRoute("/felujitas-es-karbantartas-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/08-felujitott-lakoter-uj-burkolattal.jpg";
-const INTRO_KEY = "images/Javitastol-a-teljes-felujitasig.webp";
-const EXTERIOR_KEY = "images/19-kulso-felujitas-kivitelezes-kozben.jpg";
-const FACADE_KEY = "images/20-lakoingatlan-kulso-felujitasa.jpg";
-const FINISHED_KEY = "images/22-csaladi-haz-felujitasa.jpg";
 
 function FelujitasEsKarbantartas() {
   const rootRef = useRef<HTMLDivElement>(null);
-  useLazyImages(rootRef);
   useReveal(rootRef);
-
-  const logoImg = SITE_LOGO_SVG;
 
   return (
     <div className="grandnatural-root" ref={rootRef}>
@@ -64,11 +56,13 @@ function FelujitasEsKarbantartas() {
       <main>
         {/* Hero */}
         <section className="hero">
-          <img
-            className="bg"
-            src={PLACEHOLDER}
-            data-src={HERO_KEY}
+          <Img
+            imgKey="images/08-felujitott-lakoter-uj-burkolattal.jpg"
             alt="Felújított lakótér új burkolattal"
+            className="bg"
+            loading="eager"
+            fetchpriority="high"
+            decoding="sync"
           />
           <div className="ovl" aria-hidden="true" />
           <div className="hin">
@@ -98,10 +92,8 @@ function FelujitasEsKarbantartas() {
 
           <section className="wrap ab">
             <div className="al">
-              <img
-                loading="lazy"
-                src={PLACEHOLDER}
-                data-src={INTRO_KEY}
+              <Img
+                imgKey="images/Javitastol-a-teljes-felujitasig.webp"
                 alt="Belső felújítás kivitelezés közben"
               />
               <div className="stat">
@@ -187,10 +179,8 @@ function FelujitasEsKarbantartas() {
           <div className="gr" style={{ marginTop: "clamp(28px,4vw,48px)" }}>
             <figure className="pj">
               <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={EXTERIOR_KEY}
+                <Img
+                  imgKey="images/19-kulso-felujitas-kivitelezes-kozben.jpg"
                   alt="Külső felújítás kivitelezés közben"
                 />
               </div>
@@ -205,10 +195,8 @@ function FelujitasEsKarbantartas() {
             </figure>
             <figure className="pj">
               <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={FACADE_KEY}
+                <Img
+                  imgKey="images/20-lakoingatlan-kulso-felujitasa.jpg"
                   alt="Családi ház külső felújítása"
                 />
               </div>
@@ -223,10 +211,8 @@ function FelujitasEsKarbantartas() {
             </figure>
             <figure className="pj">
               <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={FINISHED_KEY}
+                <Img
+                  imgKey="images/22-csaladi-haz-felujitasa.jpg"
                   alt="Felújított óvoda kész állapotban"
                 />
               </div>
@@ -244,10 +230,8 @@ function FelujitasEsKarbantartas() {
 
         {/* Band — A saját darunk, saját kézben */}
         <section className="band">
-          <img
-            loading="lazy"
-            src={PLACEHOLDER}
-            data-src={HERO_KEY}
+          <Img
+            imgKey="images/08-felujitott-lakoter-uj-burkolattal.jpg"
             alt="Felújított lakótér új burkolattal"
           />
           <div className="ghost" aria-hidden="true">
@@ -260,7 +244,7 @@ function FelujitasEsKarbantartas() {
                 A felújítás során felmerülő kapukat, korlátokat, lépcsőket és acélmunkákat a saját
                 műhelyünkben gyártjuk, darus teherautónkkal szállítjuk és a helyszínen szereljük be.
                 A műhely, a daru és a helyszíni csapat mind a miénk, így a felújítást nem több
-                alvállalkozóra bontjuk, hanem egy menetrendből, egy felelőstől végigviszik.
+                alvállalkozóra bontjuk, hanem egy menetrendből, egy felelős vezetésével végezzük el.
               </p>
             </div>
           </div>
@@ -366,7 +350,7 @@ function FelujitasEsKarbantartas() {
           </div>
           <div className="fc">
             <div>
-              <img src={logoImg} alt="Grandnatural" />
+              <img src={SITE_LOGO_SVG} alt="Grandnatural" />
               <p>
                 Acélszerkezetek, lakatosmunkák, daruzás és kivitelezés Egerben, Heves vármegyében.
               </p>

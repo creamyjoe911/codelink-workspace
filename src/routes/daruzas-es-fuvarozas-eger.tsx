@@ -1,13 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
 import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
-import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { useReveal } from "@/hooks/use-reveal";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
+import { Img } from "@/components/img";
+import { HERO_IMAGE } from "@/lib/image-paths";
 import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD, OG_IMAGE } from "@/lib/seo-schema";
 
 const TITLE = "Daruzás és fuvarozás Eger – darus rakodás | Grandnatural";
@@ -32,19 +33,9 @@ export const Route = createFileRoute("/daruzas-es-fuvarozas-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "/images/daruzas-es-fuvarozas-eger-background.webp";
-const MAN_KEY = "images/13-man-teherauto-fulkeje-felujitas-utan.jpg";
-const LIFT_KEY = "images/06-daruval-emelt-betonlap.jpg";
-const INSTALL_KEY = "images/10-acelvaz-szerelese-darus-teherautoval.jpg";
 
 function DaruzasEsFuvarozasEger() {
   const rootRef = useRef<HTMLDivElement>(null);
-
-  // The hero is the only above-the-fold photo, so it is inlined for an
-  // immediate first paint; every other photo on this page is lazy-loaded.
-  const logoImg = SITE_LOGO_SVG;
-  const heroImg = "/images/grandnatural-hero.webp";
-  useLazyImages(rootRef);
   useReveal(rootRef);
 
   return (
@@ -62,9 +53,18 @@ function DaruzasEsFuvarozasEger() {
       <SiteNav current="/daruzas-es-fuvarozas-eger" />
 
       <main>
-        {/* Hero */}
+        {/* Hero — same photo as the homepage hero */}
         <section className="hero">
-          <img className="bg" src={heroImg} alt="Grandnatural MAN darus teherautója és géppark" />
+          <img
+            className="bg"
+            src={HERO_IMAGE.src}
+            width={HERO_IMAGE.width}
+            height={HERO_IMAGE.height}
+            alt="Grandnatural MAN darus teherautója és géppark"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
+          />
           <div className="ovl" aria-hidden="true" />
           <div className="hin">
             <ServiceBreadcrumb current="Daruzás és fuvarozás Eger" />
@@ -93,10 +93,8 @@ function DaruzasEsFuvarozasEger() {
 
           <section className="wrap ab">
             <div className="al">
-              <img
-                loading="lazy"
-                src={PLACEHOLDER}
-                data-src={LIFT_KEY}
+              <Img
+                imgKey="images/06-daruval-emelt-betonlap.jpg"
                 alt="Daruval emelt betonlap"
               />
               <div className="stat">
@@ -206,10 +204,8 @@ function DaruzasEsFuvarozasEger() {
           <div className="gr" style={{ marginTop: "clamp(28px,4vw,48px)" }}>
             <figure className="pj">
               <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={LIFT_KEY}
+                <Img
+                  imgKey="images/06-daruval-emelt-betonlap.jpg"
                   alt="Darus emelés és betonelem telepítés"
                 />
               </div>
@@ -223,10 +219,8 @@ function DaruzasEsFuvarozasEger() {
             </figure>
             <figure className="pj">
               <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={INSTALL_KEY}
+                <Img
+                  imgKey="images/10-acelvaz-szerelese-darus-teherautoval.jpg"
                   alt="Acélszerkezet beemelése darus teherautóval"
                 />
               </div>
@@ -240,10 +234,8 @@ function DaruzasEsFuvarozasEger() {
             </figure>
             <figure className="pj">
               <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={MAN_KEY}
+                <Img
+                  imgKey="images/13-man-teherauto-fulkeje-felujitas-utan.jpg"
                   alt="MAN darus teherautó fülkéje felújítás után"
                 />
               </div>
@@ -258,12 +250,15 @@ function DaruzasEsFuvarozasEger() {
           </div>
         </section>
 
-        {/* Band — A saját darunk, saját kézben */}
+        {/* Band — A saját darunk, saját kézben (uses the page hero photo) */}
         <section className="band">
           <img
-            loading="lazy"
-            src={HERO_KEY}
+            src={HERO_IMAGE.src}
+            width={HERO_IMAGE.width}
+            height={HERO_IMAGE.height}
             alt="MAN darus teherautó daruzás és fuvarozás közben"
+            loading="lazy"
+            decoding="async"
           />
           <div className="ghost" aria-hidden="true">
             Daruzás
@@ -387,7 +382,7 @@ function DaruzasEsFuvarozasEger() {
           </div>
           <div className="fc">
             <div>
-              <img src={logoImg} alt="Grandnatural" />
+              <img src={SITE_LOGO_SVG} alt="Grandnatural" />
               <p>
                 Acélszerkezetek, lakatosmunkák, daruzás és kivitelezés Egerben, Heves vármegyében.
               </p>

@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
 import { SITE_CSS, HERO_OVERLAY_CSS } from "@/lib/grandnatural-content";
-import { useLazyImages, PLACEHOLDER } from "@/hooks/use-lazy-images";
 import { useReveal } from "@/hooks/use-reveal";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
 import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
 import { JsonLd } from "@/components/json-ld";
+import { Img } from "@/components/img";
 import { breadcrumbJsonLD, canonicalUrl, serviceJsonLD, OG_IMAGE } from "@/lib/seo-schema";
 
 const TITLE = "Lakatosmunka Eger – kapuk, korlátok, lépcsők | Grandnatural";
@@ -32,16 +32,9 @@ export const Route = createFileRoute("/lakatosmunka-eger")({
 });
 
 const PHONE = "+36 70 576 0108";
-const HERO_KEY = "images/lakatosmunka-hero";
-const PAINTED_KEY = "images/04-elkeszult-piros-festett-platooldal.jpg";
-const CUSTOM_KEY = "images/11-egyedi-platooldal.jpg";
-const INSTALL_KEY = "images/14-hegesztett-acel-konzol.jpg";
-const SECTION_KEY = "images/Nyersacél";
-const ASSEMBLY_KEY = "images/15-lemez-osszeallitasa.jpg";
 
 function LakatosmunkaEger() {
   const rootRef = useRef<HTMLDivElement>(null);
-  useLazyImages(rootRef);
   useReveal(rootRef);
 
   return (
@@ -61,11 +54,13 @@ function LakatosmunkaEger() {
       <main>
         {/* Hero */}
         <section className="hero">
-          <img
+          <Img
+            imgKey="images/lakatosmunka-hero"
+            alt="Elkészült, piros festett platóoldal a műhelyben"
             className="bg"
-            src={PLACEHOLDER}
-            data-src={HERO_KEY}
-            alt="Elkészült, piros festett platóoldal"
+            loading="eager"
+            fetchpriority="high"
+            decoding="sync"
           />
           <div className="ovl" aria-hidden="true" />
           <div className="hin">
@@ -95,10 +90,8 @@ function LakatosmunkaEger() {
 
           <section className="wrap ab">
             <div className="al">
-              <img
-                loading="lazy"
-                src={PLACEHOLDER}
-                data-src={SECTION_KEY}
+              <Img
+                imgKey="images/nyersacel"
                 alt="Nyersacél lemez a műhelyben"
               />
               <div className="stat">
@@ -174,10 +167,8 @@ function LakatosmunkaEger() {
           <div className="gr" style={{ marginTop: "clamp(28px,4vw,48px)" }}>
             <figure className="pj">
               <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={CUSTOM_KEY}
+                <Img
+                  imgKey="images/11-egyedi-platooldal.jpg"
                   alt="Egyedi platóoldal lakatosmunkával"
                 />
               </div>
@@ -189,10 +180,8 @@ function LakatosmunkaEger() {
             </figure>
             <figure className="pj">
               <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={ASSEMBLY_KEY}
+                <Img
+                  imgKey="images/15-lemez-osszeallitasa.jpg"
                   alt="Lemez összeállítása a műhelyben"
                 />
               </div>
@@ -204,11 +193,9 @@ function LakatosmunkaEger() {
             </figure>
             <figure className="pj">
               <div className="im">
-                <img
-                  loading="lazy"
-                  src={PLACEHOLDER}
-                  data-src={INSTALL_KEY}
-                  alt="Hegesztett acél konzol — műhelyi lakatosmunka"
+                <Img
+                  imgKey="images/14-hegesztett-acel-konzol.jpg"
+                  alt="Hegesztett acél konzol a műhelyben"
                 />
               </div>
               <figcaption>
@@ -224,10 +211,8 @@ function LakatosmunkaEger() {
 
         {/* Band — A saját darunk, saját kézben */}
         <section className="band">
-          <img
-            loading="lazy"
-            src={PLACEHOLDER}
-            data-src={HERO_KEY}
+          <Img
+            imgKey="images/lakatosmunka-hero"
             alt="Lakatosmunka és hegesztés a műhelyben"
           />
           <div className="ghost" aria-hidden="true">
