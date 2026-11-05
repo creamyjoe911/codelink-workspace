@@ -51,7 +51,7 @@ export function SiteFooter({ current }: { current?: string }) {
           <div>
             <b>Grandnatural Kft.</b>
             <p style={{ margin: 0 }}>
-              [UTCA, HÁZSZÁM], [IRÁNYÍTÓSZÁM] Eger
+              Eger, Heves vármegye
               <br />
               Hétfő–Péntek 8:00–17:00
               <br />

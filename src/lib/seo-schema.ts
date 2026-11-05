@@ -30,8 +30,6 @@ export const LOCAL_BUSINESS_JSONLD: string = JSON.stringify({
   email: "grandnatural2010@gmail.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "[UTCA, HÁZSZÁM]",
-    postalCode: "[IRÁNYÍTÓSZÁM]",
     addressLocality: "Eger",
     addressRegion: "Heves",
     addressCountry: "HU",

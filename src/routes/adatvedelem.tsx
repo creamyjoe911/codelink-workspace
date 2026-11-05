@@ -65,7 +65,7 @@ function Adatvedelem() {
                 <p>
                   <b>Cégnév:</b> Grandnatural Kft.
                   <br />
-                  <b>Székhely:</b> [UTCA, HÁZSZÁM], [IRÁNYÍTÓSZÁM] Eger
+                  <b>Székhely:</b> Eger, Heves vármegye
                   <br />
                   <b>Telefon:</b> +36 70 576 0108
                   <br />

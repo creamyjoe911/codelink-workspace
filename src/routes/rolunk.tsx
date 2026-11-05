@@ -254,7 +254,7 @@ function Rolunk() {
                 <br />
                 Hétfő–Péntek 8:00–17:00
                 <br />
-                <b>Cím:</b> [UTCA, HÁZSZÁM], [IRÁNYÍTÓSZÁM] Eger
+                <b>Cím:</b> Eger, Heves vármegye
               </div>
             </div>
             <div>
