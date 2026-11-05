@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "AI Studio App" },
       { name: "description", content: "AI Studio Generated Project" },
-      { name: "author", content: "AI Studio" },
+      { name: "author", content: "Grandnatural Kft." },
       { property: "og:title", content: "AI Studio App" },
       { property: "og:description", content: "AI Studio Generated Project" },
       { property: "og:type", content: "website" },

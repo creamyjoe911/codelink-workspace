@@ -5,7 +5,8 @@ import { useReveal } from "@/hooks/use-reveal";
 import { RelatedServices } from "@/components/related-services";
 import { QuoteForm } from "@/components/quote-form";
 import { ServiceBreadcrumb } from "@/components/service-breadcrumb";
-import { SiteNav, SITE_LOGO_SVG } from "@/components/site-nav";
+import { SiteNav } from "@/components/site-nav";
+import { SiteFooter } from "@/components/site-footer";
 import { JsonLd } from "@/components/json-ld";
 import { Img } from "@/components/img";
 import {
@@ -363,52 +364,7 @@ function FelujitasEsKarbantartas() {
         <RelatedServices exclude="/felujitas-es-karbantartas-eger" />
       </main>
 
-      {/* Footer */}
-      <footer className="foot">
-        <div className="wrap">
-          <div className="cta">
-            <h2>Kész az új projekt?</h2>
-            <div>
-              <a className="pill" href="tel:+36705760108">
-                Hívjon: {PHONE}
-                <i>→</i>
-              </a>
-              <a className="pill o" href="/#kapcsolat">
-                Ajánlatkérés<i>→</i>
-              </a>
-            </div>
-          </div>
-          <div className="fc">
-            <div>
-              <img src={SITE_LOGO_SVG} alt="Grandnatural Kft." />
-              <p>
-                Acélszerkezetek, lakatosmunkák, daruzás és kivitelezés Egerben, Heves vármegyében.
-              </p>
-            </div>
-            <div>
-              <b>Szolgáltatások</b>
-              <a href="/lakatosmunka-eger">Lakatosmunkák</a>
-              <a href="/acelszerkezet-gyartas-eger">Acélszerkezetek</a>
-              <a href="/daruzas-es-fuvarozas-eger">Daruzás és fuvarozás</a>
-              <a href="/felujitas-es-karbantartas-eger">Felújítás és karbantartás</a>
-              <a href="/szolgaltatasok">Kivitelezés</a>
-            </div>
-            <div>
-              <b>Kapcsolat</b>
-              <a href="tel:+36705760108">{PHONE}</a>
-              <a href="/#kapcsolat">Ajánlatkérés</a>
-              <a href="/referenciak">Referenciák</a>
-            </div>
-          </div>
-          <div className="gh" aria-hidden="true">
-            Grandnatural Kft.
-          </div>
-          <div className="cp">
-            <span>© {new Date().getFullYear()} Grandnatural Kft.</span>
-            <span>Eger, Heves vármegye</span>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter current="/felujitas-es-karbantartas-eger" />
     </div>
   );
 }

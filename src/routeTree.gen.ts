@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AcelszerkezetGyartasEgerRouteImport } from './routes/acelszerkezet-gyartas-eger'
+import { Route as AdatvedelemRouteImport } from './routes/adatvedelem'
 import { Route as CsarnokepitesHevesVarmegyeRouteImport } from './routes/csarnokepites-heves-varmegye'
 import { Route as DaruzasEsFuvarozasEgerRouteImport } from './routes/daruzas-es-fuvarozas-eger'
 import { Route as FelujitasEsKarbantartasRouteImport } from './routes/felujitas-es-karbantartas'
@@ -30,6 +31,11 @@ const AcelszerkezetGyartasEgerRoute =
     path: '/acelszerkezet-gyartas-eger',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AdatvedelemRoute = AdatvedelemRouteImport.update({
+  id: '/adatvedelem',
+  path: '/adatvedelem',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CsarnokepitesHevesVarmegyeRoute =
   CsarnokepitesHevesVarmegyeRouteImport.update({
     id: '/csarnokepites-heves-varmegye',
@@ -71,6 +77,7 @@ const SzolgaltatasokRoute = SzolgaltatasokRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/acelszerkezet-gyartas-eger': typeof AcelszerkezetGyartasEgerRoute
+  '/adatvedelem': typeof AdatvedelemRoute
   '/csarnokepites-heves-varmegye': typeof CsarnokepitesHevesVarmegyeRoute
   '/daruzas-es-fuvarozas-eger': typeof DaruzasEsFuvarozasEgerRoute
   '/felujitas-es-karbantartas': typeof FelujitasEsKarbantartasRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/acelszerkezet-gyartas-eger': typeof AcelszerkezetGyartasEgerRoute
+  '/adatvedelem': typeof AdatvedelemRoute
   '/csarnokepites-heves-varmegye': typeof CsarnokepitesHevesVarmegyeRoute
   '/daruzas-es-fuvarozas-eger': typeof DaruzasEsFuvarozasEgerRoute
   '/felujitas-es-karbantartas': typeof FelujitasEsKarbantartasRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/acelszerkezet-gyartas-eger': typeof AcelszerkezetGyartasEgerRoute
+  '/adatvedelem': typeof AdatvedelemRoute
   '/csarnokepites-heves-varmegye': typeof CsarnokepitesHevesVarmegyeRoute
   '/daruzas-es-fuvarozas-eger': typeof DaruzasEsFuvarozasEgerRoute
   '/felujitas-es-karbantartas': typeof FelujitasEsKarbantartasRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/acelszerkezet-gyartas-eger'
+    | '/adatvedelem'
     | '/csarnokepites-heves-varmegye'
     | '/daruzas-es-fuvarozas-eger'
     | '/felujitas-es-karbantartas'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/acelszerkezet-gyartas-eger'
+    | '/adatvedelem'
     | '/csarnokepites-heves-varmegye'
     | '/daruzas-es-fuvarozas-eger'
     | '/felujitas-es-karbantartas'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/acelszerkezet-gyartas-eger'
+    | '/adatvedelem'
     | '/csarnokepites-heves-varmegye'
     | '/daruzas-es-fuvarozas-eger'
     | '/felujitas-es-karbantartas'
@@ -141,6 +153,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AcelszerkezetGyartasEgerRoute: typeof AcelszerkezetGyartasEgerRoute
+  AdatvedelemRoute: typeof AdatvedelemRoute
   CsarnokepitesHevesVarmegyeRoute: typeof CsarnokepitesHevesVarmegyeRoute
   DaruzasEsFuvarozasEgerRoute: typeof DaruzasEsFuvarozasEgerRoute
   FelujitasEsKarbantartasRoute: typeof FelujitasEsKarbantartasRoute
@@ -164,6 +177,13 @@ declare module '@tanstack/react-router' {
       path: '/acelszerkezet-gyartas-eger'
       fullPath: '/acelszerkezet-gyartas-eger'
       preLoaderRoute: typeof AcelszerkezetGyartasEgerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/adatvedelem': {
+      id: '/adatvedelem'
+      path: '/adatvedelem'
+      fullPath: '/adatvedelem'
+      preLoaderRoute: typeof AdatvedelemRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/csarnokepites-heves-varmegye': {
@@ -221,6 +241,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AcelszerkezetGyartasEgerRoute: AcelszerkezetGyartasEgerRoute,
+  AdatvedelemRoute: AdatvedelemRoute,
   CsarnokepitesHevesVarmegyeRoute: CsarnokepitesHevesVarmegyeRoute,
   DaruzasEsFuvarozasEgerRoute: DaruzasEsFuvarozasEgerRoute,
   FelujitasEsKarbantartasRoute: FelujitasEsKarbantartasRoute,
