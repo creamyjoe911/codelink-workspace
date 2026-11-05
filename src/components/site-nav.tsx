@@ -89,7 +89,7 @@ export function SiteNav({ current }: Props) {
       <style dangerouslySetInnerHTML={{ __html: NAV_CSS }} />
       <header className="nav" ref={rootRef as any}>
         <a href="/" className="nav-home" aria-label="Grandnatural főoldal">
-          <img src={SITE_LOGO_SVG} alt="Grandnatural" />
+          <img src={SITE_LOGO_SVG} alt="Grandnatural Kft." />
         </a>
         <nav className={menuOpen ? "open" : undefined}>
           <a href="/#rolunk">Rólunk</a>

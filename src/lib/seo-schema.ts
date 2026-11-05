@@ -30,6 +30,8 @@ export const LOCAL_BUSINESS_JSONLD: string = JSON.stringify({
   email: "grandnatural2010@gmail.com",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "[UTCA, HÁZSZÁM]",
+    postalCode: "[IRÁNYÍTÓSZÁM]",
     addressLocality: "Eger",
     addressRegion: "Heves",
     addressCountry: "HU",
@@ -38,7 +40,25 @@ export const LOCAL_BUSINESS_JSONLD: string = JSON.stringify({
     { "@type": "City", name: "Eger" },
     { "@type": "AdministrativeArea", name: "Heves vármegye" },
   ],
-  sameAs: ["https://www.facebook.com/profile.php?id=61589404299906"],
+  sameAs: [
+    "https://www.facebook.com/profile.php?id=61589404299906",
+    "[GOOGLE BUSINESS PROFILE URL]",
+  ],
+  taxID: "[ADÓSZÁM]",
+  identifier: {
+    "@type": "PropertyValue",
+    name: "Cégjegyzékszám",
+    value: "[CÉGJEGYZÉKSZÁM]",
+  },
+  hasMap: "[GOOGLE MAPS URL]",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "17:00",
+    },
+  ],
   description:
     "Építés, felújítás, lakatosmunka, acélszerkezet-gyártás, daruzás és egyedi kivitelezés Egerben és Heves vármegyében — saját műhelyből és darus teherautóval, egy kivitelezőtől.",
 });

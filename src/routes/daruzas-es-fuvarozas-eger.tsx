@@ -409,7 +409,7 @@ function DaruzasEsFuvarozasEger() {
           </div>
           <div className="fc">
             <div>
-              <img src={SITE_LOGO_SVG} alt="Grandnatural" />
+              <img src={SITE_LOGO_SVG} alt="Grandnatural Kft." />
               <p>
                 Acélszerkezetek, lakatosmunkák, daruzás és kivitelezés Egerben, Heves vármegyében.
               </p>
@@ -430,7 +430,7 @@ function DaruzasEsFuvarozasEger() {
             </div>
           </div>
           <div className="gh" aria-hidden="true">
-            Grandnatural
+            Grandnatural Kft.
           </div>
           <div className="cp">
             <span>© {new Date().getFullYear()} Grandnatural Kft.</span>
