@@ -31,24 +31,13 @@ export const LOCAL_BUSINESS_JSONLD: string = JSON.stringify({
   address: {
     "@type": "PostalAddress",
     addressLocality: "Eger",
-    addressRegion: "Heves",
     addressCountry: "HU",
   },
   areaServed: [
     { "@type": "City", name: "Eger" },
     { "@type": "AdministrativeArea", name: "Heves vármegye" },
   ],
-  sameAs: [
-    "https://www.facebook.com/profile.php?id=61589404299906",
-    "[GOOGLE BUSINESS PROFILE URL]",
-  ],
-  taxID: "[ADÓSZÁM]",
-  identifier: {
-    "@type": "PropertyValue",
-    name: "Cégjegyzékszám",
-    value: "[CÉGJEGYZÉKSZÁM]",
-  },
-  hasMap: "[GOOGLE MAPS URL]",
+  sameAs: ["https://www.facebook.com/profile.php?id=61589404299906"],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
