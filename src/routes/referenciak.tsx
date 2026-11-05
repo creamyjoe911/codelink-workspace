@@ -193,9 +193,6 @@ function Referenciak() {
                     <small>{p.tag}</small>
                     <b>{p.title}</b>
                     <span>{p.desc}</span>
-                    <small style={{ marginTop: 10, display: "block", fontWeight: 700 }}>
-                      Helyszín: [HELYSZÍN]
-                    </small>
                   </figcaption>
                 </figure>
               ))}
