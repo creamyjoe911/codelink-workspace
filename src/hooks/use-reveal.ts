@@ -62,11 +62,18 @@ export function useReveal(rootRef: { current: HTMLElement | null }) {
       }
     }
 
-    // Show already-visible elements right away.
+    // Show already-visible elements right away. CRITICAL: disable the CSS
+    // transition first (`.js .rv` has `transition:opacity .7s`), otherwise
+    // setting opacity:1 inline animates them from 0→1 over 0.7s — that
+    // 0.7s fade-in on already-visible content is exactly the "flash".
     visible.forEach((el) => {
+      el.style.transition = "none";
       el.style.opacity = "1";
       el.style.transform = "none";
     });
+    // Force a reflow so the transition:none + final styles commit before any
+    // later style change could re-enable the transition.
+    if (visible.length) void visible[0]!.offsetWidth;
 
     if (hidden.length === 0) return;
 
