@@ -296,6 +296,9 @@ function DaruzasEsFuvarozasEger() {
               <p style={{ margin: 0, padding: "0 4px" }}>
                 A daru a sajátunk — a rakodást és a szállítást egy menetrendből végezzük.
               </p>
+              <p style={{ margin: "12px 0 0", padding: "0 4px" }}>
+                Áruszállítás és fuvarozás 3,5–40 tonnáig, az igényekhez igazodó járműkapacitással.
+              </p>
             </div>
             <div className="bt">
               <h2>A saját darunk, saját kézben.</h2>
