@@ -47,7 +47,6 @@ export function SiteFooter({ current }: { current?: string }) {
             <a href="/#kapcsolat">Ajánlatkérés</a>
             <a href="/referenciak">Referenciák</a>
             <a href="/rolunk">Rólunk</a>
-            <a href="/adatvedelem">Adatkezelési tájékoztató</a>
           </div>
           <div>
             <b>Grandnatural Kft.</b>

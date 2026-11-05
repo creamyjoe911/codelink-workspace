@@ -172,6 +172,17 @@ export function QuoteForm({ formId = "ajanlatkeres-form", formName = "Ajánlatk�
         Munka rövid leírása
         <textarea name="d" placeholder="Írja le röviden az elképzelést vagy a kívánt méreteket…" />
       </label>
+      <label className="gdpr">
+        <input type="checkbox" name="g" required /> Elfogadom az{" "}
+        <a
+          href="https://sites.leadconnectorhq.com/preview/FyqvlU1lntiXekvbwm1C?notrack=true"
+          target="_blank"
+          rel="noopener"
+        >
+          Adatkezelési tájékoztatót
+        </a>
+        .
+      </label>
       <button className="pill" type="submit" style={{ justifySelf: "start" }}>
         Ajánlatkérés küldése<i>→</i>
       </button>

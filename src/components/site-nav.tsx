@@ -132,7 +132,6 @@ export function SiteNav({ current }: Props) {
           </span>
           <a href="/#muhely">Műhelymunka</a>
           <a href="/referenciak">Referenciák</a>
-          <a href="/adatvedelem">Adatkezelés</a>
           <a href="/#kapcsolat">Kapcsolat</a>
         </nav>
         <a className="pill" href="/#kapcsolat">
@@ -201,9 +200,6 @@ export function SiteNav({ current }: Props) {
             </a>
             <a href="/referenciak" onClick={() => setMenuOpen(false)}>
               Referenciák
-            </a>
-            <a href="/adatvedelem" onClick={() => setMenuOpen(false)}>
-              Adatkezelés
             </a>
             <a href="/#kapcsolat" onClick={() => setMenuOpen(false)}>
               Kapcsolat

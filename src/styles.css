@@ -176,3 +176,26 @@ html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+
+/* GDPR consent checkbox inside the ajánlatkérő form — inline row so the
+   checkbox sits next to the label text (the default `label` rule stacks
+   them as a grid). */
+label.gdpr {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.4;
+}
+label.gdpr input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex: none;
+}
+label.gdpr a {
+  color: var(--teal, #1fb5a4);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
