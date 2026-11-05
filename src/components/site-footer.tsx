@@ -60,15 +60,13 @@ export function SiteFooter({ current }: { current?: string }) {
             </a>
           </div>
         </div>
-      </div>
-      <div className="gh" aria-hidden="true">
-        Grandnatural Kft.
-      </div>
-      <div className="wrap">
         <div className="cp">
           <span>© {year} Grandnatural Kft.</span>
           <span>Eger és Heves vármegye</span>
         </div>
+      </div>
+      <div className="gh" aria-hidden="true">
+        Grandnatural Kft.
       </div>
     </footer>
   );
