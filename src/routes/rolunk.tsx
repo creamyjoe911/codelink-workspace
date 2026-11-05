@@ -105,7 +105,7 @@ function Rolunk() {
         {/* Hero */}
         <section className="hero">
           <Img
-            imgKey="images/grandnatural-hero"
+            imgKey="images/szolgaltatasok"
             alt="Grandnatural Kft. — acélszerkezet-gyártás és daruzás a helyszínen"
             className="bg"
             loading="eager"
