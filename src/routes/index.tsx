@@ -225,9 +225,16 @@ function Grandnatural() {
       tgt = 0,
       run = false;
     const rm = window.matchMedia("(prefers-reduced-motion:reduce)");
+    // On mobile (<=960px) the CSS @media block takes over: the section becomes
+    // a native horizontal overflow scroller (.vp{overflow-x:auto}) with the
+    // track's right padding zeroed so the scroll stops at the last card. The
+    // JS desktop logic must NOT run there — otherwise it re-inflates .svw and
+    // keeps driving the track transform, letting the scroll run past the
+    // Felújítás és karbantartás card.
+    const mqMobile = window.matchMedia("(max-width:960px)");
     const size = () => {
       if (!svw || !trk) return;
-      if (rm.matches) {
+      if (rm.matches || mqMobile.matches) {
         svw.style.height = "";
         return;
       }
@@ -250,7 +257,7 @@ function Grandnatural() {
       upd();
     };
     const upd = () => {
-      if (!svw || !trk || rm.matches) return;
+      if (!svw || !trk || rm.matches || mqMobile.matches) return;
       const r = svw.getBoundingClientRect();
       tgt = (D ? Math.min(1, Math.max(0, -r.top / D)) : 0) * D;
       if (!run) {
