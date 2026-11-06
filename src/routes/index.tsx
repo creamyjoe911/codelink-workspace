@@ -238,7 +238,11 @@ function Grandnatural() {
       // card's right edge measured from the track's left edge; it is
       // transform-independent (the active translate shifts both trk and its
       // children equally), so it stays accurate even when measured mid-scroll.
-      const cards = trk.querySelectorAll<HTMLElement>("article.sc");
+      // The service cards are <a class="sc"> (converted from <article> so the
+      // whole card is a link), so match by class — not tag — or this returns
+      // nothing and D falls back to the full track width (trailing padding
+      // included), making the scroll run past the Felújítás card.
+      const cards = trk.querySelectorAll<HTMLElement>(".sc");
       const last = cards[cards.length - 1];
       const trkRect = trk.getBoundingClientRect();
       const lastRect = last ? last.getBoundingClientRect() : trkRect;
